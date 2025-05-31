@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.TransactionHistoryController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="71.0" layoutX="-7.0" layoutY="-9.0" stroke="#00135e" strokeType="INSIDE" width="1393.0" />
+      <Label layoutX="81.0" layoutY="17.0" prefHeight="23.0" prefWidth="134.0" text="blippi" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="43.0" fitWidth="42.0" layoutX="25.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../BLIPPI/demo/src/main/resources/com/example/bg%20real.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="945.0" layoutY="21.0" text="blippi Card" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1060.0" layoutY="20.0" text="blippi Rewards" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1206.0" layoutY="20.0" text="Help &amp; Support" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="616.0" layoutY="96.0" text="Transaction History" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="transactionnumberlabel" layoutX="298.0" layoutY="205.0" text="(number)" textFill="#132453">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="135.0" layoutY="207.0" text="Latest Transaction" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="135.0" layoutY="223.0" prefHeight="27.0" prefWidth="42.0" text="as of" textFill="#132453">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="datetimelabel" layoutX="173.0" layoutY="223.0" prefHeight="27.0" prefWidth="96.0" text="(date and time)" textFill="#132453">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="395.0" layoutY="149.0" text="All" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="496.0" layoutY="149.0" text="LRT/MRTT Service" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="691.0" layoutY="149.0" text="blippi QR Ticket " textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="875.0" layoutY="149.0" text="blippi Load" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView layoutX="132.0" layoutY="252.0" prefHeight="424.0" prefWidth="1151.0" visible="false">
+        <columns>
+          <TableColumn prefWidth="315.0" text="C1" />
+          <TableColumn prefWidth="287.0" text="C2" />
+            <TableColumn prefWidth="306.0" text="C3" />
+            <TableColumn prefWidth="242.0" text="C4" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>
