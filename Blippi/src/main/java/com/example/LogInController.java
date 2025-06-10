@@ -35,7 +35,7 @@ public class LogInController {
     private Scene scene;
     private Parent root;
 
-    public static User user;
+    public User user;
 
     @FXML
     public void loginButtonController(ActionEvent event) throws IOException {
@@ -57,15 +57,22 @@ public class LogInController {
                     String username_from_file = data.split(";")[0];
                     String password_from_file = data.split(";")[1];
                     String number_from_file = data.split(";")[2];
+                    String id_from_file = data.split(";")[3];
 
                     String username = username_from_file;
-                    user = new User(username, password, phoneOrEmail);
+                    String id = id_from_file;
+                    
+                    user = new User(username, password, phoneOrEmail, id);
 
                     //Check if the login info entered matches any record in the accounts.txt file
                     if(number_from_file.equals(user.getContact()) && password_from_file.equals(user.getPassword())) {
                         // Load Home.fxml when login button is clicked
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
                         root = loader.load();
+
+                        //Set current user for the blippi card set-up
+                        HomeController homeController = loader.getController();
+                        homeController.setCurrentUser(user);
 
                         // Load stage and scene
                         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

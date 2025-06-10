@@ -14,10 +14,20 @@ public class HomeController {
     private Scene scene;
     private Parent root;
 
+    //Method for setting current user from LogIn/SignUp
+    private User currentUser;
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+    }
+
     public void addCardButtonController(ActionEvent event) throws IOException{
         // Load AddCard.fxml when add card button is clicked
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCard.fxml"));
         root = loader.load();
+
+        //Set current user for the blippi card set-up
+        AddCardController setUser = loader.getController();
+        setUser.setCurrentUser(currentUser);
 
         // Load stage and scene
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -3,6 +3,7 @@ package com.example;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,12 +36,20 @@ public class SignUpController {
         String username = usernameField.getText();
         String password = passwordField.getText();
         String phoneOrEmail = numberField.getText();
+        
 
         username = username.trim();
         password = password.trim();
         phoneOrEmail = phoneOrEmail.trim();
 
-        User user = new User(username, password, phoneOrEmail);
+        //Generate user id number
+        Random r = new Random();
+        int r1 = r.nextInt(1000);
+        String id = "25-" + r1;
+        System.out.println(id);
+        
+
+        User user = new User(username, password, phoneOrEmail, id);
 
 
         if(username.length() == 0) {
@@ -67,12 +76,16 @@ public class SignUpController {
             BufferedWriter myWriter = new BufferedWriter(new FileWriter("accounts.txt", true));
 
             myWriter.newLine();
-            myWriter.write(user.getUsername() + ";" + user.getPassword() + ";" + user.getContact());
+            myWriter.write(user.getUsername() + ";" + user.getPassword() + ";" + user.getContact() + ";" + user.getId());
             myWriter.close();
 
             // Load Home.fxml when signup is successful
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
             root = loader.load();
+
+            //Set current user for the blippi card set-up
+            HomeController homeController = loader.getController();
+            homeController.setCurrentUser(user);
 
             // Load stage and scene
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

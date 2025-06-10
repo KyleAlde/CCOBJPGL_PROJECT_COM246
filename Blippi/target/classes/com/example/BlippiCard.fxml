@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.AmbientLight?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="71.0" layoutX="-7.0" layoutY="-9.0" stroke="#00135e" strokeType="INSIDE" width="1393.0" />
       <Label layoutX="82.0" layoutY="17.0" prefHeight="23.0" prefWidth="134.0" text="Hello," textFill="WHITE">
@@ -21,7 +22,7 @@
       </Label>
       <ImageView fitHeight="43.0" fitWidth="42.0" layoutX="26.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../BLIPPI/demo/src/main/resources/com/example/bg%20real.png" />
+            <Image url="@bg%20real.png" />
          </image>
       </ImageView>
       <Label layoutX="945.0" layoutY="21.0" text="blippi Card" textFill="WHITE">
@@ -39,17 +40,39 @@
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="616.0" layoutY="96.0" text="My blippi Cards" textFill="#04185f">
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#00135e" height="212.0" layoutX="219.0" layoutY="143.0" stroke="#00135e" strokeType="OUTSIDE" width="401.0" />
+      <ImageView fitHeight="185.0" fitWidth="189.0" layoutX="445.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@bg%20real.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="accnum" layoutX="236.0" layoutY="166.0" text="0001112224445556" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="18.0" />
+            <Font name="Arial" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="usernamelabel" layoutX="140.0" layoutY="17.0" prefHeight="23.0" prefWidth="134.0" text="User" textFill="WHITE">
+      <Label layoutX="237.0" layoutY="188.0" text="Valid Until" textFill="WHITE">
          <font>
-            <Font name="Arial Rounded MT Bold" size="19.0" />
+            <Font name="Arial" size="10.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="40.0" arcWidth="40.0" height="212.0" layoutX="490.0" layoutY="155.0" stroke="BLACK" strokeType="OUTSIDE" width="401.0">
+      <Label fx:id="cardlabel" layoutX="236.0" layoutY="274.0" text="My Card" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="236.0" layoutY="297.0" text="Available Balance as of" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="9.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.0" layoutY="312.0" text="₱" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Label>
+      <AmbientLight layoutX="908.0" layoutY="159.0" lightOn="true" />
+      <Rectangle arcHeight="40.0" arcWidth="40.0" height="212.0" layoutX="732.0" layoutY="145.0" stroke="BLACK" strokeType="OUTSIDE" width="401.0">
          <fill>
             <LinearGradient endX="1.0" endY="0.7292161520190024" startX="1.0">
                <stops>
@@ -72,27 +95,32 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Label layoutX="615.0" layoutY="202.0" text="Add a blippi Card" textFill="#04185f">
+      <Label layoutX="857.0" layoutY="192.0" text="Add a blippi Card" textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="579.0" layoutY="224.0" prefWidth="223.0" text="The card number is found at the back of your blippi card" textFill="#04185f">
+      <Label layoutX="821.0" layoutY="214.0" prefWidth="223.0" text="The card number is found at the back of your blippi card" textFill="#04185f">
          <font>
             <Font name="Arial" size="9.0" />
          </font>
       </Label>
-      <Button fx:id="addCardButton" layoutX="657.0" layoutY="272.0" mnemonicParsing="false" onAction="#addCardButtonController" style="-fx-background-color: #132453; -fx-background-radius: 5px;" text="Add Card" textFill="WHITE">
+      <Button layoutX="899.0" layoutY="262.0" mnemonicParsing="false" style="-fx-background-color: #132453; -fx-background-radius: 5px;" text="Add Card" textFill="WHITE">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
+      <Label layoutX="616.0" layoutY="96.0" text="My blippi Cards" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
       <Button fx:id="blippiload" alignment="CENTER_RIGHT" layoutX="235.0" layoutY="453.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="394.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Buy blippi Load          " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="blippitix" alignment="CENTER_RIGHT" layoutX="235.0" layoutY="567.0" mnemonicParsing="false" onAction="#blippitixController" prefHeight="79.0" prefWidth="394.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="blippi QR Ticket          " textFill="WHITE">
+      <Button fx:id="blippitix" alignment="CENTER_RIGHT" layoutX="235.0" layoutY="567.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="394.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="blippi QR Ticket          " textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
@@ -102,24 +130,24 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="blippitransac" alignment="CENTER_RIGHT" layoutX="719.0" layoutY="567.0" mnemonicParsing="false" onAction="#blippitransacController" prefHeight="79.0" prefWidth="394.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Transaction History          " textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="blippitransac" alignment="CENTER_RIGHT" layoutX="719.0" layoutY="567.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="394.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Transaction History          " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
       <ImageView fitHeight="68.0" fitWidth="83.0" layoutX="259.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../BLIPPI/demo/src/main/resources/com/example/wallet.png" />
+            <Image url="@wallet.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="83.0" layoutX="737.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../BLIPPI/demo/src/main/resources/com/example/calc.png" />
+            <Image url="@calc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="83.0" layoutX="259.0" layoutY="574.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../BLIPPI/demo/src/main/resources/com/example/tix.png" />
+            <Image url="@tix.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="63.0" fitWidth="75.0" layoutX="737.0" layoutY="574.0" pickOnBounds="true" preserveRatio="true">
@@ -127,5 +155,30 @@
             <Image url="@../../../../../../../receipt.png" />
          </image>
       </ImageView>
+      <Label fx:id="usernamelabel" layoutX="140.0" layoutY="17.0" prefHeight="23.0" prefWidth="134.0" text="User" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="expdate" layoutX="285.0" layoutY="188.0" text="2025-01-01" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="baldate" layoutX="332.0" layoutY="297.0" text="May 29, 2025" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="9.0" />
+         </font>
+      </Label>
+      <Label fx:id="baltime" layoutX="389.0" layoutY="297.0" text="11:11 PM" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="9.0" />
+         </font>
+      </Label>
+      <Label fx:id="balanceamt" layoutX="247.0" layoutY="312.0" text="120.00" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Label>
    </children>
-</Pane>
+</AnchorPane>
