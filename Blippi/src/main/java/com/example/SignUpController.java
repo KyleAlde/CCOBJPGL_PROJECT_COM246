@@ -80,7 +80,7 @@ public class SignUpController {
             myWriter.close();
 
             // Load Home.fxml when signup is successful
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
             root = loader.load();
 
             //Set current user for the blippi card set-up
@@ -102,7 +102,7 @@ public class SignUpController {
     @FXML
     public void loginLinkController(ActionEvent event) throws IOException{
         // Load Login.fxml when login link is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Login.fxml"));
         root = loader.load();
 
         // Load stage and scene

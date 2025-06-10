@@ -19,7 +19,7 @@
       </Label>
       <ImageView fitHeight="43.0" fitWidth="42.0" layoutX="25.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../BLIPPI/demo/src/main/resources/com/example/bg%20real.png" />
+            <Image url="@../images/blippilogo.png" />
          </image>
       </ImageView>
       <Label layoutX="945.0" layoutY="21.0" text="blippi Card" textFill="WHITE">
@@ -66,7 +66,7 @@
       </Button>
       <ImageView fitHeight="24.0" fitWidth="20.0" layoutX="61.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@back.png" />
+            <Image url="@../images/back.png" />
          </image>
       </ImageView>
       <Label layoutX="87.0" layoutY="96.0" text="Back" textFill="#04185f">

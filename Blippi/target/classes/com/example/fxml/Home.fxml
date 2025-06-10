@@ -21,7 +21,7 @@
       </Label>
       <ImageView fitHeight="43.0" fitWidth="42.0" layoutX="26.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../BLIPPI/demo/src/main/resources/com/example/bg%20real.png" />
+            <Image url="@../images/blippilogo.png" />
          </image>
       </ImageView>
       <Label layoutX="945.0" layoutY="21.0" text="blippi Card" textFill="WHITE">
@@ -109,22 +109,22 @@
       </Button>
       <ImageView fitHeight="68.0" fitWidth="83.0" layoutX="259.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../BLIPPI/demo/src/main/resources/com/example/wallet.png" />
+            <Image url="@../images/wallet.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="83.0" layoutX="737.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../BLIPPI/demo/src/main/resources/com/example/calc.png" />
+            <Image url="@../images/calc.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="83.0" layoutX="259.0" layoutY="574.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../BLIPPI/demo/src/main/resources/com/example/tix.png" />
+            <Image url="@../images/tix.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="63.0" fitWidth="75.0" layoutX="737.0" layoutY="574.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../receipt.png" />
+            <Image url="@../images/receipt.png" />
          </image>
       </ImageView>
    </children>

@@ -67,7 +67,7 @@ public class LogInController {
                     //Check if the login info entered matches any record in the accounts.txt file
                     if(number_from_file.equals(user.getContact()) && password_from_file.equals(user.getPassword())) {
                         // Load Home.fxml when login button is clicked
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
                         root = loader.load();
 
                         //Set current user for the blippi card set-up
@@ -99,7 +99,7 @@ public class LogInController {
 
     public void signUpLinkController(ActionEvent event) throws IOException {
         // Load Singup.fxml when signup link is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Signup.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Signup.fxml"));
         root = loader.load();
 
         // Load stage and scene

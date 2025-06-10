@@ -22,7 +22,7 @@ public class HomeController {
 
     public void addCardButtonController(ActionEvent event) throws IOException{
         // Load AddCard.fxml when add card button is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCard.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/AddCard.fxml"));
         root = loader.load();
 
         //Set current user for the blippi card set-up
@@ -38,7 +38,7 @@ public class HomeController {
 
     public void blippitixController(ActionEvent event) throws IOException {
         // Load QrTicket.fxml when qr ticket button is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("QrTicket.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/QrTicket.fxml"));
         root = loader.load();
 
         // Load stage and scene
@@ -50,7 +50,7 @@ public class HomeController {
 
     public void blippitransacController(ActionEvent event) throws IOException {
         // Load TransactionHistory.fxml when transaction history button is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TransactionHistory.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/TransactionHistory.fxml"));
         root = loader.load();
 
         // Load stage and scene
