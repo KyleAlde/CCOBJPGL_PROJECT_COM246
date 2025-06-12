@@ -32,7 +32,7 @@ public class SignUpController {
     private Parent root;
 
     @FXML
-    public boolean signUpButtonController(ActionEvent event) {
+    public boolean signUpButtonHandler(ActionEvent event) {
         String username = usernameField.getText();
         String password = passwordField.getText();
         String phoneOrEmail = numberField.getText();
@@ -57,6 +57,7 @@ public class SignUpController {
             alert.setHeaderText("Input not valid");
             alert.setContentText("No name provided");
             alert.showAndWait();
+            return false;
         }
 
         if(phoneOrEmail.length() == 0) {
@@ -64,6 +65,7 @@ public class SignUpController {
             alert.setHeaderText("Input not valid");
             alert.setContentText("No email or phone number provided");
             alert.showAndWait();
+            return false;
         }
 
         if(password.length() == 0) {
@@ -71,6 +73,7 @@ public class SignUpController {
             alert.setHeaderText("Input not valid");
             alert.setContentText("No password provided");
             alert.showAndWait();
+            return false;
         }
 
         try{
@@ -86,8 +89,7 @@ public class SignUpController {
 
             //Set current user for the blippi card set-up
             HomeController homeController = loader.getController();
-            homeController.setCurrentUser(user);
-            homeController.initializeUsername();
+            homeController.setCurrentUser(user, null);
 
             // Load stage and scene
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -102,7 +104,7 @@ public class SignUpController {
     }
 
     @FXML
-    public void loginLinkController(ActionEvent event) throws IOException{
+    public void loginLinkHandler(ActionEvent event) throws IOException{
         // Load Login.fxml when login link is clicked
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Login.fxml"));
         root = loader.load();

@@ -50,12 +50,12 @@
             <Font name="Arial Rounded MT Bold" size="19.0" />
          </font>
       </Label>
-      <Button fx:id="blippiload" alignment="CENTER_RIGHT" layoutX="235.0" layoutY="453.0" mnemonicParsing="false" onAction="#blippiloadController" prefHeight="79.0" prefWidth="394.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Buy blippi Load          " textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="blippiload" alignment="CENTER_RIGHT" layoutX="235.0" layoutY="453.0" mnemonicParsing="false" onAction="#blippiloadHandler" prefHeight="79.0" prefWidth="394.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Buy blippi Load          " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="blippitix" alignment="CENTER_RIGHT" layoutX="235.0" layoutY="567.0" mnemonicParsing="false" onAction="#blippitixController" prefHeight="79.0" prefWidth="394.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="blippi QR Ticket          " textFill="WHITE">
+      <Button fx:id="blippitix" alignment="CENTER_RIGHT" layoutX="235.0" layoutY="567.0" mnemonicParsing="false" onAction="#blippitixHandler" prefHeight="79.0" prefWidth="394.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="blippi QR Ticket          " textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
@@ -65,7 +65,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="blippitransac" alignment="CENTER_RIGHT" layoutX="719.0" layoutY="567.0" mnemonicParsing="false" onAction="#blippitransacController" prefHeight="79.0" prefWidth="394.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Transaction History          " textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="blippitransac" alignment="CENTER_RIGHT" layoutX="719.0" layoutY="567.0" mnemonicParsing="false" onAction="#blippitransacHandler" prefHeight="79.0" prefWidth="394.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Transaction History          " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
@@ -125,7 +125,7 @@
                   <Font name="Arial" size="9.0" />
                </font>
             </Label>
-            <Button fx:id="addCardButton" layoutX="164.0" layoutY="114.0" mnemonicParsing="false" onAction="#addCardButtonController" style="-fx-background-color: #132453; -fx-background-radius: 5px;" text="Add Card" textFill="WHITE">
+            <Button fx:id="addCardButton" layoutX="164.0" layoutY="114.0" mnemonicParsing="false" onAction="#addCardButtonHandler" style="-fx-background-color: #132453; -fx-background-radius: 5px;" text="Add Card" textFill="WHITE">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>

@@ -19,7 +19,7 @@
       </Label>
       <ImageView fitHeight="43.0" fitWidth="42.0" layoutX="25.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@blippilogo.png" />
+            <Image url="@../images/blippilogo.png" />
          </image>
       </ImageView>
       <Label layoutX="945.0" layoutY="21.0" text="blippi Card" textFill="WHITE">
@@ -42,18 +42,18 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="usernamelabel" layoutX="139.0" layoutY="17.0" prefHeight="23.0" prefWidth="134.0" text="User" textFill="WHITE">
+      <Label fx:id="usernamelabel" layoutX="139.0" layoutY="17.0" prefHeight="23.0" prefWidth="435.0" text="User" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="19.0" />
          </font>
       </Label>
-      <Label layoutX="809.0" layoutY="225.0" text="Enter desired load amount" textFill="#132453">
+      <Label layoutX="809.0" layoutY="220.0" text="Enter desired load amount" textFill="#132453">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="804.0" layoutY="247.0" prefHeight="45.0" prefWidth="407.0" />
-      <Button layoutX="590.0" layoutY="637.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="225.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Next" textFill="#fcf2f2">
+      <TextField fx:id="amountTextField" layoutX="804.0" layoutY="247.0" prefHeight="45.0" prefWidth="407.0" />
+      <Button fx:id="nextButton" layoutX="590.0" layoutY="637.0" mnemonicParsing="false" onAction="#nextButtonHandler" prefHeight="55.0" prefWidth="225.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Next" textFill="#fcf2f2">
          <font>
             <Font name="Arial" size="19.0" />
          </font>
@@ -99,12 +99,12 @@
             <Font name="Arial" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="baldate" layoutX="227.0" layoutY="446.0" text="May 29, 2025" textFill="WHITE">
+      <Label fx:id="baldate" layoutX="227.0" layoutY="446.0" text="May 29, 2025 11:11 PM" textFill="WHITE">
          <font>
             <Font name="Arial" size="9.0" />
          </font>
       </Label>
-      <Label fx:id="baltime" layoutX="284.0" layoutY="446.0" text="11:11 PM" textFill="WHITE">
+      <Label fx:id="baltime" layoutX="284.0" layoutY="446.0" textFill="WHITE">
          <font>
             <Font name="Arial" size="9.0" />
          </font>
@@ -114,42 +114,42 @@
             <Font name="Arial Bold" size="17.0" />
          </font>
       </Label>
-      <Button layoutX="796.0" layoutY="343.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱10.00">
+      <Button fx:id="ten" layoutX="796.0" layoutY="343.0" mnemonicParsing="false" onAction="#tenHandler" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱10.00">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="906.0" layoutY="343.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱15.00">
+      <Button fx:id="fifteen" layoutX="906.0" layoutY="343.0" mnemonicParsing="false" onAction="#fifteenHandler" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱15.00">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="1016.0" layoutY="343.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱20.00">
+      <Button fx:id="twenty" layoutX="1016.0" layoutY="343.0" mnemonicParsing="false" onAction="#twentyHandler" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱20.00">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="1126.0" layoutY="343.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱30.00">
+      <Button fx:id="thirty" layoutX="1126.0" layoutY="343.0" mnemonicParsing="false" onAction="#thirtyHandler" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱30.00">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="796.0" layoutY="434.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱50.00">
+      <Button fx:id="fifty" layoutX="796.0" layoutY="434.0" mnemonicParsing="false" onAction="#fiftyHandler" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱50.00">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="906.0" layoutY="434.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱100.00">
+      <Button fx:id="oneHundred" layoutX="906.0" layoutY="434.0" mnemonicParsing="false" onAction="#oneHundredHandler" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱100.00">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="1016.0" layoutY="434.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱200.00">
+      <Button fx:id="twoHundred" layoutX="1016.0" layoutY="434.0" mnemonicParsing="false" onAction="#twoHundredHandler" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱200.00">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="1126.0" layoutY="434.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱500.00">
+      <Button fx:id="fiveHundred" layoutX="1126.0" layoutY="434.0" mnemonicParsing="false" onAction="#fiveHundredHandler" prefHeight="81.0" prefWidth="91.0" style="-fx-background-color: #ffffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱500.00">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
@@ -159,7 +159,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="76.0" layoutY="89.0" mnemonicParsing="false" onAction="#backButtonController" style="-fx-background-color: transparent;" text="Back" textFill="#04185f">
+      <Button fx:id="backButton" layoutX="76.0" layoutY="89.0" mnemonicParsing="false" onAction="#backButtonHandler" style="-fx-background-color: transparent;" text="Back" textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>

@@ -1,1 +1,2 @@
 Jarod Kyle Alde;password1;aldejarod@gmail.com;25-273
+Juan Dela Cruz;password1;0905123456789;25-823

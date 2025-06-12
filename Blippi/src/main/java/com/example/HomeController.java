@@ -2,13 +2,9 @@ package com.example;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -39,17 +35,18 @@ public class HomeController {
 
     //Method for setting current user from LogIn/SignUp
     private User currentUser;
-    public void setCurrentUser(User user) {
+    private BlippiCard blippicard;
+    public void setCurrentUser(User user, BlippiCard blippi) {
         this.currentUser = user;
-    }
-
-    //Change username label
-    public void initializeUsername() {
+        this.blippicard = blippi;
+        if(blippi != null) {
+            setCard(blippi);
+        }
         String username = currentUser.getUsername();
         usernamelabel.setText(username);
     }
 
-    public void addCardButtonController(ActionEvent event) throws IOException{
+    public void addCardButtonHandler(ActionEvent event) throws IOException{
         // Load AddCard.fxml when add card button is clicked
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/AddCard.fxml"));
         root = loader.load();
@@ -65,8 +62,8 @@ public class HomeController {
         stage.show();
     }
 
-    public boolean blippiloadController(ActionEvent event) throws IOException {
-        if(searchCard(currentUser) == null) {
+    public boolean blippiloadHandler(ActionEvent event) throws IOException {
+        if(blippicard == null) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setContentText("You currently do not have a blippi card");
             alert.showAndWait();
@@ -79,7 +76,7 @@ public class HomeController {
 
         //Set currentUser
         BuyLoadController buyLoadController = loader.getController();
-        buyLoadController.setCurrentUser(currentUser);
+        buyLoadController.setCurrentUser(currentUser, blippicard);
 
         // Load stage and scene
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -90,7 +87,7 @@ public class HomeController {
         return true;
     }
 
-    public void blippitixController(ActionEvent event) throws IOException {
+    public void blippitixHandler(ActionEvent event) throws IOException {
         // Load QrTicket.fxml when qr ticket button is clicked
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/QrTicket.fxml"));
         root = loader.load();
@@ -102,7 +99,7 @@ public class HomeController {
         stage.show();
     }
 
-    public void blippitransacController(ActionEvent event) throws IOException {
+    public void blippitransacHandler(ActionEvent event) throws IOException {
         // Load TransactionHistory.fxml when transaction history button is clicked
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/TransactionHistory.fxml"));
         root = loader.load();
@@ -114,7 +111,7 @@ public class HomeController {
         stage.show();
     }
 
-    public void addCard(BlippiCard blippi) {
+    public void setCard(BlippiCard blippi) {
         // Clear existing components
         container.getChildren().clear();
 
@@ -212,47 +209,13 @@ public class HomeController {
         container.getChildren().add(currencyLabel);
 
         // Balance amount label
-        Label balanceAmtLabel = new Label(Integer.toString(blippi.getBalance()));
+        String balance = String.format("%.2f", blippi.getBalance());
+        System.out.println("Balance label created with value: " + balance);
+        Label balanceAmtLabel = new Label(balance);
         balanceAmtLabel.setTextFill(Color.WHITE);
         balanceAmtLabel.setFont(Font.font("Arial Bold", 17));
         balanceAmtLabel.setLayoutX(31.0);
         balanceAmtLabel.setLayoutY(167.0);
         container.getChildren().add(balanceAmtLabel);
-    }
-
-    public BlippiCard searchCard(User user) {
-        String userId = user.getId();
-
-        File blippiFile = new File("blippicards.txt");
-
-        if(blippiFile.exists()) {
-            Scanner filescanner;
-
-            try {
-                filescanner = new Scanner(blippiFile);
-
-                //Look for the card with the matching userId
-                while(filescanner.hasNextLine()) {
-                    String data = filescanner.nextLine();
-
-                    String cardnum_from_file = data.split(";")[0];
-                    String balance_from_file = data.split(";")[1];
-                    String label_from_file = data.split(";")[2];
-                    String exp_from_file = data.split(";")[3];
-                    String id_from_file = data.split(";")[4];
-
-                    if(id_from_file.equals(userId)) {
-                        //Create BlippiCard object from database info
-                        BlippiCard blippi = new BlippiCard(cardnum_from_file, Integer.valueOf(balance_from_file), label_from_file, exp_from_file, id_from_file);
-                        return blippi;
-                    }
-                }
-            } catch(FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("blippicards.txt file cannot be read");
-        }
-        return null;
     }
 }

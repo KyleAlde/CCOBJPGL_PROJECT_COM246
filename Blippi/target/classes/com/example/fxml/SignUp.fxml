@@ -49,7 +49,7 @@
             </Label>
             <TextField fx:id="usernameField" alignment="CENTER" layoutX="20.0" layoutY="130.0" prefHeight="45.0" prefWidth="315.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
             <TextField fx:id="numberField" alignment="CENTER" layoutX="20.0" layoutY="225.0" prefHeight="45.0" prefWidth="315.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
-            <Button fx:id="signUpButton" layoutX="20.0" layoutY="400.0" mnemonicParsing="false" onAction="#signUpButtonController" prefHeight="55.0" prefWidth="315.0" style="-fx-background-color: #132453; -fx-background-radius: 10;" text="Create Account" textFill="WHITE">
+            <Button fx:id="signUpButton" layoutX="20.0" layoutY="400.0" mnemonicParsing="false" onAction="#signUpButtonHandler" prefHeight="55.0" prefWidth="315.0" style="-fx-background-color: #132453; -fx-background-radius: 10;" text="Create Account" textFill="WHITE">
                <font>
                   <Font size="22.0" />
                </font></Button>
@@ -74,7 +74,7 @@
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="loginLink" layoutX="250.0" layoutY="473.0" mnemonicParsing="false" onAction="#loginLinkController" style="-fx-background-color: transparent;" text="Log in." textFill="#132453">
+            <Button fx:id="loginLink" layoutX="250.0" layoutY="473.0" mnemonicParsing="false" onAction="#loginLinkHandler" style="-fx-background-color: transparent;" text="Log in." textFill="#132453">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>

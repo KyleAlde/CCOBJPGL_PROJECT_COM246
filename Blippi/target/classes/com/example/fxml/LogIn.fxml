@@ -48,7 +48,7 @@
                </font>
             </Label>
             <TextField fx:id="numberField" alignment="CENTER" layoutX="20.0" layoutY="180.0" prefHeight="45.0" prefWidth="315.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
-            <Button fx:id="loginButton" layoutX="20.0" layoutY="400.0" mnemonicParsing="false" onAction="#loginButtonController" prefHeight="55.0" prefWidth="315.0" style="-fx-background-color: #132453; -fx-background-radius: 10;" text="Log In" textFill="WHITE">
+            <Button fx:id="loginButton" layoutX="20.0" layoutY="400.0" mnemonicParsing="false" onAction="#loginButtonHandler" prefHeight="55.0" prefWidth="315.0" style="-fx-background-color: #132453; -fx-background-radius: 10;" text="Log In" textFill="WHITE">
                <font>
                   <Font size="22.0" />
                </font></Button>
@@ -73,7 +73,7 @@
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="signUpLink" layoutX="250.0" layoutY="473.0" mnemonicParsing="false" onAction="#signUpLinkController" style="-fx-background-color: transparent;" text="Sign Up." textFill="#132453">
+            <Button fx:id="signUpLink" layoutX="250.0" layoutY="473.0" mnemonicParsing="false" onAction="#signUpLinkHandler" style="-fx-background-color: transparent;" text="Sign Up." textFill="#132453">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>

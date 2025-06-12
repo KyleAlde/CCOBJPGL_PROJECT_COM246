@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -26,6 +27,9 @@ public class AddCardController {
 
     @FXML
     TextField cardLabelField;
+    
+    @FXML
+    private Label usernamelabel;
 
     private Stage stage;
     private Scene scene;
@@ -35,10 +39,12 @@ public class AddCardController {
     private User currentUser;
     public void setCurrentUser(User user) {
         this.currentUser = user;
+        String username = currentUser.getUsername();
+        usernamelabel.setText(username);
     }
 
     @FXML
-    public boolean saveCardButtonController(ActionEvent event) {
+    public boolean saveCardButtonHandler(ActionEvent event) {
         String cardNum = cardNumField.getText();
         String cardLabel = cardLabelField.getText();
 
@@ -62,18 +68,15 @@ public class AddCardController {
             BufferedWriter myWriter = new BufferedWriter(new FileWriter("blippicards.txt", true));
 
             myWriter.newLine();
-            myWriter.write(blippi.getCardNumber() + ";" + blippi.getBalance() + ";" + blippi.getLabel() + ";" + blippi.getExpDate() + ";" + blippi.getUserId()
+            myWriter.write(blippi.getCardNumber() + ";" + String.format("%.0f", blippi.getBalance()) + ";" + blippi.getLabel() + ";" + blippi.getExpDate() + ";" + blippi.getUserId()
             );
             myWriter.close();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
             root = loader.load();
 
-            //Set current user for the blippi card set-up and add card to home page
             HomeController homeController = loader.getController();
-            homeController.setCurrentUser(currentUser);
-            homeController.addCard(blippi);
-            homeController.initializeUsername();
+            homeController.setCurrentUser(currentUser, blippi);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -86,6 +89,20 @@ public class AddCardController {
         }
 
         return true;
+    }
+
+    @FXML
+    public void backButtonHandler(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
+        root = loader.load();
+
+        HomeController homeController = loader.getController();
+        homeController.setCurrentUser(currentUser, null);
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public String ExpDateGenerator() {

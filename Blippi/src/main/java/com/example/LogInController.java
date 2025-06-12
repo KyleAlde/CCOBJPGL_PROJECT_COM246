@@ -38,7 +38,7 @@ public class LogInController {
     public User user;
 
     @FXML
-    public void loginButtonController(ActionEvent event) throws IOException {
+    public void loginButtonHandler(ActionEvent event) throws IOException {
         String phoneOrEmail = numberField.getText();
         String password = passwordField.getText();
         boolean accountExists = false;
@@ -86,12 +86,12 @@ public class LogInController {
 
                         //Set current user for the blippi card set-up
                         HomeController homeController = loader.getController();
-                        homeController.setCurrentUser(user);
-                        homeController.initializeUsername();
 
                         //Check if user already has blippi card
                         if(searchCard(user) != null) {
-                            homeController.addCard(searchCard(user));
+                            homeController.setCurrentUser(user, searchCard(user));
+                        } else {
+                            homeController.setCurrentUser(user, null);
                         }
 
                         // Load stage and scene
@@ -118,7 +118,7 @@ public class LogInController {
     }
 
     @FXML
-    public void signUpLinkController(ActionEvent event) throws IOException {
+    public void signUpLinkHandler(ActionEvent event) throws IOException {
         // Load Singup.fxml when signup link is clicked
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Signup.fxml"));
         root = loader.load();
