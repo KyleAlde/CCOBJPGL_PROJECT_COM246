@@ -3,6 +3,8 @@ package com.example;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.GregorianCalendar;
+import java.util.Random;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +16,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AddCardController {
     @FXML
@@ -37,23 +42,19 @@ public class AddCardController {
         String cardNum = cardNumField.getText();
         String cardLabel = cardLabelField.getText();
 
-        //Get the id attribute from the User class
+        //Get the id attribute from the User object
         String userId = currentUser.getId();
 
         cardNum = cardNum.trim();
         cardLabel = cardLabel.trim();
 
-        BlippiCard blippi = new BlippiCard(cardNum, 0, cardLabel, userId);
+        //Generate expiration date
+        String expDate = ExpDateGenerator();
 
-        if(cardNum.length() == 0) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("No card number provided");
-            return false;
-        }
+        BlippiCard blippi = new BlippiCard(cardNum, 0, cardLabel, expDate, userId);
 
-        if(cardLabel.length() == 0) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("No card label provided");
+        //Handle invalid input (special characters, empty field, etc.)
+        if(!inputValidator(blippi)) {
             return false;
         }
 
@@ -61,12 +62,18 @@ public class AddCardController {
             BufferedWriter myWriter = new BufferedWriter(new FileWriter("blippicards.txt", true));
 
             myWriter.newLine();
-            myWriter.write(blippi.getCardNumber() + ";" + blippi.getBalance() + ";" + blippi.getLabel() + ";" + blippi.getUserId()
+            myWriter.write(blippi.getCardNumber() + ";" + blippi.getBalance() + ";" + blippi.getLabel() + ";" + blippi.getExpDate() + ";" + blippi.getUserId()
             );
             myWriter.close();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
             root = loader.load();
+
+            //Set current user for the blippi card set-up and add card to home page
+            HomeController homeController = loader.getController();
+            homeController.setCurrentUser(currentUser);
+            homeController.addCard(blippi);
+            homeController.initializeUsername();
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -76,6 +83,73 @@ public class AddCardController {
         } catch(IOException e) {
             System.out.println("An error occurred.");
             return false;
+        }
+
+        return true;
+    }
+
+    public String ExpDateGenerator() {
+        GregorianCalendar gc = new GregorianCalendar();
+        Random random = new Random();
+        int year = randBetween(2027, 2030, random);
+        gc.set(gc.YEAR, year);
+        int dayOfYear = gc.getActualMaximum(gc.DAY_OF_YEAR);
+        gc.set(gc.DAY_OF_YEAR, dayOfYear);
+        // Convert GregorianCalendar to LocalDateTime
+        LocalDateTime randomDate = LocalDateTime.of(
+            gc.get(gc.YEAR),
+            gc.get(gc.MONTH) + 1,
+            gc.get(gc.DAY_OF_MONTH),
+            gc.get(gc.HOUR_OF_DAY),
+            gc.get(gc.MINUTE),
+            gc.get(gc.SECOND)
+        );
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = randomDate.format(format);
+        return formattedDate;
+    }
+
+    public static int randBetween(int start, int end, Random random) {
+        return start + random.nextInt(end - start + 1);
+    }
+
+    public boolean inputValidator(BlippiCard blippi) {
+        String cardNum = blippi.getCardNumber();
+        String cardLabel = blippi.getLabel();
+
+        if(cardNum.length() == 0 && cardLabel.length() == 0) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("No card number and label provided");
+            alert.showAndWait();
+            return false;
+        }
+
+        if(cardNum.length() == 0) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("No card number provided");
+            alert.showAndWait();
+            return false;
+        }
+
+        if(cardLabel.length() == 0) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("No card label provided");
+            alert.showAndWait();
+            return false;
+        }
+
+        for (int i = 0; i < cardNum.length(); i++) {
+            // Check whether each character is a letter or special character
+            if (!Character.isLetterOrDigit(cardNum.charAt(i)) || Character.isLetter(cardNum.charAt(i))) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setHeaderText("Input not valid");
+                alert.setContentText("Card number must only contain numbers");
+                alert.showAndWait();
+                return false;
+            }
         }
 
         return true;

@@ -54,22 +54,23 @@ public class SignUpController {
 
         if(username.length() == 0) {
             Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("No username provided");
-            return false;
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("No name provided");
+            alert.showAndWait();
         }
 
-        if(password.length() == 0)
-        {
+        if(phoneOrEmail.length() == 0) {
             Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("No email or phone number provided");
+            alert.showAndWait();
+        }
+
+        if(password.length() == 0) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
             alert.setContentText("No password provided");
-            return false;
-        }
-
-        if(phoneOrEmail.length() == 0)
-        {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("No phone number or email provided");
-            return false;
+            alert.showAndWait();
         }
 
         try{
@@ -86,6 +87,7 @@ public class SignUpController {
             //Set current user for the blippi card set-up
             HomeController homeController = loader.getController();
             homeController.setCurrentUser(user);
+            homeController.initializeUsername();
 
             // Load stage and scene
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

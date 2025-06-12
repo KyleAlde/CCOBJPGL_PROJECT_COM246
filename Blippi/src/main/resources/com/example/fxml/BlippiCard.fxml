@@ -43,7 +43,7 @@
       <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#00135e" height="212.0" layoutX="219.0" layoutY="143.0" stroke="#00135e" strokeType="OUTSIDE" width="401.0" />
       <ImageView fitHeight="185.0" fitWidth="189.0" layoutX="445.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@bg%20real.png" />
+            <Image url="@../images/blippilogo.png" />
          </image>
       </ImageView>
       <Label fx:id="accnum" layoutX="236.0" layoutY="166.0" text="0001112224445556" textFill="WHITE">
