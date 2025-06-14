@@ -1,9 +1,12 @@
 package com.example;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,27 +55,7 @@ public class SignUpController {
         User user = new User(username, password, phoneOrEmail, id);
 
 
-        if(username.length() == 0) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setHeaderText("Input not valid");
-            alert.setContentText("No name provided");
-            alert.showAndWait();
-            return false;
-        }
-
-        if(phoneOrEmail.length() == 0) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setHeaderText("Input not valid");
-            alert.setContentText("No email or phone number provided");
-            alert.showAndWait();
-            return false;
-        }
-
-        if(password.length() == 0) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setHeaderText("Input not valid");
-            alert.setContentText("No password provided");
-            alert.showAndWait();
+        if(!inputValidator(username, password, phoneOrEmail)) {
             return false;
         }
 
@@ -114,5 +97,123 @@ public class SignUpController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public boolean inputValidator(String username, String password, String phoneOrEmail) {
+        if(username.length() == 0) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("No name provided");
+            alert.showAndWait();
+            return false;
+        }
+
+        if(phoneOrEmail.length() == 0) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("No email or phone number provided");
+            alert.showAndWait();
+            return false;
+        }
+
+        if(password.length() == 0) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("No password provided");
+            alert.showAndWait();
+            return false;
+        }
+        
+        for (int i = 0; i < phoneOrEmail.length(); i++) {
+            // Check whether each character is a letter or special character
+            if (Character.isLetterOrDigit(phoneOrEmail.charAt(i)) && !Character.isLetter(phoneOrEmail.charAt(i))) {
+                if(phoneOrEmail.length() != 11) {
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setHeaderText("Input not valid");
+                    alert.setContentText("The phone number you entered is invalid");
+                    alert.showAndWait();
+                    return false;
+                }
+            } else {
+                if((!phoneOrEmail.contains("@") && !phoneOrEmail.contains(".")) || phoneOrEmail.length() > 50) {
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setHeaderText("Input not valid");
+                    alert.setContentText("Please enter a valid email address or phone number");
+                    alert.showAndWait();
+                    return false;
+                }
+            }
+        }
+
+        if(password.length() > 24) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("Password must not exceed 24 characters");
+            alert.showAndWait();
+            return false;
+        }
+
+        if(password.length() > 24) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("Password must have at least 3 characters");
+            alert.showAndWait();
+            return false;
+        }
+
+        for (int i = 0; i < username.length(); i++) {
+            // Check whether each character is a special character
+            if (!Character.isLetter(username.charAt(i)) &&  !username.contains(".") &&  !username.contains("-") && !username.contains("'")) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setHeaderText("Input not valid");
+                alert.setContentText("Name must not contain special characters");
+                alert.showAndWait();
+                return false;
+            }
+        }
+
+        if(searchUser(phoneOrEmail) != null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("The phone or email address you entered is already in use");
+            alert.showAndWait();
+            return false;
+        }
+
+        return true;
+    }
+
+    public User searchUser(String phoneOrEmail) {
+        File accountsFile = new File("accounts.txt");
+
+        if(accountsFile.exists()) {
+            Scanner filescanner;
+
+            try {
+                filescanner = new Scanner(accountsFile);
+
+                //Look for the card with the matching userId
+                while(filescanner.hasNextLine()) {
+                    String data = filescanner.nextLine();
+
+                    String name_from_file = data.split(";")[0];
+                    String pword_from_file = data.split(";")[1];
+                    String contact_from_file = data.split(";")[2];
+                    String id_from_file = data.split(";")[3];
+
+                    if(id_from_file.equals(phoneOrEmail)) {
+                        //Create BlippiCard object from database info
+                        User user = new User(name_from_file, pword_from_file, contact_from_file, id_from_file);
+                        filescanner.close();
+                        return user;
+                    }
+                }
+            } catch(FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("accounts.txt file cannot be read");
+        }
+        return null;
     }
 }
