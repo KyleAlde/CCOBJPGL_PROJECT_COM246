@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.QrTicketController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="71.0" layoutX="-7.0" layoutY="-9.0" stroke="#00135e" strokeType="INSIDE" width="1393.0" />
       <Label layoutX="81.0" layoutY="17.0" prefHeight="23.0" prefWidth="134.0" text="blippi" textFill="WHITE">
@@ -19,7 +19,7 @@
       </Label>
       <ImageView fitHeight="43.0" fitWidth="42.0" layoutX="25.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../BLIPPI/demo/src/main/resources/com/example/bg%20real.png" />
+            <Image url="@../images/blippilogo.png" />
          </image>
       </ImageView>
       <Label layoutX="945.0" layoutY="21.0" text="blippi Card" textFill="WHITE">
@@ -71,5 +71,15 @@
          </font>
       </Label>
       <ChoiceBox layoutX="815.0" layoutY="376.0" prefHeight="43.0" prefWidth="407.0" />
+      <Button fx:id="backButton" layoutX="86.0" layoutY="99.0" mnemonicParsing="false" onAction="#backButtonHandler" style="-fx-background-color: transparent;" text="Back" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="24.0" fitWidth="20.0" layoutX="71.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/back.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
