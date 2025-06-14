@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SignUpController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SignUpController">
    <children>
-      <AnchorPane layoutX="-9.0" layoutY="-12.0" prefHeight="260.0" prefWidth="1375.0" style="-fx-background-color: #132453;">
+      <AnchorPane layoutX="-9.0" layoutY="-12.0" prefHeight="260.0" prefWidth="1930.0" style="-fx-background-color: #132453;">
          <children>
-            <ImageView fitHeight="260.0" fitWidth="1365.0" layoutX="8.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="260.0" fitWidth="1922.0" layoutX="8.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/train.png" />
+                  <Image url="@../../../../../../../../../../Downloads/trainbg.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="55.0" fitWidth="60.0" layoutX="50.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
@@ -29,54 +29,54 @@
                   <Font name="Arial Rounded MT Bold" size="40.0" />
                </font>
             </Label>
-            <Label contentDisplay="CENTER" layoutX="550.0" layoutY="60.0" text="blippi" textFill="WHITE">
+            <Label contentDisplay="CENTER" layoutX="850.0" layoutY="60.0" text="blippi" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="114.0" />
                </font>
             </Label>
-            <Label layoutX="530.0" layoutY="200.0" text="go far. stay connected." textFill="WHITE">
+            <Label layoutX="830.0" layoutY="200.0" text="go far. stay connected." textFill="WHITE">
                <font>
                   <Font name="Arial" size="36.0" />
                </font>
             </Label>
          </children></AnchorPane>
-      <AnchorPane layoutX="530.0" layoutY="240.0" prefHeight="520.0" prefWidth="360.0">
+      <AnchorPane layoutX="754.0" layoutY="281.0" prefHeight="792.0" prefWidth="516.0">
          <children>
-            <Label alignment="CENTER" layoutY="30.0" prefHeight="50.0" prefWidth="350.0" text="Getting Started" textFill="#132453">
+            <Label alignment="CENTER" layoutX="75.0" layoutY="30.0" prefHeight="50.0" prefWidth="350.0" text="Getting Started" textFill="#132453">
                <font>
-                  <Font name="Arial Bold" size="35.0" />
+                  <Font name="Arial Bold" size="40.0" />
                </font>
             </Label>
-            <TextField fx:id="usernameField" alignment="CENTER" layoutX="20.0" layoutY="130.0" prefHeight="45.0" prefWidth="315.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
-            <TextField fx:id="numberField" alignment="CENTER" layoutX="20.0" layoutY="225.0" prefHeight="45.0" prefWidth="315.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
-            <Button fx:id="signUpButton" layoutX="20.0" layoutY="400.0" mnemonicParsing="false" onAction="#signUpButtonHandler" prefHeight="55.0" prefWidth="315.0" style="-fx-background-color: #132453; -fx-background-radius: 10;" text="Create Account" textFill="WHITE">
+            <TextField fx:id="usernameField" alignment="CENTER" layoutX="20.0" layoutY="135.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
+            <TextField fx:id="numberField" alignment="CENTER" layoutX="20.0" layoutY="265.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
+            <Button fx:id="signUpButton" layoutX="20.0" layoutY="550.0" mnemonicParsing="false" onAction="#signUpButtonHandler" prefHeight="75.0" prefWidth="470.0" style="-fx-background-color: #132453; -fx-background-radius: 10;" text="Create Account" textFill="WHITE">
                <font>
-                  <Font size="22.0" />
+                  <Font size="24.0" />
                </font></Button>
-            <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="20.0" layoutY="315.0" prefHeight="45.0" prefWidth="315.0" style="-fx-background-radius: 10;" />
+            <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="20.0" layoutY="390.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10;" />
             <Label layoutX="30.0" layoutY="105.0" text="Full Name" textFill="#132453">
                <font>
-                  <Font name="Arial" size="16.0" />
+                  <Font name="Arial" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="30.0" layoutY="200.0" text="Email/Phone Number" textFill="#132453">
+            <Label layoutX="30.0" layoutY="235.0" text="Email/Phone Number" textFill="#132453">
                <font>
-                  <Font name="Arial" size="16.0" />
+                  <Font name="Arial" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="30.0" layoutY="290.0" text="Password" textFill="#132453">
+            <Label layoutX="30.0" layoutY="360.0" text="Password" textFill="#132453">
                <font>
-                  <Font name="Arial" size="16.0" />
+                  <Font name="Arial" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="30.0" layoutY="480.0" text="Already have an account?" textFill="#132453">
+            <Label layoutX="55.0" layoutY="680.0" text="Already have an account?" textFill="#132453">
                <font>
-                  <Font name="Arial" size="18.0" />
+                  <Font name="Arial" size="22.0" />
                </font>
             </Label>
-            <Button fx:id="loginLink" layoutX="250.0" layoutY="473.0" mnemonicParsing="false" onAction="#loginLinkHandler" style="-fx-background-color: transparent;" text="Log in." textFill="#132453">
+            <Button fx:id="loginLink" layoutX="345.0" layoutY="675.0" mnemonicParsing="false" onAction="#loginLinkHandler" style="-fx-background-color: transparent;" text="Log in." textFill="#132453">
                <font>
-                  <Font name="Arial Bold" size="18.0" />
+                  <Font name="Arial Bold" size="22.0" />
                </font>
             </Button>
          </children>
