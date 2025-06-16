@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#00135e" height="311.0" layoutX="690.0" layoutY="249.0" stroke="#00135e" strokeType="OUTSIDE" width="595.0" />
+      <ImageView fitHeight="291.0" fitWidth="371.0" layoutX="1022.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@blippilogo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="accnum" layoutX="710.0" layoutY="276.0" text="0001112224445556" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="710.0" layoutY="303.0" text="Valid Until" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="cardlabel" layoutX="709.0" layoutY="419.0" text="My Card" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="709.0" layoutY="481.0" text="Available Balance as of" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="708.0" layoutY="504.0" text="₱" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="blippiload" alignment="CENTER_RIGHT" layoutX="484.0" layoutY="635.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Buy blippi Load          " textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="blippitix" alignment="CENTER_RIGHT" layoutX="487.0" layoutY="763.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="blippi QR Ticket          " textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="blippicalc" alignment="CENTER_RIGHT" layoutX="1061.0" layoutY="635.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Fare Calculator          " textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="blippitransac" alignment="CENTER_RIGHT" layoutX="1061.0" layoutY="763.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Transaction History          " textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="97.0" fitWidth="106.0" layoutX="496.0" layoutY="641.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@wallet.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="161.0" fitWidth="110.0" layoutX="1068.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@calc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="97.0" fitWidth="134.0" layoutX="500.0" layoutY="770.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@tix.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="89.0" fitWidth="104.0" layoutX="1072.0" layoutY="773.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../receipt.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="expdate" layoutX="774.0" layoutY="303.0" text="2025-01-01" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="baldate" layoutX="847.0" layoutY="481.0" text="May 29, 2025" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="baltime" layoutX="929.0" layoutY="481.0" text="11:11 PM" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="balanceamt" layoutX="726.0" layoutY="504.0" text="120.00" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="90.0" layoutX="-7.0" layoutY="-8.0" stroke="#00135e" strokeType="INSIDE" width="1930.0" />
+      <Label layoutX="91.0" layoutY="31.0" prefHeight="23.0" prefWidth="134.0" text="Hello," textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="55.0" fitWidth="60.0" layoutX="19.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../CCOBJPGL_PROJECT_COM246/Blippi/src/main/resources/com/example/images/blippilogo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="887.0" layoutY="156.0" prefHeight="36.0" prefWidth="215.0" text="My blippi Card" textAlignment="CENTER" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="usernamelabel" layoutX="162.0" layoutY="31.0" prefHeight="23.0" prefWidth="415.0" text="User" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="130.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../CCOBJPGL_PROJECT_COM246/Blippi/src/main/resources/com/example/images/back.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="backButton" layoutX="150.0" layoutY="146.0" mnemonicParsing="false" onAction="#backButtonHandler" style="-fx-background-color: transparent;" text="Back" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Button>
+      <Button layoutX="1317.0" layoutY="22.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="175.0" style="-fx-background-color: #00135e;" text="blippi Card" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="1507.0" layoutY="22.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="179.0" style="-fx-background-color: #00135e;" text="blippi Reward" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="1699.0" layoutY="22.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="197.0" style="-fx-background-color: #00135e;" text="Help &amp; Support" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
