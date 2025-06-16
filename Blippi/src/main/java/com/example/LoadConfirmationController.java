@@ -5,8 +5,11 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -55,9 +58,9 @@ public class LoadConfirmationController {
         totalAmount.setText(strTotal);
     }
 
-    public void setCurrentUser(User user, BlippiCard blippi) {
+    public void setCurrentUser(User user) {
         this.currentUser = user;
-        this.blippiCard = blippi;
+        this.blippiCard = user.getBlippi();
         String username = currentUser.getUsername();
         usernamelabel.setText(username);
     }
@@ -67,11 +70,15 @@ public class LoadConfirmationController {
         float currentBalance = selectedBlippi.getBalance();
         float newBalance = currentBalance + loadAmount;
         selectedBlippi.setBalance(newBalance);
+
         String strBalance = String.format("%.0f", newBalance);
 
         if(selectedBlippi.getCardNumber().equals(blippiCard.getCardNumber())) {
             System.out.println("blippi objects match");
             blippiCard.setBalance(newBalance);
+            newTransaction(blippiCard, newBalance);
+        } else {
+            newTransaction(selectedBlippi, newBalance);
         }
 
         String targetCardNum = selectedBlippi.getCardNumber();
@@ -118,7 +125,7 @@ public class LoadConfirmationController {
             root = loader.load();
 
             HomeController homeController = loader.getController();
-            homeController.setCurrentUser(currentUser, blippiCard);
+            homeController.setCurrentUser(currentUser);
             
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -140,11 +147,37 @@ public class LoadConfirmationController {
 
         //Set current user for the blippi card set-up and add card to home page
         BuyLoadCardController buyLoadCardController = loader.getController();
-        buyLoadCardController.setCurrentUser(currentUser, blippiCard);
+        buyLoadCardController.setCurrentUser(currentUser);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void newTransaction(BlippiCard blippi, float loadAmount) {
+        //Generate transaction id number
+        Random r = new Random();
+        int r1 = r.nextInt(1000000);
+        String transacId = Integer.toString(r1);
+
+        //Generate date today
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("MMMM dd, yyyy hh:mm a");
+        String formattedDate = now.format(format);
+
+        Transaction transac = new Transaction(transacId, blippi.getCardNumber(), "blippi Buy Load", loadAmount, formattedDate);
+        blippi.addTransaction(transac);
+
+        try {
+            BufferedWriter myWriter = new BufferedWriter(new FileWriter("transactions.txt", true));
+
+            myWriter.newLine();
+            myWriter.write(transacId + ";" + blippi.getCardNumber() + ";" + "blippi Buy Load" + ";" + loadAmount + ";" + formattedDate);
+            myWriter.close();
+
+        } catch(IOException e) {
+            System.out.println("An error occurred.");
+        }
     }
 }

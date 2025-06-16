@@ -18,9 +18,9 @@ public class TransactionHistoryController {
 
     private User currentUser;
     private BlippiCard blippiCard;
-    public void setCurrentUser(User user, BlippiCard blippi) {
+    public void setCurrentUser(User user) {
         this.currentUser = user;
-        this.blippiCard = blippi;
+        this.blippiCard = user.getBlippi();
     }
 
     @FXML
@@ -29,7 +29,7 @@ public class TransactionHistoryController {
         root = loader.load();
 
         HomeController homeController = loader.getController();
-        homeController.setCurrentUser(currentUser, blippiCard);
+        homeController.setCurrentUser(currentUser);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

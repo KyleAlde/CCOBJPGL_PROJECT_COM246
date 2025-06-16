@@ -3,6 +3,7 @@ package com.example;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Random;
 
@@ -57,7 +58,8 @@ public class AddCardController {
         //Generate expiration date
         String expDate = ExpDateGenerator();
 
-        BlippiCard blippi = new BlippiCard(cardNum, 0, cardLabel, expDate, userId, null);
+        ArrayList<Transaction> transacList = new ArrayList<>();
+        BlippiCard blippi = new BlippiCard(cardNum, 0, cardLabel, expDate, userId, transacList);
 
         //Handle invalid input (special characters, empty field, etc.)
         if(!inputValidator(blippi)) {
@@ -76,7 +78,8 @@ public class AddCardController {
             root = loader.load();
 
             HomeController homeController = loader.getController();
-            homeController.setCurrentUser(currentUser, blippi);
+            currentUser.setBlippi(blippi);
+            homeController.setCurrentUser(currentUser);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -97,7 +100,7 @@ public class AddCardController {
         root = loader.load();
 
         HomeController homeController = loader.getController();
-        homeController.setCurrentUser(currentUser, null);
+        homeController.setCurrentUser(currentUser);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

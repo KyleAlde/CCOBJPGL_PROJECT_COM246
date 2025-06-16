@@ -36,11 +36,11 @@ public class HomeController {
     //Method for setting current user from LogIn/SignUp
     private User currentUser;
     private BlippiCard blippicard;
-    public void setCurrentUser(User user, BlippiCard blippi) {
+    public void setCurrentUser(User user) {
         this.currentUser = user;
-        this.blippicard = blippi;
-        if(blippi != null) {
-            setCard(blippi);
+        this.blippicard = user.getBlippi();
+        if(blippicard != null) {
+            setCard(blippicard);
         }
         String username = currentUser.getUsername();
         usernamelabel.setText(username);
@@ -76,7 +76,7 @@ public class HomeController {
 
         //Set currentUser
         BuyLoadController buyLoadController = loader.getController();
-        buyLoadController.setCurrentUser(currentUser, blippicard);
+        buyLoadController.setCurrentUser(currentUser);
 
         // Load stage and scene
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -93,7 +93,7 @@ public class HomeController {
         root = loader.load();
 
         QrTicketController qrTicketController = loader.getController();
-        qrTicketController.setCurrentUser(currentUser, blippicard);
+        qrTicketController.setCurrentUser(currentUser);
 
         // Load stage and scene
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -108,7 +108,7 @@ public class HomeController {
         root = loader.load();
 
         TransactionHistoryController transactionHistoryController = loader.getController();
-        transactionHistoryController.setCurrentUser(currentUser, blippicard);
+        transactionHistoryController.setCurrentUser(currentUser);
 
 
         // Load stage and scene

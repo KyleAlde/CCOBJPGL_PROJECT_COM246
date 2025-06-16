@@ -44,16 +44,16 @@ public class BuyLoadController {
 
     private User currentUser;
     private BlippiCard blippiCard;
-    public void setCurrentUser(User user, BlippiCard blippi) {
+    public void setCurrentUser(User user) {
         this.currentUser = user;
-        this.blippiCard = blippi;
+        this.blippiCard = user.getBlippi();
         String username = currentUser.getUsername();
         usernamelabel.setText(username);
 
-        accnum.setText(blippi.getCardNumber());
-        expdate.setText(blippi.getExpDate());
-        cardlabel.setText(blippi.getLabel());
-        String balance = String.format("%.2f", blippi.getBalance());
+        accnum.setText(blippiCard.getCardNumber());
+        expdate.setText(blippiCard.getExpDate());
+        cardlabel.setText(blippiCard.getLabel());
+        String balance = String.format("%.2f", blippiCard.getBalance());
         balanceamt.setText(balance);
 
         // Generate current date and time
@@ -91,7 +91,7 @@ public class BuyLoadController {
 
         //Set current user
         BuyLoadCardController buyLoadCardController = loader.getController();
-        buyLoadCardController.setCurrentUser(currentUser, blippiCard);
+        buyLoadCardController.setCurrentUser(currentUser);
         buyLoadCardController.setAmount(numAmount);
 
         // Load stage and scene
@@ -109,7 +109,7 @@ public class BuyLoadController {
         root = loader.load();
 
         HomeController homeController = loader.getController();
-        homeController.setCurrentUser(currentUser, blippiCard);
+        homeController.setCurrentUser(currentUser);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

@@ -20,7 +20,7 @@ public class BlippiCard {
         this.label = new SimpleStringProperty(lbl);
         this.expDate = new SimpleStringProperty(exp);
         this.userId = id;
-        this.transacList = transactions;
+        this.transacList = transactions != null ? transactions : new ArrayList<>();
     }
 
     public String getCardNumber() { return cardNumber.get(); }
@@ -28,7 +28,8 @@ public class BlippiCard {
     public String getLabel() { return label.get(); }
     public String getExpDate() { return expDate.get(); }
     public String getUserId() { return this.userId; }
-    public ArrayList<Transaction> getTransac() { return this.transacList; }
+    public ArrayList<Transaction> getTransac() { return transacList; }
 
     public void setBalance(float newBalance) { this.balance.set(newBalance); }
+    public void addTransaction(Transaction transaction) { transacList.add(transaction); }
 }
