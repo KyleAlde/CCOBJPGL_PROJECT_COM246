@@ -47,13 +47,13 @@
                   <Font name="Arial Bold" size="40.0" />
                </font>
             </Label>
-            <TextField fx:id="usernameField" alignment="CENTER" layoutX="20.0" layoutY="135.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
-            <TextField fx:id="numberField" alignment="CENTER" layoutX="20.0" layoutY="265.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
-            <Button fx:id="signUpButton" layoutX="20.0" layoutY="550.0" mnemonicParsing="false" onAction="#signUpButtonHandler" prefHeight="75.0" prefWidth="470.0" style="-fx-background-color: #132453; -fx-background-radius: 10;" text="Create Account" textFill="WHITE">
+            <TextField fx:id="usernameField" alignment="CENTER" layoutX="20.0" layoutY="135.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10; -fx-font-size: 20;" />
+            <TextField fx:id="numberField" alignment="CENTER" layoutX="20.0" layoutY="265.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10; -fx-font-size: 20;" />
+            <Button fx:id="signUpButton" layoutX="20.0" layoutY="520.0" mnemonicParsing="false" onAction="#signUpButtonHandler" prefHeight="75.0" prefWidth="470.0" style="-fx-background-color: #132453; -fx-background-radius: 10;" text="Create Account" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font></Button>
-            <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="20.0" layoutY="390.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10;" />
+            <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="20.0" layoutY="390.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10; -fx-font-size: 20;" />
             <Label layoutX="30.0" layoutY="105.0" text="Full Name" textFill="#132453">
                <font>
                   <Font name="Arial" size="22.0" />
@@ -69,12 +69,12 @@
                   <Font name="Arial" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="55.0" layoutY="680.0" text="Already have an account?" textFill="#132453">
+            <Label layoutX="55.0" layoutY="650.0" text="Already have an account?" textFill="#132453">
                <font>
                   <Font name="Arial" size="22.0" />
                </font>
             </Label>
-            <Button fx:id="loginLink" layoutX="345.0" layoutY="675.0" mnemonicParsing="false" onAction="#loginLinkHandler" style="-fx-background-color: transparent;" text="Log in." textFill="#132453">
+            <Button fx:id="loginLink" layoutX="345.0" layoutY="643.0" mnemonicParsing="false" onAction="#loginLinkHandler" style="-fx-background-color: transparent;" text="Log in." textFill="#132453">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
