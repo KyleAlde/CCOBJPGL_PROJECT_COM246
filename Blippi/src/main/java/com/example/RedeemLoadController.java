@@ -1,8 +1,7 @@
 package com.example;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.NumberFormat;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,64 +15,59 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class BuyLoadController {
+public class RedeemLoadController {
     @FXML
     private Label usernamelabel;
-
-    @FXML
-    private Label accnum;
-
-    @FXML
-    private Label expdate;
 
     @FXML
     private Label cardlabel;
 
     @FXML
-    private Label baldate;
+    private Label points;
 
     @FXML
-    private Label balanceamt;
+    TextField amountTextField;
 
-    @FXML
-    private TextField amountTextField;
-    
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     private User currentUser;
     private BlippiCard blippiCard;
+    private float pointsAsLoad;
+    
     public void setCurrentUser(User user) {
         this.currentUser = user;
         this.blippiCard = user.getBlippi();
         String username = currentUser.getUsername();
         usernamelabel.setText(username);
-
-        accnum.setText(blippiCard.getCardNumber());
-        expdate.setText(blippiCard.getExpDate());
         cardlabel.setText(blippiCard.getLabel());
-        String balance = String.format("%.2f", blippiCard.getBalance());
-        balanceamt.setText(balance);
 
-        // Generate current date and time
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("MMMM dd, yyyy hh:mm a");
-        String formattedDate = now.format(format);
+        String formattedNumber = NumberFormat.getInstance().format(blippiCard.getRewards());
+        points.setText(formattedNumber);
 
-        baldate.setText(formattedDate);
+        this.pointsAsLoad = blippiCard.getRewards() / 200;
+        System.out.println(pointsAsLoad);
     }
 
     @FXML
-    public boolean nextButtonHandler(ActionEvent event) throws IOException {
+    public boolean redeemButtonHanlder(ActionEvent event) throws IOException {
         float numAmount = 0;
 
         try {
             numAmount = Float.parseFloat(amountTextField.getText());
-            if(numAmount < 5 || numAmount > 5000) {
+            if(numAmount < 1 || numAmount > 5000) {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setHeaderText("Input not valid");
                 alert.setContentText("Please enter a valid amount");
+                alert.showAndWait();
+                return false;
+            }
+
+            if(numAmount > pointsAsLoad) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setHeaderText("Input not valid");
+                alert.setContentText("You do not have enough points");
                 alert.showAndWait();
                 return false;
             }
@@ -85,42 +79,23 @@ public class BuyLoadController {
             return false;
         }
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoadCard.fxml"));
-            root = loader.load();
-
-            //Set current user
-            BuyLoadCardController buyLoadCardController = loader.getController();
-            buyLoadCardController.setCurrentUser(currentUser);
-            buyLoadCardController.setAmount(numAmount);
-
-            // Load stage and scene
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-
         return true;
     }
 
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/RedeemRewards.fxml"));
             root = loader.load();
 
-            HomeController homeController = loader.getController();
-            homeController.setCurrentUser(currentUser);
+            RedeemRewardsController redeem = loader.getController();
+            redeem.setCurrentUser(currentUser);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        } catch (IOException e) {
+        } catch(IOException e) {
             e.printStackTrace();
         }
     }

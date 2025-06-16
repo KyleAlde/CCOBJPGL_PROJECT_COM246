@@ -88,34 +88,43 @@ public class BuyLoadCardController {
             return false;
         }
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoadConfirmation.fxml"));
-        root = loader.load();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoadConfirmation.fxml"));
+            root = loader.load();
 
-        LoadConfirmationController LoadConfirmationController = loader.getController();
-        LoadConfirmationController.setCurrentUser(currentUser);
-        LoadConfirmationController.setAmount(amount, selectedBlippi);
+            LoadConfirmationController LoadConfirmationController = loader.getController();
+            LoadConfirmationController.setCurrentUser(currentUser);
+            LoadConfirmationController.setAmount(amount, selectedBlippi);
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        
         return true;
     }
 
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoad.fxml"));
-        root = loader.load();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoad.fxml"));
+            root = loader.load();
 
-        //Set current user for the blippi card set-up and add card to home page
-        BuyLoadController buyLoadController = loader.getController();
-        buyLoadController.setCurrentUser(currentUser);
+            //Set current user for the blippi card set-up and add card to home page
+            BuyLoadController buyLoadController = loader.getController();
+            buyLoadController.setCurrentUser(currentUser);
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean inputValidator(String cardNum) {
@@ -128,7 +137,7 @@ public class BuyLoadCardController {
         }
         for (int i = 0; i < cardNum.length(); i++) {
             // Check whether each character is a letter or special character
-            if (!Character.isLetterOrDigit(cardNum.charAt(i)) || Character.isLetter(cardNum.charAt(i))) {
+            if (!Character.isDigit(cardNum.charAt(i))) {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setHeaderText("Input not valid");
                 alert.setContentText("Card number must only contain numbers");

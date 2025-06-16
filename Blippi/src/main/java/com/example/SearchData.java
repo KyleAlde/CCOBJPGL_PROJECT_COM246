@@ -24,7 +24,7 @@ public class SearchData {
                     String contact_from_file = data.split(";")[2];
                     String id_from_file = data.split(";")[3];
 
-                    if(id_from_file.equals(phoneOrEmail)) {
+                    if(contact_from_file.equals(phoneOrEmail)) {
                         //Create User object from database info
                         User user = new User(name_from_file, pword_from_file, contact_from_file, id_from_file, searchCard(id_from_file));
                         filescanner.close();
@@ -57,12 +57,14 @@ public class SearchData {
                     String balance_from_file = data.split(";")[1];
                     String label_from_file = data.split(";")[2];
                     String exp_from_file = data.split(";")[3];
-                    String id_from_file = data.split(";")[4];
+                    String points_from_file = data.split(";")[4];
+                    String id_from_file = data.split(";")[5];
+                    System.out.println(id_from_file);
 
                     if(id_from_file.equals(userId)) {
                         //Create BlippiCard object from database info
-                        ArrayList<Transaction> transacList = new ArrayList<>();
-                        BlippiCard blippi = new BlippiCard(cardnum_from_file, Integer.valueOf(balance_from_file), label_from_file, exp_from_file, id_from_file, transacList);
+                        ArrayList<Transaction> transacList = searchTransactions(cardnum_from_file);
+                        BlippiCard blippi = new BlippiCard(cardnum_from_file, Float.valueOf(balance_from_file), label_from_file, exp_from_file, Integer.valueOf(points_from_file), id_from_file, transacList);
                         System.out.println("Blippi search result: " + cardnum_from_file);
                         filescanner.close();
                         return blippi;
@@ -94,12 +96,13 @@ public class SearchData {
                     String balance_from_file = data.split(";")[1];
                     String label_from_file = data.split(";")[2];
                     String exp_from_file = data.split(";")[3];
-                    String id_from_file = data.split(";")[4];
+                    String points_from_file = data.split(";")[4];
+                    String id_from_file = data.split(";")[5];
 
                     if(cardnum_from_file.equals(cardNum)) {
                         //Create BlippiCard object from database info
-                        ArrayList<Transaction> transacList = new ArrayList<>();
-                        BlippiCard blippi = new BlippiCard(cardnum_from_file, Integer.valueOf(balance_from_file), label_from_file, exp_from_file, id_from_file, transacList);
+                        ArrayList<Transaction> transacList = searchTransactions(cardNum);
+                        BlippiCard blippi = new BlippiCard(cardnum_from_file, Float.valueOf(balance_from_file), label_from_file, exp_from_file, Integer.valueOf(points_from_file), id_from_file, transacList);
                         filescanner.close();
                         return blippi;
                     }
@@ -109,6 +112,44 @@ public class SearchData {
             }
         } else {
             System.out.println("blippicards.txt file cannot be read");
+        }
+        return null;
+    }
+
+    public ArrayList<Transaction> searchTransactions(String cardNum) {
+        File transacFile = new File("transactions.txt");
+
+        if(transacFile.exists()) {
+            Scanner fileScanner;
+
+            try {
+                ArrayList<Transaction> transacList = new ArrayList<>();
+                fileScanner = new Scanner(transacFile);
+
+                //Look for all transactions with matching card number
+                while(fileScanner.hasNext()) {
+                    String data = fileScanner.nextLine();
+
+                    String id_from_file = data.split(";")[0];
+                    String cardnum_from_file = data.split(";")[1];
+                    String type_from_file = data.split(";")[2];
+                    String amount_from_file = data.split(";")[3];
+                    String date_from_file = data.split(";")[4];
+
+                    if(cardnum_from_file.equals(cardNum)) {
+                        Transaction transac = new Transaction(id_from_file, cardnum_from_file, type_from_file, Float.valueOf(amount_from_file), date_from_file);
+                        transacList.add(transac);
+                    }
+                }
+
+                fileScanner.close();
+                return transacList;
+            } catch(FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            
+        } else {
+            System.out.println("transactions.txt file cannot be read");
         }
         return null;
     }

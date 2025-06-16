@@ -76,9 +76,9 @@ public class LoadConfirmationController {
         if(selectedBlippi.getCardNumber().equals(blippiCard.getCardNumber())) {
             System.out.println("blippi objects match");
             blippiCard.setBalance(newBalance);
-            newTransaction(blippiCard, newBalance);
+            newTransaction(blippiCard, loadAmount);
         } else {
-            newTransaction(selectedBlippi, newBalance);
+            newTransaction(selectedBlippi, loadAmount);
         }
 
         String targetCardNum = selectedBlippi.getCardNumber();
@@ -90,8 +90,8 @@ public class LoadConfirmationController {
                 if(!line.trim().isEmpty()) {
                     String[] parts = line.split(";");
 
-                    if(parts.length == 5 && parts[0].equals(targetCardNum)) {
-                        updatedLines.add(parts[0] + ";" + strBalance + ";" + parts[2] + ";" + parts[3] + ";" + parts[4]);
+                    if(parts.length == 6 && parts[0].equals(targetCardNum)) {
+                        updatedLines.add(parts[0] + ";" + strBalance + ";" + parts[2] + ";" + parts[3] + ";" + parts[4] + ";" + parts[5]);
                     } else {
                         updatedLines.add(line);
                     }
@@ -142,17 +142,21 @@ public class LoadConfirmationController {
 
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoadCard.fxml"));
-        root = loader.load();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoadCard.fxml"));
+            root = loader.load();
 
-        //Set current user for the blippi card set-up and add card to home page
-        BuyLoadCardController buyLoadCardController = loader.getController();
-        buyLoadCardController.setCurrentUser(currentUser);
+            //Set current user for the blippi card set-up and add card to home page
+            BuyLoadCardController buyLoadCardController = loader.getController();
+            buyLoadCardController.setCurrentUser(currentUser);
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void newTransaction(BlippiCard blippi, float loadAmount) {

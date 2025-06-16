@@ -46,8 +46,10 @@ public class HomeController {
         usernamelabel.setText(username);
     }
 
+    @FXML
     public void addCardButtonHandler(ActionEvent event) throws IOException{
-        // Load AddCard.fxml when add card button is clicked
+        try {
+            // Load AddCard.fxml when add card button is clicked
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/AddCard.fxml"));
         root = loader.load();
 
@@ -60,8 +62,12 @@ public class HomeController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    @FXML
     public boolean blippiloadHandler(ActionEvent event) throws IOException {
         if(blippicard == null) {
             Alert alert = new Alert(AlertType.ERROR);
@@ -70,52 +76,94 @@ public class HomeController {
             return false;
         }
 
-        // Load BuyLoad.fxml when qr ticket button is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoad.fxml"));
-        root = loader.load();
+        try {
+            // Load BuyLoad.fxml when qr ticket button is clicked
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoad.fxml"));
+            root = loader.load();
 
-        //Set currentUser
-        BuyLoadController buyLoadController = loader.getController();
-        buyLoadController.setCurrentUser(currentUser);
+            //Set currentUser
+            BuyLoadController buyLoadController = loader.getController();
+            buyLoadController.setCurrentUser(currentUser);
 
-        // Load stage and scene
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            // Load stage and scene
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+            return false;
+        }
 
         return true;
     }
 
+    @FXML
     public void blippitixHandler(ActionEvent event) throws IOException {
-        // Load QrTicket.fxml when qr ticket button is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/QrTicket.fxml"));
-        root = loader.load();
+        try {
+            // Load QrTicket.fxml when qr ticket button is clicked
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/QrTicket.fxml"));
+            root = loader.load();
 
-        QrTicketController qrTicketController = loader.getController();
-        qrTicketController.setCurrentUser(currentUser);
+            QrTicketController qrTicketController = loader.getController();
+            qrTicketController.setCurrentUser(currentUser);
 
-        // Load stage and scene
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            // Load stage and scene
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    @FXML
     public void blippitransacHandler(ActionEvent event) throws IOException {
-        // Load TransactionHistory.fxml when transaction history button is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/TransactionHistory.fxml"));
-        root = loader.load();
+        try {
+            // Load TransactionHistory.fxml when transaction history button is clicked
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/TransactionHistory.fxml"));
+            root = loader.load();
 
-        TransactionHistoryController transactionHistoryController = loader.getController();
-        transactionHistoryController.setCurrentUser(currentUser);
+            TransactionHistoryController transactionHistoryController = loader.getController();
+            transactionHistoryController.setCurrentUser(currentUser);
 
+            // Load stage and scene
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-        // Load stage and scene
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    @FXML
+    public boolean rewardsButtonHandler(ActionEvent event) throws IOException {
+
+        if(blippicard == null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText("You currently do not have a blippi card");
+            alert.showAndWait();
+            return false;
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/RedeemRewards.fxml"));
+            root = loader.load();
+
+            RedeemRewardsController redeem = loader.getController();
+            redeem.setCurrentUser(currentUser);
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
+        return true;
     }
 
     public void setCard(BlippiCard blippi) {
