@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="1080.0" prefWidth="1920.0">
+         <top>
+            <StackPane BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="543.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Blippi/src/main/resources/com/example/images/train.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" StackPane.alignment="TOP_CENTER">
+                     <children>
+                        <Label contentDisplay="CENTER" text="blippi" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="160.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Label text="go far. stay connected." textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="60.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets top="240.0" />
+                     </StackPane.margin>
+                  </Label>
+                  <VBox>
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Blippi/src/main/resources/com/example/images/blippilogo.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="50.0" top="50.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label text="blippi" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="60.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="50.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </top>
+         <center>
+            <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <VBox spacing="10.0">
+                     <children>
+                        <StackPane>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="50.0" text="Getting Started" textFill="#132453">
+                                 <font>
+                                    <Font name="Arial Bold" size="55.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets top="60.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <Label text="Full Name" textFill="#132453">
+                           <font>
+                              <Font name="Arial" size="24.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" top="40.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="usernameField1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="460.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
+                        <Label text="Email/Phone Number" textFill="#132453">
+                           <font>
+                              <Font name="Arial" size="24.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="numberField1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="460.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
+                        <Label text="Password" textFill="#132453">
+                           <font>
+                              <Font name="Arial" size="24.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <PasswordField fx:id="passwordField1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="460.0" style="-fx-background-radius: 10;" />
+                        <StackPane>
+                           <children>
+                              <Button fx:id="signUpButton1" mnemonicParsing="false" onAction="#signUpButtonHandler" prefHeight="70.0" prefWidth="460.0" style="-fx-background-color: #132453; -fx-background-radius: 10;" text="Create Account" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </StackPane>
+                        <HBox>
+                           <children>
+                              <Label text="Already have an account?" textFill="#132453">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="6.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Pane HBox.hgrow="ALWAYS" />
+                              <Button fx:id="loginLink1" mnemonicParsing="false" onAction="#loginLinkHandler" style="-fx-background-color: transparent;" text="Log in." textFill="#132453">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefWidth="360.0">
+         <children>
+            <Pane />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
