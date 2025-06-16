@@ -16,12 +16,12 @@
          <children>
             <ImageView fitHeight="260.0" fitWidth="1922.0" layoutX="8.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Downloads/trainbg.png" />
+                  <Image url="@../images/train.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="55.0" fitWidth="60.0" layoutX="50.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Desktop/1920x1080/CCOBJPGL_PROJECT_COM246/Blippi/src/main/resources/com/example/images/blippilogo.png" />
+                  <Image url="@../images/blippilogo.png" />
                </image>
             </ImageView>
             <Label layoutX="115.0" layoutY="55.0" text="blippi" textFill="WHITE">
