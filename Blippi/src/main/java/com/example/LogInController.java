@@ -153,7 +153,7 @@ public class LogInController {
 
                     if(id_from_file.equals(userId)) {
                         //Create BlippiCard object from database info
-                        BlippiCard blippi = new BlippiCard(cardnum_from_file, Integer.valueOf(balance_from_file), label_from_file, exp_from_file, id_from_file);
+                        BlippiCard blippi = new BlippiCard(cardnum_from_file, Integer.valueOf(balance_from_file), label_from_file, exp_from_file, id_from_file, null);
                         return blippi;
                     }
                 }

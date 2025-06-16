@@ -57,7 +57,7 @@ public class AddCardController {
         //Generate expiration date
         String expDate = ExpDateGenerator();
 
-        BlippiCard blippi = new BlippiCard(cardNum, 0, cardLabel, expDate, userId);
+        BlippiCard blippi = new BlippiCard(cardNum, 0, cardLabel, expDate, userId, null);
 
         //Handle invalid input (special characters, empty field, etc.)
         if(!inputValidator(blippi)) {

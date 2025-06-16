@@ -163,7 +163,7 @@ public class SignUpController {
 
         for (int i = 0; i < username.length(); i++) {
             // Check whether each character is a special character
-            if (!Character.isLetter(username.charAt(i)) &&  !username.contains(".") &&  !username.contains("-") && !username.contains("'")) {
+            if (!Character.isLetter(username.charAt(i)) &&  !username.contains(".") &&  !username.contains("-") && !username.contains("'") && !username.contains(" ") ) {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setHeaderText("Input not valid");
                 alert.setContentText("Name must not contain special characters");

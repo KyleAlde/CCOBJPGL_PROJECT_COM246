@@ -18,5 +18,5 @@ public class User {
     public String getUsername() { return username.get(); }
     public String getPassword() { return password.get(); }
     public String getContact() { return phoneOrEmail.get(); }
-    public String getId() { return id; }
+    public String getId() { return this.id; }
 }
