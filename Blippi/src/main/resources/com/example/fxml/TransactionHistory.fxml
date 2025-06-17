@@ -83,11 +83,11 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <TableView layoutX="132.0" layoutY="252.0" prefHeight="424.0" prefWidth="1151.0" visible="false">
+      <TableView fx:id="transactionTable" layoutX="132.0" layoutY="252.0" prefHeight="424.0" prefWidth="1151.0" visible="false">
         <columns>
-            <TableColumn prefWidth="475.0" text="C1" />
-            <TableColumn prefWidth="406.0" text="C2" />
-            <TableColumn prefWidth="270.0" text="C3" />
+            <TableColumn fx:id="transactionCol" prefWidth="475.0" text="C1" />
+            <TableColumn fx:id="typeCol" prefWidth="406.0" text="C2" />
+            <TableColumn fx:id="amountCol" prefWidth="270.0" text="C3" />
         </columns>
       </TableView>
       <ImageView fitHeight="24.0" fitWidth="20.0" layoutX="71.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
