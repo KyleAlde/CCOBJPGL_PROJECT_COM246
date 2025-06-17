@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.LoadConfirmationController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.LoadRewardDetailsController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="90.0" layoutX="-7.0" layoutY="-9.0" stroke="#00135e" strokeType="INSIDE" width="1930.0" />
       <Label layoutX="91.0" layoutY="30.0" prefHeight="23.0" prefWidth="134.0" text="Hello," textFill="WHITE">
@@ -101,12 +101,17 @@
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="totalAmount" layoutX="1530.0" layoutY="690.0" text="₱10.00" textFill="#04185f">
+      <Label fx:id="amount" layoutX="1530.0" layoutY="690.0" text="₱10.00" textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="340.0" layoutY="520.0" text="Card number" textFill="#132453">
+      <Label layoutX="340.0" layoutY="520.0" text="Amount" textFill="#132453">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="points" layoutX="1565.0" layoutY="520.0" text="0.00" textFill="#132453">
          <font>
             <Font name="Arial" size="24.0" />
          </font>

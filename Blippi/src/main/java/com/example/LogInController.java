@@ -121,7 +121,7 @@ public class LogInController {
     @FXML
     public void signUpLinkHandler(ActionEvent event) throws IOException {
         // Load Singup.fxml when signup link is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Signup.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/SignupV2.fxml"));
         root = loader.load();
 
         // Load stage and scene
