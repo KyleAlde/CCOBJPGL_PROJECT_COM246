@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -56,5 +59,191 @@
             <Font name="Arial Rounded MT Bold" size="22.0" />
          </font>
       </Button>
+      <ScrollPane layoutX="115.0" layoutY="225.0" prefHeight="838.0" prefWidth="1777.0" style="-fx-background-color: transparent;">
+         <content>
+            <AnchorPane prefHeight="2050.0" prefWidth="1790.0">
+               <children>
+                  <Label layoutX="60.0" layoutY="185.0" prefHeight="110.0" prefWidth="1659.0" text="You may get the balance of your card by doing the following: Get the blippi app from the Apple App Store, Google Play Store, or Huawei AppGallery. It’s free to download and lets you register your blippi card. The app shows your current balance as well as recent transactions made with your registered card. Tap your blippi card on any Ticket Vending Machine (TVM) located in LRT and MRT stations. Visit a teller window at any LRT or MRT station to inquire about your balance." wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="135.0" prefHeight="45.0" prefWidth="932.0" text="2. How can I know how much balance I have in my blippi card?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="30.0" prefHeight="45.0" prefWidth="932.0" text="1. How much does a blippi card cost?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="70.0" prefHeight="41.0" prefWidth="1659.0" text="A blippi card costs 35 pesos. Please note that upon purchase, the card has a zero balance." wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="342.0" prefHeight="90.0" prefWidth="1659.0" text="Blippi makes commuting faster and more convenient by reducing ticket lines and enabling easy transfers across trains. Payments are contactless and instantly deducted, making each trip quicker and safer." wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="315.0" prefHeight="45.0" prefWidth="932.0" text="3. How does Blippi improve my commuting experience?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="466.0" prefHeight="90.0" prefWidth="1659.0" text="Blippi offers a smoother and more convenient way to pay. You won’t need to carry cash or look for change, and you’ll always pay the exact fare. Travel is easier with just one card for transport options." wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="439.0" prefHeight="45.0" prefWidth="932.0" text="4. What’s the advantage of using a Blippi card over cash?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="603.0" prefHeight="41.0" prefWidth="1659.0" text="The load of a regular blippi card cannot be reclaimed once the card is lost. Only the load of the Concessionary card can be transferred for a fee of P150." wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="561.0" prefHeight="45.0" prefWidth="1123.0" text="5. What if my blippi card gets lost? Can I still reclaim the remaining balance?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="707.0" prefHeight="41.0" prefWidth="1659.0" text="Cards can be extended one hundred eighty (180) calendar days prior to the expiry date printed on the card." wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="669.0" prefHeight="45.0" prefWidth="925.0" text="6. What should users do with expiring blippi cards?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="811.0" prefHeight="67.0" prefWidth="1652.0" text="If the card is already expired, the cardholder would have to purchase a new card from the station " wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="765.0" prefHeight="45.0" prefWidth="932.0" text="7. When to buy a new blippi cards?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="930.0" prefHeight="78.0" prefWidth="1659.0" text="The blippi app was developed to help you, our cardholder, better manage your card by offering the following services: Inform you of your card balance. Show your transactions made using the card. " wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="891.0" prefHeight="45.0" prefWidth="932.0" text="8. Why do I need the blippi app?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="1058.0" prefHeight="78.0" prefWidth="1659.0" text="The blippi app was developed to help you, our cardholder, better manage your card by offering the following services: Inform you of your card balance. Show your transactions made using the card.Allow you to register up to 5 cards so you can monitor your load and usage." wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="1020.0" prefHeight="45.0" prefWidth="932.0" text="9. How to buy and receive blippi load using blippi app?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="1166.0" prefHeight="82.0" prefWidth="1659.0" text="Click on “Buy blippi Load”. Select the card you want to purchase a load then key-in your desired amount. On the payment window, kindly input your card details. Once successful, return to blippi app and tap your card on a loading station." wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="1139.0" prefHeight="45.0" prefWidth="932.0" text="10. How to buy and receive blippi load using blippi app?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="1294.0" prefHeight="41.0" prefWidth="1659.0" text="It will work on smartphones with the following iOS and Android operating systems: at least Android v5.0 and at least iOS v9.0." wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="1252.0" prefHeight="45.0" prefWidth="1123.0" text="11. Will it work on all mobile phones/mobile devices?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="1402.0" prefHeight="41.0" prefWidth="1659.0" text="There may a slight delay in the balance shown as data is uploaded periodically throughout the day. The time and date of the card balance will be shown in the app." wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="1364.0" prefHeight="45.0" prefWidth="925.0" text="12. Will the app show my realtime card balance?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="1506.0" prefHeight="41.0" prefWidth="1652.0" text="There may a slight delay in the transactions shown as data is uploaded periodically throughout the day." wrapText="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="1460.0" prefHeight="45.0" prefWidth="932.0" text="13. Will the app show up-to-date transactions?" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1450.0" layoutY="1700.0" prefHeight="50.0" prefWidth="265.0" text="Contact Us" textFill="#04185f">
+                     <font>
+                        <Font name="Arial Bold" size="50.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1155.0" layoutY="1760.0" prefHeight="45.0" prefWidth="560.0" text="551 M.F. Jhocson St. Sampaloc, Manila, Philippines" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1420.0" layoutY="1800.0" prefHeight="45.0" prefWidth="119.0" text="Landline – " textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1434.0" layoutY="1840.0" prefHeight="45.0" prefWidth="116.0" text="SMART – " textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1440.0" layoutY="1880.0" prefHeight="45.0" prefWidth="110.0" text="GLOBE – " textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1539.0" layoutY="1800.0" prefHeight="45.0" prefWidth="185.0" text="(01) 2 300-1200" textFill="#f28686" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1550.0" layoutY="1840.0" prefHeight="45.0" prefWidth="163.0" text="0912 345 6789" textFill="#f28686" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1550.0" layoutY="1880.0" prefHeight="45.0" prefWidth="165.0" text="0998 765 4321" textFill="#f28686" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1479.0" layoutY="1920.0" prefHeight="45.0" prefWidth="237.0" text="blippiapp@gmail.com" textFill="#04185f" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ScrollPane>
    </children>
 </Pane>
