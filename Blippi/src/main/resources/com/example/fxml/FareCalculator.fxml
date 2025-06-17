@@ -10,9 +10,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.FareCalculatorController">
    <children>
-      <Button alignment="CENTER" layoutX="804.0" layoutY="908.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="303.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Calculate Fare" textFill="#fcf2f2">
+      <Button fx:id="calcButton" alignment="CENTER" layoutX="804.0" layoutY="908.0" mnemonicParsing="false" onAction="#calcButtonHandler" prefHeight="73.0" prefWidth="303.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Calculate Fare" textFill="#fcf2f2">
          <font>
             <Font name="Arial" size="30.0" />
          </font>
@@ -73,20 +73,20 @@
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="320.0" layoutY="340.0" prefHeight="43.0" prefWidth="326.0" style="-fx-background-radius: 10;" />
+      <ChoiceBox fx:id="fareChoice" layoutX="320.0" layoutY="340.0" prefHeight="43.0" prefWidth="326.0" style="-fx-background-radius: 10;" />
       <Label layoutX="320.0" layoutY="631.0" text="Boarding at" textFill="#132453">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="320.0" layoutY="671.0" prefHeight="43.0" prefWidth="326.0" style="-fx-background-radius: 10;" />
+      <ChoiceBox fx:id="boardingChoice" layoutX="320.0" layoutY="671.0" prefHeight="43.0" prefWidth="326.0" style="-fx-background-radius: 10;" />
       <Label layoutX="320.0" layoutY="751.0" text="Alighting at" textFill="#132453">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="320.0" layoutY="791.0" prefHeight="43.0" prefWidth="326.0" style="-fx-background-radius: 10;" />
-      <Button alignment="CENTER_RIGHT" layoutX="320.0" layoutY="460.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="232.0" style="-fx-background-color: #00135e; -fx-border-color: #000000; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="MRT" textAlignment="RIGHT" textFill="WHITE">
+      <ChoiceBox fx:id="alightingChoice" layoutX="320.0" layoutY="791.0" prefHeight="43.0" prefWidth="326.0" style="-fx-background-radius: 10;" />
+      <Button fx:id="mrt3Button" alignment="CENTER_RIGHT" layoutX="320.0" layoutY="460.0" mnemonicParsing="false" onAction="#mrt3ButtonHandler" prefHeight="140.0" prefWidth="232.0" style="-fx-background-color: #00135e; -fx-border-color: #000000; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="MRT" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="30.0" />
          </font>
@@ -123,42 +123,42 @@
          </font>
       </Label>
       <Line endX="791.0" endY="-62.0" layoutX="996.0" layoutY="623.0" startX="114.0" startY="-62.0" stroke="#d3d2d4" />
-      <Label layoutX="1638.0" layoutY="382.0" text="LRT 1" textFill="#04185f">
+      <Label fx:id="lrtLabel" layoutX="1562.0" layoutY="382.0" prefHeight="30.0" prefWidth="197.0" text="MRT 3" textFill="#04185f">
          <font>
             <Font name="Arial" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="1639.0" layoutY="422.0" text="Santolan" textFill="#04185f">
+      <Label fx:id="boardLabel" layoutX="1562.0" layoutY="422.0" prefHeight="30.0" prefWidth="197.0" text="-" textFill="#04185f">
          <font>
             <Font name="Arial" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="1639.0" layoutY="462.0" text="Legarda" textFill="#04185f">
+      <Label fx:id="alightLabel" layoutX="1562.0" layoutY="462.0" prefHeight="30.0" prefWidth="212.0" text="-" textFill="#04185f">
          <font>
             <Font name="Arial" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="1639.0" layoutY="582.0" text="₱30.00" textFill="#04185f">
+      <Label fx:id="fareLabel" layoutX="1639.0" layoutY="582.0" text="₱0.00" textFill="#04185f">
          <font>
             <Font name="Arial" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="1639.0" layoutY="615.0" text="20.00%" textFill="#04185f">
+      <Label fx:id="discountLabel" layoutX="1636.0" layoutY="616.0" text="0.00%" textFill="#04185f">
          <font>
             <Font name="Arial" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="1639.0" layoutY="756.0" text="₱24.00" textFill="#04185f">
+      <Label fx:id="totalLabel" layoutX="1639.0" layoutY="756.0" text="₱0.00" textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="25.0" />
          </font>
       </Label>
-      <Button alignment="CENTER_RIGHT" layoutX="578.0" layoutY="461.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="232.0" style="-fx-background-color: #00135e; -fx-border-color: #000000; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="LRT 1" textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="lrt1Button" alignment="CENTER_RIGHT" layoutX="578.0" layoutY="461.0" mnemonicParsing="false" onAction="#lrt1ButtonHandler" prefHeight="140.0" prefWidth="232.0" style="-fx-background-color: #00135e; -fx-border-color: #000000; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="LRT 1" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="30.0" />
          </font>
       </Button>
-      <Button alignment="CENTER_RIGHT" layoutX="831.0" layoutY="460.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="232.0" style="-fx-background-color: #00135e; -fx-border-color: #000000; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="LRT 2" textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="lrt2Button" alignment="CENTER_RIGHT" layoutX="831.0" layoutY="460.0" mnemonicParsing="false" onAction="#lrt2ButtonHandler" prefHeight="140.0" prefWidth="232.0" style="-fx-background-color: #00135e; -fx-border-color: #000000; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="LRT 2" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="30.0" />
          </font>

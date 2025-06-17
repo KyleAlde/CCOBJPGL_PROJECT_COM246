@@ -141,6 +141,27 @@ public class HomeController {
     }
 
     @FXML
+    public void blippicalcHandler(ActionEvent event) throws IOException {
+        System.out.println("Navigating to FareCalculator...");
+        try {
+            // Load FareCalculator.fxml when transaction history button is clicked
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/FareCalculator.fxml"));
+            root = loader.load();
+
+            FareCalculatorController fareCalc = loader.getController();
+            fareCalc.setCurrentUser(currentUser);
+
+            // Load stage and scene
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public boolean rewardsButtonHandler(ActionEvent event) throws IOException {
 
         if(blippicard == null) {

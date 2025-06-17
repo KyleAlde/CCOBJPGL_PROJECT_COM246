@@ -60,7 +60,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="blippicalc" alignment="CENTER_RIGHT" layoutX="1097.0" layoutY="635.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="535.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Fare Calculator          " textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="blippicalc" alignment="CENTER_RIGHT" layoutX="1097.0" layoutY="635.0" mnemonicParsing="false" onAction="#blippicalcHandler" prefHeight="111.0" prefWidth="535.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Fare Calculator          " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
