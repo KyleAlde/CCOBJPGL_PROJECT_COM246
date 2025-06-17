@@ -1,9 +1,11 @@
 package com.example;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,18 +38,20 @@ public class HomeController {
     //Method for setting current user from LogIn/SignUp
     private User currentUser;
     private BlippiCard blippicard;
-    public void setCurrentUser(User user, BlippiCard blippi) {
+    public void setCurrentUser(User user) {
         this.currentUser = user;
-        this.blippicard = blippi;
-        if(blippi != null) {
-            setCard(blippi);
+        this.blippicard = user.getBlippi();
+        if(blippicard != null) {
+            setCard(blippicard);
         }
         String username = currentUser.getUsername();
         usernamelabel.setText(username);
     }
 
+    @FXML
     public void addCardButtonHandler(ActionEvent event) throws IOException{
-        // Load AddCard.fxml when add card button is clicked
+        try {
+            // Load AddCard.fxml when add card button is clicked
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/AddCard.fxml"));
         root = loader.load();
 
@@ -60,8 +64,12 @@ public class HomeController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    @FXML
     public boolean blippiloadHandler(ActionEvent event) throws IOException {
         if(blippicard == null) {
             Alert alert = new Alert(AlertType.ERROR);
@@ -70,52 +78,94 @@ public class HomeController {
             return false;
         }
 
-        // Load BuyLoad.fxml when qr ticket button is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoad.fxml"));
-        root = loader.load();
+        try {
+            // Load BuyLoad.fxml when qr ticket button is clicked
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoad.fxml"));
+            root = loader.load();
 
-        //Set currentUser
-        BuyLoadController buyLoadController = loader.getController();
-        buyLoadController.setCurrentUser(currentUser, blippicard);
+            //Set currentUser
+            BuyLoadController buyLoadController = loader.getController();
+            buyLoadController.setCurrentUser(currentUser);
 
-        // Load stage and scene
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            // Load stage and scene
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+            return false;
+        }
 
         return true;
     }
 
+    @FXML
     public void blippitixHandler(ActionEvent event) throws IOException {
-        // Load QrTicket.fxml when qr ticket button is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/QrTicket.fxml"));
-        root = loader.load();
+        try {
+            // Load QrTicket.fxml when qr ticket button is clicked
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/QrTicket.fxml"));
+            root = loader.load();
 
-        QrTicketController qrTicketController = loader.getController();
-        qrTicketController.setCurrentUser(currentUser, blippicard);
+            QrTicketController qrTicketController = loader.getController();
+            qrTicketController.setCurrentUser(currentUser);
 
-        // Load stage and scene
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            // Load stage and scene
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    @FXML
     public void blippitransacHandler(ActionEvent event) throws IOException {
-        // Load TransactionHistory.fxml when transaction history button is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/TransactionHistory.fxml"));
-        root = loader.load();
+        try {
+            // Load TransactionHistory.fxml when transaction history button is clicked
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/TransactionHistory.fxml"));
+            root = loader.load();
 
-        TransactionHistoryController transactionHistoryController = loader.getController();
-        transactionHistoryController.setCurrentUser(currentUser, blippicard);
+            TransactionHistoryController transactionHistoryController = loader.getController();
+            transactionHistoryController.setCurrentUser(currentUser);
 
+            // Load stage and scene
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-        // Load stage and scene
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    @FXML
+    public boolean rewardsButtonHandler(ActionEvent event) throws IOException {
+
+        if(blippicard == null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText("You currently do not have a blippi card");
+            alert.showAndWait();
+            return false;
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/RedeemRewards.fxml"));
+            root = loader.load();
+
+            RedeemRewardsController redeem = loader.getController();
+            redeem.setCurrentUser(currentUser);
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
+        return true;
     }
 
     public void setCard(BlippiCard blippi) {
@@ -194,13 +244,38 @@ public class HomeController {
         availableBalanceLabel.setLayoutY(153.0);
         container.getChildren().add(availableBalanceLabel);
 
-        // Generate current date and time
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("MMMM dd, yyyy hh:mm a");
-        String formattedDate = now.format(format);
+        //Get the date of the latest transaction
+        String latestDate = null;
+        File transacFile = new File("transactions.txt");
+
+        if(transacFile.exists()) {
+            Scanner filescanner;
+
+            try {
+                filescanner = new Scanner(transacFile);
+                String lastLine;
+
+                while(filescanner.hasNextLine()) {
+                    lastLine = filescanner.nextLine();
+
+                    if(blippi.getCardNumber().equals(lastLine.split(";")[1])) {
+                        latestDate = lastLine.split(";")[4];
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(latestDate == null) {
+            // Generate current date and time
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("MMMM dd, yyyy hh:mm a");
+            latestDate = now.format(format);
+        }
 
         // Balance date label
-        Label balDateLabel = new Label(formattedDate);
+        Label balDateLabel = new Label(latestDate);
         balDateLabel.setTextFill(Color.WHITE);
         balDateLabel.setFont(Font.font("Arial", 9));
         balDateLabel.setLayoutX(115.0);

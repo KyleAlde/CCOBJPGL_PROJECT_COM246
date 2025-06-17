@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javafx.event.ActionEvent;
@@ -43,13 +44,13 @@ public class BuyLoadCardController {
     private User currentUser;
     private BlippiCard blippiCard;
     private BlippiCard selectedBlippi;
-    public void setCurrentUser(User user, BlippiCard blippi) {
+    public void setCurrentUser(User user) {
         this.currentUser = user;
-        this.blippiCard = blippi;
+        this.blippiCard = user.getBlippi();
         String username = currentUser.getUsername();
         usernamelabel.setText(username);
-        cardCheckBox.setText(blippi.getLabel());
-        accnum.setText(blippi.getCardNumber());
+        cardCheckBox.setText(blippiCard.getLabel());
+        accnum.setText(blippiCard.getCardNumber());
     }
 
     public void setAmount(float numAmount) {
@@ -75,7 +76,8 @@ public class BuyLoadCardController {
             return false;
         }
 
-        selectedBlippi = searchCard(cardNum);
+        SearchData searchData = new SearchData();
+        selectedBlippi = searchData.searchByCardNum(cardNum);
 
         //Check whether the blippi card exists
         if(selectedBlippi == null) {
@@ -86,34 +88,43 @@ public class BuyLoadCardController {
             return false;
         }
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoadConfirmation.fxml"));
-        root = loader.load();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoadConfirmation.fxml"));
+            root = loader.load();
 
-        LoadConfirmationController LoadConfirmationController = loader.getController();
-        LoadConfirmationController.setCurrentUser(currentUser, blippiCard);
-        LoadConfirmationController.setAmount(amount, selectedBlippi);
+            LoadConfirmationController LoadConfirmationController = loader.getController();
+            LoadConfirmationController.setCurrentUser(currentUser);
+            LoadConfirmationController.setAmount(amount, selectedBlippi);
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        
         return true;
     }
 
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoad.fxml"));
-        root = loader.load();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoad.fxml"));
+            root = loader.load();
 
-        //Set current user for the blippi card set-up and add card to home page
-        BuyLoadController buyLoadController = loader.getController();
-        buyLoadController.setCurrentUser(currentUser, blippiCard);
+            //Set current user for the blippi card set-up and add card to home page
+            BuyLoadController buyLoadController = loader.getController();
+            buyLoadController.setCurrentUser(currentUser);
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean inputValidator(String cardNum) {
@@ -126,7 +137,7 @@ public class BuyLoadCardController {
         }
         for (int i = 0; i < cardNum.length(); i++) {
             // Check whether each character is a letter or special character
-            if (!Character.isLetterOrDigit(cardNum.charAt(i)) || Character.isLetter(cardNum.charAt(i))) {
+            if (!Character.isDigit(cardNum.charAt(i))) {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setHeaderText("Input not valid");
                 alert.setContentText("Card number must only contain numbers");
@@ -135,39 +146,5 @@ public class BuyLoadCardController {
             }
         }
         return true;
-    }
-
-    private BlippiCard searchCard(String accNum) {
-        File blippiFile = new File("blippicards.txt");
-
-        if(blippiFile.exists()) {
-            Scanner filescanner;
-
-            try {
-                filescanner = new Scanner(blippiFile);
-
-                //Look for the card with the matching userId
-                while(filescanner.hasNextLine()) {
-                    String data = filescanner.nextLine();
-
-                    String cardnum_from_file = data.split(";")[0];
-                    String balance_from_file = data.split(";")[1];
-                    String label_from_file = data.split(";")[2];
-                    String exp_from_file = data.split(";")[3];
-                    String id_from_file = data.split(";")[4];
-
-                    if(cardnum_from_file.equals(accNum)) {
-                        //Create BlippiCard object from database info
-                        BlippiCard blippi = new BlippiCard(cardnum_from_file, Integer.valueOf(balance_from_file), label_from_file, exp_from_file, id_from_file);
-                        return blippi;
-                    }
-                }
-            } catch(FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("blippicards.txt file cannot be read");
-        }
-        return null;
     }
 }

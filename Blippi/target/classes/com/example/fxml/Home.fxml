@@ -30,11 +30,6 @@
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="1060.0" layoutY="20.0" text="blippi Rewards" textFill="WHITE">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="18.0" />
-         </font>
-      </Label>
       <Label layoutX="1206.0" layoutY="20.0" text="Help &amp; Support" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
@@ -132,5 +127,10 @@
             </Button>
          </children>
       </AnchorPane>
+      <Button fx:id="rewardsButton" layoutX="1048.0" layoutY="15.0" mnemonicParsing="false" onAction="#rewardsButtonHandler" style="-fx-background-color: transparent;" text="blippi Rewards" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
