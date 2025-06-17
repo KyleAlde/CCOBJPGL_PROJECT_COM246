@@ -175,6 +175,21 @@ public class AddCardController {
             }
         }
 
+        SearchData search = new SearchData();
+        if (search.searchByCardNum(cardNum) != null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("The card you entered is already registered to another account");
+            alert.showAndWait();
+            return false;
+        }
+        if(cardNum.length() != 16) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("The card you entered does not exist");
+            alert.showAndWait();
+            return false;
+        }
         return true;
     }
 }

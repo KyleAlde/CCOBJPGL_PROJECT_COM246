@@ -121,7 +121,13 @@ public class HomeController {
     }
 
     @FXML
-    public void blippitransacHandler(ActionEvent event) throws IOException {
+    public boolean blippitransacHandler(ActionEvent event) throws IOException {
+        if(blippicard == null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText("You currently do not have a blippi card");
+            alert.showAndWait();
+            return false;
+        }
         try {
             // Load TransactionHistory.fxml when transaction history button is clicked
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/TransactionHistoryV2.fxml"));
@@ -138,6 +144,7 @@ public class HomeController {
         } catch(IOException e) {
             e.printStackTrace();
         }
+        return true;
     }
 
     @FXML

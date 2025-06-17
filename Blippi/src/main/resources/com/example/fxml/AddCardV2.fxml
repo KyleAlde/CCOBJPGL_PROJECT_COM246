@@ -32,12 +32,12 @@
             <Font name="Arial Rounded MT Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="735.0" layoutY="250.0" text="blippi Card Number" textFill="#132453">
+      <Label layoutX="735.0" layoutY="250.0" prefHeight="32.0" prefWidth="470.0" text="blippi Card Number (last 10 digits)" textFill="#132453">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="cardNumField" layoutX="735.0" layoutY="292.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
+      <TextField fx:id="cardNumField" layoutX="735.0" layoutY="292.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10; -fx-font-size: 16;" text="637805" />
       <Label layoutX="735.0" layoutY="390.0" text="Card Label" textFill="#132453">
          <font>
             <Font size="22.0" />

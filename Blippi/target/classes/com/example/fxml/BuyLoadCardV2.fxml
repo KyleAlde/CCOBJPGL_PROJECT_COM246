@@ -64,12 +64,12 @@
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="cardNumField" layoutX="670.0" layoutY="330.0" prefHeight="70.0" prefWidth="590.0" text="Someone's blippi card">
+      <TextField fx:id="cardNumField" layoutX="670.0" layoutY="330.0" prefHeight="70.0" prefWidth="590.0" text="637805">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="680.0" layoutY="295.0" text="blippi Card Number" textFill="#132453">
+      <Label layoutX="680.0" layoutY="295.0" prefHeight="27.0" prefWidth="540.0" text="blippi Card Number (last 10 digits)" textFill="#132453">
          <font>
             <Font name="Arial" size="24.0" />
          </font>

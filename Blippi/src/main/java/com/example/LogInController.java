@@ -120,14 +120,35 @@ public class LogInController {
 
     @FXML
     public void signUpLinkHandler(ActionEvent event) throws IOException {
-        // Load Singup.fxml when signup link is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/SignupV2.fxml"));
-        root = loader.load();
+        try {
+            // Load Singup.fxml when signup link is clicked
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/SignupV2.fxml"));
+            root = loader.load();
 
-        // Load stage and scene
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            // Load stage and scene
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void forgotPwordHandler(ActionEvent event) throws IOException {
+        try {
+            // Load Singup.fxml when signup link is clicked
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/ForgotPassword.fxml"));
+            root = loader.load();
+
+            // Load stage and scene
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

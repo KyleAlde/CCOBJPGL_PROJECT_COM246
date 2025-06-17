@@ -88,15 +88,19 @@ public class SignUpController {
 
     @FXML
     public void loginLinkHandler(ActionEvent event) throws IOException{
-        // Load Login.fxml when login link is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoginV2.fxml"));
-        root = loader.load();
+        try {
+            // Load Login.fxml when login link is clicked
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoginV2.fxml"));
+            root = loader.load();
 
-        // Load stage and scene
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            // Load stage and scene
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean inputValidator(String username, String password, String phoneOrEmail) {
@@ -126,7 +130,7 @@ public class SignUpController {
         
         for (int i = 0; i < phoneOrEmail.length(); i++) {
             // Check whether each character is a letter or special character
-            if (Character.isLetterOrDigit(phoneOrEmail.charAt(i)) && !Character.isLetter(phoneOrEmail.charAt(i))) {
+            if (Character.isDigit(phoneOrEmail.charAt(i))) {
                 if(phoneOrEmail.length() != 11) {
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setHeaderText("Input not valid");
@@ -135,7 +139,7 @@ public class SignUpController {
                     return false;
                 }
             } else {
-                if((!phoneOrEmail.contains("@") && !phoneOrEmail.contains(".")) || phoneOrEmail.length() > 50) {
+                if((!phoneOrEmail.contains("@") || !phoneOrEmail.contains(".")) || phoneOrEmail.length() > 50) {
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setHeaderText("Input not valid");
                     alert.setContentText("Please enter a valid email address or phone number");

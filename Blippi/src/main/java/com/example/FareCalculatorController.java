@@ -43,6 +43,9 @@ public class FareCalculatorController {
     @FXML
     private Label lrtLabel;
 
+    @FXML
+    private Label usernamelabel;
+
     private String boardingStation;
     private String alightingStation;
     private String stationChoice;
@@ -122,6 +125,7 @@ public class FareCalculatorController {
     public void setCurrentUser(User user) {
         this.currentUser = user;
         this.blippiCard = user.getBlippi();
+        usernamelabel.setText(user.getUsername());
     }
 
     @FXML

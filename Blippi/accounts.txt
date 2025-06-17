@@ -1,3 +1,2 @@
-Jarod Kyle Alde;password1;aldejarod@gmail.com;25-273
+Jarod Kyle Alde;pass1;aldejarod@gmail.com;25-273
 Juan Dela Cruz;password1;09051234567;25-823
-Michael Scoot;pasword1;09054962567;25-438

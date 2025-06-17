@@ -42,6 +42,9 @@ public class TransactionHistoryController {
     @FXML
     private TableColumn<Transaction, Float> amountCol;
 
+    @FXML
+    private Label usernamelabel;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -56,6 +59,7 @@ public class TransactionHistoryController {
         transactionCol.setText(""); // Set header text to empty
         typeCol.setText(""); // Set header text to empty
         amountCol.setText(""); // Set header text to empty
+        usernamelabel.setText(user.getUsername());
         loadData();
     }
 

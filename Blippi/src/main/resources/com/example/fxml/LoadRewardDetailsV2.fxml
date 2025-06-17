@@ -106,7 +106,7 @@
             <Font name="Arial Bold" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="340.0" layoutY="520.0" text="Amount" textFill="#132453">
+      <Label layoutX="340.0" layoutY="520.0" text="Points" textFill="#132453">
          <font>
             <Font name="Arial" size="24.0" />
          </font>

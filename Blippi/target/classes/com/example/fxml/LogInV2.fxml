@@ -79,7 +79,7 @@
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </Button>
-            <Button layoutX="20.0" layoutY="400.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Forgot password?" textFill="#425fa9">
+            <Button fx:id="forgotPword" layoutX="20.0" layoutY="400.0" mnemonicParsing="false" onAction="#forgotPwordHandler" style="-fx-background-color: transparent;" text="Forgot password?" textFill="#425fa9">
                <font>
                   <Font name="Arial" size="22.0" />
                </font>
