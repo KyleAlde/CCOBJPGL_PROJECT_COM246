@@ -51,7 +51,7 @@ public class RedeemLoadController {
     }
 
     @FXML
-    public boolean redeemButtonHanlder(ActionEvent event) throws IOException {
+    public boolean redeemButtonHandler(ActionEvent event) throws IOException {
         float numAmount = 0;
 
         try {
@@ -77,6 +77,27 @@ public class RedeemLoadController {
             alert.setContentText("Please enter a valid amount");
             alert.showAndWait();
             return false;
+        }
+
+        float reqPoints = numAmount * 200;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoadRewardDetails.fxml"));
+            root = loader.load();
+
+            //Set current user and amount
+            LoadRewardDetailsController loadRewardDetailsController = loader.getController();
+            loadRewardDetailsController.setCurrentUser(currentUser);
+            loadRewardDetailsController.setAmount(numAmount, reqPoints);
+            System.out.println(numAmount);
+
+            // Load stage and scene
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return true;

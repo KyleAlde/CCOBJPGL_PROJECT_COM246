@@ -24,7 +24,7 @@ public class SearchData {
                     String contact_from_file = data.split(";")[2];
                     String id_from_file = data.split(";")[3];
 
-                    if(contact_from_file.equals(phoneOrEmail)) {
+                    if(id_from_file.equals(phoneOrEmail)) {
                         //Create User object from database info
                         User user = new User(name_from_file, pword_from_file, contact_from_file, id_from_file, searchCard(id_from_file));
                         filescanner.close();

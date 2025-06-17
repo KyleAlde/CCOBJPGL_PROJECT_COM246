@@ -32,5 +32,6 @@ public class BlippiCard {
     public ArrayList<Transaction> getTransac() { return transacList; }
 
     public void setBalance(float newBalance) { this.balance.set(newBalance); }
+    public void setRewards(float newPoints) { this.rewardPoints.set(newPoints); }
     public void addTransaction(Transaction transaction) { transacList.add(transaction); }
 }

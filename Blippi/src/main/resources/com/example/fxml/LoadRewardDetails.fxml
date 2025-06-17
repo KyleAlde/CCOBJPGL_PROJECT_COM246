@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.LoadRewardDetailsController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="71.0" layoutX="-7.0" layoutY="-9.0" stroke="#00135e" strokeType="INSIDE" width="1393.0" />
       <Label layoutX="81.0" layoutY="17.0" prefHeight="23.0" prefWidth="134.0" text="Hello," textFill="WHITE">
@@ -18,7 +18,7 @@
       </Label>
       <ImageView fitHeight="43.0" fitWidth="42.0" layoutX="15.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../BLIPPI/demo/src/main/resources/com/example/bg%20real.png" />
+            <Image url="@../images/blippilogo.png" />
          </image>
       </ImageView>
       <Label layoutX="945.0" layoutY="20.0" text="blippi Card" textFill="WHITE">
@@ -41,12 +41,12 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="usernamelabel" layoutX="139.0" layoutY="17.0" prefHeight="23.0" prefWidth="134.0" text="User" textFill="WHITE">
+      <Label fx:id="usernamelabel" layoutX="139.0" layoutY="17.0" prefHeight="23.0" prefWidth="450.0" text="User" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="19.0" />
          </font>
       </Label>
-      <Button layoutX="590.0" layoutY="637.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="225.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Confirm" textFill="#fcf2f2">
+      <Button fx:id="confirmButton" layoutX="590.0" layoutY="637.0" mnemonicParsing="false" onAction="#confirmButtonHandler" prefHeight="55.0" prefWidth="225.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Confirm" textFill="#fcf2f2">
          <font>
             <Font name="Arial" size="19.0" />
          </font>
@@ -71,17 +71,17 @@
             <Font name="Arial" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="1014.0" layoutY="339.0" text="0001112224445556" textAlignment="RIGHT" textFill="#04185f">
+      <Label fx:id="accnum" layoutX="1014.0" layoutY="339.0" text="0001112224445556" textAlignment="RIGHT" textFill="#04185f">
          <font>
             <Font name="Arial" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="218.0" layoutY="361.0" text="Card number" textFill="#04185f">
+      <Label layoutX="218.0" layoutY="361.0" text="Points" textFill="#04185f">
          <font>
             <Font name="Arial" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="1134.0" layoutY="361.0" text="2000" textAlignment="RIGHT" textFill="#04185f">
+      <Label fx:id="points" layoutX="1134.0" layoutY="361.0" text="2000" textAlignment="RIGHT" textFill="#04185f">
          <font>
             <Font name="Arial" size="18.0" />
          </font>
@@ -96,20 +96,20 @@
             <Font name="Arial" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="1117.0" layoutY="471.0" text="₱10.00" textFill="#04185f">
+      <Label fx:id="amount" layoutX="1117.0" layoutY="471.0" text="₱10.00" textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
       <ImageView fitHeight="24.0" fitWidth="20.0" layoutX="61.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@back.png" />
+            <Image url="@../images/back.png" />
          </image>
       </ImageView>
-      <Label layoutX="87.0" layoutY="96.0" text="Back" textFill="#04185f">
+      <Button fx:id="backButton" layoutX="74.0" layoutY="90.0" mnemonicParsing="false" onAction="#backButtonHandler" style="-fx-background-color: transparent;" text="Back" textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
-      </Label>
+      </Button>
    </children>
 </Pane>

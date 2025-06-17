@@ -5,11 +5,10 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,67 +19,68 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import java.util.List;
+import java.util.Random;
 
-public class LoadConfirmationController {
-
+public class LoadRewardDetailsController {
     @FXML
     private Label usernamelabel;
-
-    @FXML
-    private Label amount;
 
     @FXML
     private Label accnum;
 
     @FXML
-    private Label totalAmount;
+    private Label amount;
+
+    @FXML
+    private Label points;
+
+    @FXML
+    TextField amountTextField;
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    private float loadAmount;
-    private float newAmount;
     private User currentUser;
     private BlippiCard blippiCard;
-    private BlippiCard selectedBlippi;
-
-    public void setAmount(float inputAmount, BlippiCard blippi) {
-        this.loadAmount = inputAmount;
-        this.selectedBlippi = blippi;
-        float processFee = inputAmount * 0.03f;
-        newAmount = loadAmount + processFee;
-        accnum.setText(selectedBlippi.getCardNumber());
-        String strAmount = String.format("₱%.2f", loadAmount);
-        amount.setText(strAmount);
-        String strTotal = String.format("₱%.2f", newAmount);
-        totalAmount.setText(strTotal);
-    }
-
+    private float currentPoints;
+    private float reqPoints;
+    private float loadAmount;
+    
     public void setCurrentUser(User user) {
         this.currentUser = user;
         this.blippiCard = user.getBlippi();
+        this.currentPoints = blippiCard.getRewards();
         String username = currentUser.getUsername();
         usernamelabel.setText(username);
+        accnum.setText(blippiCard.getCardNumber());
+    }
+
+    public void setAmount(float loadAmount, float reqPoints) {
+        this.reqPoints = reqPoints;
+        this.loadAmount = loadAmount;
+        String formattedNumber = NumberFormat.getInstance().format(reqPoints);
+        points.setText(formattedNumber);
+        String strAmount = String.format("₱%.2f", loadAmount);
+        amount.setText(strAmount);
     }
 
     @FXML
-    private boolean continueButtonHandler(ActionEvent event) throws IOException {
-        float currentBalance = selectedBlippi.getBalance();
+    public boolean confirmButtonHandler(ActionEvent event) throws IOException {
+        // Deduct reward points from selected blippi card
+        float newPoints = currentPoints - reqPoints;
+        blippiCard.setRewards(newPoints);
+        String strPoints = String.format("%.0f", newPoints);
+
+        float currentBalance = blippiCard.getBalance();
         float newBalance = currentBalance + loadAmount;
-        selectedBlippi.setBalance(newBalance);
+        blippiCard.setBalance(newBalance);
         String strBalance = String.format("%.0f", newBalance);
 
-        if(selectedBlippi.getCardNumber().equals(blippiCard.getCardNumber())) {
-            System.out.println("blippi objects match");
-            blippiCard.setBalance(newBalance);
-            newTransaction(blippiCard, loadAmount);
-        } else {
-            newTransaction(selectedBlippi, loadAmount);
-        }
-
-        String targetCardNum = selectedBlippi.getCardNumber();
+        String targetCardNum = blippiCard.getCardNumber();
         List<String> updatedLines = new ArrayList<>();
 
         try(BufferedReader reader = new BufferedReader(new FileReader("blippicards.txt"))) {
@@ -90,7 +90,7 @@ public class LoadConfirmationController {
                     String[] parts = line.split(";");
 
                     if(parts.length == 6 && parts[0].equals(targetCardNum)) {
-                        updatedLines.add(parts[0] + ";" + strBalance + ";" + parts[2] + ";" + parts[3] + ";" + parts[4] + ";" + parts[5]);
+                        updatedLines.add(parts[0] + ";" + strBalance + ";" + parts[2] + ";" + parts[3] + ";" + strPoints + ";" + parts[5]);
                     } else {
                         updatedLines.add(line);
                     }
@@ -101,7 +101,7 @@ public class LoadConfirmationController {
             return false;
         }
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("blippicards.txt"))) {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("blippicards.txt"))) {
             for (int i = 0; i < updatedLines.size(); i++) {
                 writer.write(updatedLines.get(i));
                 if (i < updatedLines.size() - 1) {
@@ -113,12 +113,15 @@ public class LoadConfirmationController {
             return false;
         }
 
+        //Add new transaction to ArrayList
+        newTransaction(blippiCard, loadAmount);
+
         Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setHeaderText("Load Successful!");
+        alert.setHeaderText("Redeem Successful!");
         String content = String.format("₱%.2f has been loaded to blippi card %s", loadAmount, targetCardNum);
         alert.setContentText(content);
         alert.showAndWait();
-
+        
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
             root = loader.load();
@@ -126,33 +129,32 @@ public class LoadConfirmationController {
             HomeController homeController = loader.getController();
             homeController.setCurrentUser(currentUser);
             
+
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
             return true;
-        } catch(IOException e) {
+        } catch (Exception e) {
             System.out.println("There is an error");
             return false;
         }
-        
     }
 
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoadCard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/RedeemLoad.fxml"));
             root = loader.load();
 
-            //Set current user for the blippi card set-up and add card to home page
-            BuyLoadCardController buyLoadCardController = loader.getController();
-            buyLoadCardController.setCurrentUser(currentUser);
+            RedeemLoadController redeem = loader.getController();
+            redeem.setCurrentUser(currentUser);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        } catch (IOException e) {
+        } catch(IOException e) {
             e.printStackTrace();
         }
     }
@@ -168,14 +170,14 @@ public class LoadConfirmationController {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("MMMM dd, yyyy hh:mm a");
         String formattedDate = now.format(format);
 
-        Transaction transac = new Transaction(transacId, blippi.getCardNumber(), "blippi Buy Load", loadAmount, formattedDate);
+        Transaction transac = new Transaction(transacId, blippi.getCardNumber(), "blippi Rewards", loadAmount, formattedDate);
         blippi.addTransaction(transac);
 
         try {
             BufferedWriter myWriter = new BufferedWriter(new FileWriter("transactions.txt", true));
 
             myWriter.newLine();
-            myWriter.write(transacId + ";" + blippi.getCardNumber() + ";" + "blippi Buy Load" + ";" + loadAmount + ";" + formattedDate);
+            myWriter.write(transacId + ";" + blippi.getCardNumber() + ";" + "blippi Rewards" + ";" + loadAmount + ";" + formattedDate);
             myWriter.close();
 
         } catch(IOException e) {

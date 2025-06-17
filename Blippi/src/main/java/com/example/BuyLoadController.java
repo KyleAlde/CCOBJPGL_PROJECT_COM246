@@ -1,8 +1,10 @@
 package com.example;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -56,12 +58,36 @@ public class BuyLoadController {
         String balance = String.format("%.2f", blippiCard.getBalance());
         balanceamt.setText(balance);
 
-        // Generate current date and time
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("MMMM dd, yyyy hh:mm a");
-        String formattedDate = now.format(format);
+        //Get the date of the latest transaction
+        String latestDate = null;
+        File transacFile = new File("transactions.txt");
 
-        baldate.setText(formattedDate);
+        if(transacFile.exists()) {
+            Scanner filescanner;
+
+            try {
+                filescanner = new Scanner(transacFile);
+                String lastLine;
+
+                while(filescanner.hasNextLine()) {
+                    lastLine = filescanner.nextLine();
+                    if(blippiCard.getCardNumber().equals(lastLine.split(";")[1])) {
+                        latestDate = lastLine.split(";")[4];
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(latestDate == null) {
+            // Generate current date and time
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("MMMM dd, yyyy hh:mm a");
+            latestDate = now.format(format);
+        }
+
+        baldate.setText(latestDate);
     }
 
     @FXML

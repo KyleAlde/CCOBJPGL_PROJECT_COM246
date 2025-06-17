@@ -1,9 +1,11 @@
 package com.example;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -242,13 +244,38 @@ public class HomeController {
         availableBalanceLabel.setLayoutY(153.0);
         container.getChildren().add(availableBalanceLabel);
 
-        // Generate current date and time
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("MMMM dd, yyyy hh:mm a");
-        String formattedDate = now.format(format);
+        //Get the date of the latest transaction
+        String latestDate = null;
+        File transacFile = new File("transactions.txt");
+
+        if(transacFile.exists()) {
+            Scanner filescanner;
+
+            try {
+                filescanner = new Scanner(transacFile);
+                String lastLine;
+
+                while(filescanner.hasNextLine()) {
+                    lastLine = filescanner.nextLine();
+
+                    if(blippi.getCardNumber().equals(lastLine.split(";")[1])) {
+                        latestDate = lastLine.split(";")[4];
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(latestDate == null) {
+            // Generate current date and time
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("MMMM dd, yyyy hh:mm a");
+            latestDate = now.format(format);
+        }
 
         // Balance date label
-        Label balDateLabel = new Label(formattedDate);
+        Label balDateLabel = new Label(latestDate);
         balDateLabel.setTextFill(Color.WHITE);
         balDateLabel.setFont(Font.font("Arial", 9));
         balDateLabel.setLayoutX(115.0);
