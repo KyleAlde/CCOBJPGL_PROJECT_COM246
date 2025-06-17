@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane accessibleRole="NODE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.TransactionHistoryController">
+<Pane accessibleRole="NODE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedeemRewardsController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="90.0" layoutX="-7.0" layoutY="-9.0" stroke="#00135e" strokeType="INSIDE" width="1930.0" />
       <Label layoutX="91.0" layoutY="30.0" prefHeight="23.0" prefWidth="134.0" text="Hello," textFill="WHITE">
@@ -109,7 +109,7 @@
             </LinearGradient>
          </stroke>
       </Rectangle>
-      <Button fx:id="redviaload" layoutX="500.0" layoutY="750.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="400.0" style="-fx-background-color: #04185f; -fx-background-radius: 10;" text="via blippi Load          " textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="redviaload" layoutX="500.0" layoutY="750.0" mnemonicParsing="false" onAction="#redvialoadHandler" prefHeight="95.0" prefWidth="400.0" style="-fx-background-color: #04185f; -fx-background-radius: 10;" text="via blippi Load          " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Arial" size="20.0" />
          </font>

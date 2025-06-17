@@ -52,7 +52,7 @@ public class HomeController {
     public void addCardButtonHandler(ActionEvent event) throws IOException{
         try {
             // Load AddCard.fxml when add card button is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/AddCard.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/AddCardV2.fxml"));
         root = loader.load();
 
         //Set current user for the blippi card set-up
@@ -80,7 +80,7 @@ public class HomeController {
 
         try {
             // Load BuyLoad.fxml when qr ticket button is clicked
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoad.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoadV2.fxml"));
             root = loader.load();
 
             //Set currentUser
@@ -124,7 +124,7 @@ public class HomeController {
     public void blippitransacHandler(ActionEvent event) throws IOException {
         try {
             // Load TransactionHistory.fxml when transaction history button is clicked
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/TransactionHistory.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/TransactionHistoryV2.fxml"));
             root = loader.load();
 
             TransactionHistoryController transactionHistoryController = loader.getController();
@@ -151,7 +151,7 @@ public class HomeController {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/RedeemRewards.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/RedeemRewardsV2.fxml"));
             root = loader.load();
 
             RedeemRewardsController redeem = loader.getController();
@@ -172,13 +172,14 @@ public class HomeController {
         // Clear existing components
         container.getChildren().clear();
 
-        container.setLayoutX(476.0);
-        container.setLayoutY(170.0);
-        container.setPrefWidth(405.0);
-        container.setPrefHeight(214.0);
+        // Container position and size for 1920x1080 layout
+        container.setLayoutX(696.0);
+        container.setLayoutY(234.0);
+        container.setPrefWidth(600.0);
+        container.setPrefHeight(300.0);
 
-        // Create the background rectangle
-        Rectangle cardBackground = new Rectangle(401.0, 212.0);
+        // Background rectangle (scaled up proportionally)
+        Rectangle cardBackground = new Rectangle(596.0, 298.0);
         cardBackground.setArcWidth(40);
         cardBackground.setArcHeight(40);
         cardBackground.setFill(Color.web("#00135e"));
@@ -188,77 +189,87 @@ public class HomeController {
         cardBackground.setLayoutY(1.0);
         container.getChildren().add(cardBackground);
 
-        // Load the logo image
+        // Logo ImageView scaled and positioned proportionally
         InputStream imageStream = getClass().getResourceAsStream("/com/example/images/blippilogo.png");
         if (imageStream == null) {
             System.out.println("Image not found!");
         } else {
-            System.out.println("Image loaded successfully!");
             ImageView logoImageView = new ImageView(new Image(imageStream));
-            logoImageView.setFitHeight(185.0);
-            logoImageView.setFitWidth(189.0);
-            logoImageView.setLayoutX(229.0);
-            logoImageView.setLayoutY(15.0);
+            logoImageView.setFitHeight(260.0);       // Scaled up from 185
+            logoImageView.setFitWidth(265.0);        // Scaled up from 189
+            logoImageView.setLayoutX(345.0);         // Scaled up from 229
+            logoImageView.setLayoutY(21.0);          // Scaled up from 15
             logoImageView.setPreserveRatio(true);
             logoImageView.setSmooth(true);
             container.getChildren().add(logoImageView);
         }
 
-        // Account number label
+        // Account number label - font & position scaled proportionally
         Label accNumLabel = new Label(blippi.getCardNumber());
         accNumLabel.setTextFill(Color.WHITE);
-        accNumLabel.setFont(Font.font("Arial", 17));
-        accNumLabel.setLayoutX(19.0);
-        accNumLabel.setLayoutY(26.0);
+        accNumLabel.setFont(Font.font("Arial", 25));  // scaled up from 17
+        accNumLabel.setLayoutX(27.0);                  // approx 19 * 1.4
+        accNumLabel.setLayoutY(37.0);                  // approx 26 * 1.4
         container.getChildren().add(accNumLabel);
 
-        // Valid Until label
+        // "Valid Until" label
         Label validUntilLabel = new Label("Valid Until");
         validUntilLabel.setTextFill(Color.WHITE);
-        validUntilLabel.setFont(Font.font("Arial", 10));
-        validUntilLabel.setLayoutX(21.0);
-        validUntilLabel.setLayoutY(46.0);
+        validUntilLabel.setFont(Font.font("Arial", 14)); // scaled up from 10
+        validUntilLabel.setLayoutX(30.0);                 // approx 21 * 1.4
+        validUntilLabel.setLayoutY(65.0);                 // approx 46 * 1.4
         container.getChildren().add(validUntilLabel);
 
         // Expiration date label
         Label expDateLabel = new Label(blippi.getExpDate());
         expDateLabel.setTextFill(Color.WHITE);
-        expDateLabel.setFont(Font.font("Arial", 10));
-        expDateLabel.setLayoutX(69.0);
-        expDateLabel.setLayoutY(46.0);
+        expDateLabel.setFont(Font.font("Arial", 14)); // scaled up from 10
+        expDateLabel.setLayoutX(100.0);                 // approx 69 * 1.4
+        expDateLabel.setLayoutY(65.0);
         container.getChildren().add(expDateLabel);
 
         // Card label
         Label cardLabel = new Label(blippi.getLabel());
         cardLabel.setTextFill(Color.WHITE);
-        cardLabel.setFont(Font.font("Arial", 10));
-        cardLabel.setLayoutX(19.0);
-        cardLabel.setLayoutY(129.0);
+        cardLabel.setFont(Font.font("Arial", 14)); // scaled up from 10
+        cardLabel.setLayoutX(27.0);                 // approx same as accNumLabel x
+        cardLabel.setLayoutY(188.0);                // approx 134 * 1.4
         container.getChildren().add(cardLabel);
 
-        // Available Balance label
+        // "Available Balance as of" label
         Label availableBalanceLabel = new Label("Available Balance as of");
         availableBalanceLabel.setTextFill(Color.WHITE);
-        availableBalanceLabel.setFont(Font.font("Arial", 9));
-        availableBalanceLabel.setLayoutX(19.0);
-        availableBalanceLabel.setLayoutY(153.0);
+        availableBalanceLabel.setFont(Font.font("Arial", 13)); // scaled up from 9
+        availableBalanceLabel.setLayoutX(27.0);
+        availableBalanceLabel.setLayoutY(219.0);             // approx 156 * 1.4
         container.getChildren().add(availableBalanceLabel);
 
-        //Get the date of the latest transaction
+        // Currency symbol label ₱
+        Label currencyLabel = new Label("₱");
+        currencyLabel.setTextFill(Color.WHITE);
+        currencyLabel.setFont(Font.font("Arial Bold", 25)); // scaled up from 17
+        currencyLabel.setLayoutX(27.0);
+        currencyLabel.setLayoutY(233.0);          // approx 167 * 1.4
+        container.getChildren().add(currencyLabel);
+
+        // Balance amount label
+        String balance = String.format("%.2f", blippi.getBalance());
+        Label balanceAmtLabel = new Label(balance);
+        balanceAmtLabel.setTextFill(Color.WHITE);
+        balanceAmtLabel.setFont(Font.font("Arial Bold", 25)); // scaled up from 17
+        balanceAmtLabel.setLayoutX(44.0);          // approx 31 * 1.4
+        balanceAmtLabel.setLayoutY(233.0);
+        container.getChildren().add(balanceAmtLabel);
+
+        // Latest transaction date
         String latestDate = null;
         File transacFile = new File("transactions.txt");
-
-        if(transacFile.exists()) {
-            Scanner filescanner;
-
-            try {
-                filescanner = new Scanner(transacFile);
+        if (transacFile.exists()) {
+            try (Scanner filescanner = new Scanner(transacFile)) {
                 String lastLine;
-
-                while(filescanner.hasNextLine()) {
+                while (filescanner.hasNextLine()) {
                     lastLine = filescanner.nextLine();
-
-                    if(blippi.getCardNumber().equals(lastLine.split(";")[1])) {
+                    if (blippi.getCardNumber().equals(lastLine.split(";")[1])) {
                         latestDate = lastLine.split(";")[4];
                     }
                 }
@@ -266,9 +277,7 @@ public class HomeController {
                 e.printStackTrace();
             }
         }
-
-        if(latestDate == null) {
-            // Generate current date and time
+        if (latestDate == null) {
             LocalDateTime now = LocalDateTime.now();
             DateTimeFormatter format = DateTimeFormatter.ofPattern("MMMM dd, yyyy hh:mm a");
             latestDate = now.format(format);
@@ -277,27 +286,9 @@ public class HomeController {
         // Balance date label
         Label balDateLabel = new Label(latestDate);
         balDateLabel.setTextFill(Color.WHITE);
-        balDateLabel.setFont(Font.font("Arial", 9));
-        balDateLabel.setLayoutX(115.0);
-        balDateLabel.setLayoutY(153.0);
+        balDateLabel.setFont(Font.font("Arial", 13)); // scaled up from 9
+        balDateLabel.setLayoutX(170.0);               // approx 115 * 1.4
+        balDateLabel.setLayoutY(219.0);
         container.getChildren().add(balDateLabel);
-
-        // Currency symbol label
-        Label currencyLabel = new Label("₱");
-        currencyLabel.setTextFill(Color.WHITE);
-        currencyLabel.setFont(Font.font("Arial Bold", 17));
-        currencyLabel.setLayoutX(19.0);
-        currencyLabel.setLayoutY(167.0);
-        container.getChildren().add(currencyLabel);
-
-        // Balance amount label
-        String balance = String.format("%.2f", blippi.getBalance());
-        System.out.println("Balance label created with value: " + balance);
-        Label balanceAmtLabel = new Label(balance);
-        balanceAmtLabel.setTextFill(Color.WHITE);
-        balanceAmtLabel.setFont(Font.font("Arial Bold", 17));
-        balanceAmtLabel.setLayoutX(31.0);
-        balanceAmtLabel.setLayoutY(167.0);
-        container.getChildren().add(balanceAmtLabel);
     }
 }

@@ -89,7 +89,7 @@ public class SignUpController {
     @FXML
     public void loginLinkHandler(ActionEvent event) throws IOException{
         // Load Login.fxml when login link is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoginV2.fxml"));
         root = loader.load();
 
         // Load stage and scene
