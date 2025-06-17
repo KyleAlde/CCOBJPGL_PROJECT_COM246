@@ -75,27 +75,47 @@
             <Font name="Arial Bold" size="26.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="40.0" arcWidth="40.0" height="300.0" layoutX="700.0" layoutY="320.0" strokeType="OUTSIDE" width="550.0">
+      <Rectangle arcHeight="40.0" arcWidth="40.0" height="302.0" layoutX="699.0" layoutY="319.0" strokeType="OUTSIDE" width="552.0">
          <fill>
-            <LinearGradient endX="1.0" endY="1.0">
+            <LinearGradient endX="1.0" endY="1.0" startY="0.4418052256532066">
                <stops>
                   <Stop>
+                     <color>
+                        <Color red="0.658823549747467" green="0.32156863808631897" blue="0.6000000238418579" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.658823549747467" green="0.32156863808631897" blue="0.6000000238418579" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.7751677852348993">
                      <color>
                         <Color red="0.01568627543747425" green="0.0941176488995552" blue="0.37254902720451355" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.01850000023841858" green="0.1005166694521904" blue="0.3700000047683716" />
+                        <Color red="0.01568627543747425" green="0.0941176488995552" blue="0.37254902720451355" />
                      </color>
                   </Stop>
                </stops>
             </LinearGradient>
          </fill>
          <stroke>
-            <LinearGradient endX="1.0" endY="1.0">
+            <LinearGradient endX="1.0" endY="1.0" startY="0.4418052256532066">
                <stops>
                   <Stop>
+                     <color>
+                        <Color red="0.658823549747467" green="0.32156863808631897" blue="0.6000000238418579" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.658823549747467" green="0.32156863808631897" blue="0.6000000238418579" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.7751677852348993">
                      <color>
                         <Color red="0.01568627543747425" green="0.0941176488995552" blue="0.37254902720451355" />
                      </color>
@@ -109,7 +129,7 @@
             </LinearGradient>
          </stroke>
       </Rectangle>
-      <Button fx:id="redviaload" layoutX="500.0" layoutY="750.0" mnemonicParsing="false" onAction="#redvialoadHandler" prefHeight="95.0" prefWidth="400.0" style="-fx-background-color: #04185f; -fx-background-radius: 10;" text="via blippi Load          " textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="redviaload" layoutX="500.0" layoutY="750.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="400.0" style="-fx-background-color: #04185f; -fx-background-radius: 10;" text="via blippi Load         " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Arial" size="20.0" />
          </font>
@@ -125,7 +145,7 @@
             <Insets left="150.0" />
          </padding>
       </Button>
-      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="550.0" layoutY="755.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="550.0" layoutY="759.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/wallet.png" />
          </image>
