@@ -119,7 +119,7 @@
             <Font name="Arial Rounded MT Bold" size="22.0" />
          </font>
       </Button>
-      <Label layoutX="926.0" layoutY="156.0" prefHeight="36.0" prefWidth="137.0" text="Payment" textAlignment="CENTER" textFill="#04185f">
+      <Label layoutX="892.0" layoutY="156.0" prefHeight="36.0" prefWidth="252.0" text="Redeem Rewards" textAlignment="CENTER" textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="30.0" />
          </font>

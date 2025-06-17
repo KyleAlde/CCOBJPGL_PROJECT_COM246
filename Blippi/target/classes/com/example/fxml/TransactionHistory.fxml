@@ -43,52 +43,51 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="transactionnumberlabel" layoutX="285.0" layoutY="206.0" text="(number)" textFill="#132453">
+      <Label fx:id="transactionnumberlabel" layoutX="298.0" layoutY="205.0" text="(number)" textFill="#132453">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="120.0" layoutY="207.0" text="Latest Transaction" textFill="#04185f">
+      <Label layoutX="135.0" layoutY="207.0" text="Latest Transaction" textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="122.0" layoutY="225.0" prefHeight="27.0" prefWidth="42.0" text="as of" textFill="#132453">
+      <Label layoutX="135.0" layoutY="223.0" prefHeight="27.0" prefWidth="42.0" text="as of" textFill="#132453">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="datetimelabel" layoutX="157.0" layoutY="225.0" prefHeight="27.0" prefWidth="96.0" text="(date and time)" textFill="#132453">
+      <Label fx:id="datetimelabel" layoutX="173.0" layoutY="223.0" prefHeight="27.0" prefWidth="96.0" text="(date and time)" textFill="#132453">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="410.0" layoutY="150.0" text="All" textFill="#04185f">
+      <Label layoutX="395.0" layoutY="149.0" text="All" textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="493.0" layoutY="150.0" text="LRT/MRTT Service" textFill="#04185f">
+      <Label layoutX="496.0" layoutY="149.0" text="LRT/MRTT Service" textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="695.0" layoutY="150.0" text="blippi QR Ticket " textFill="#04185f">
+      <Label layoutX="691.0" layoutY="149.0" text="blippi QR Ticket " textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="880.0" layoutY="150.0" text="blippi Load" textFill="#04185f">
+      <Label layoutX="875.0" layoutY="149.0" text="blippi Load" textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
       <TableView layoutX="132.0" layoutY="252.0" prefHeight="424.0" prefWidth="1151.0" visible="false">
         <columns>
-          <TableColumn prefWidth="315.0" text="C1" />
-          <TableColumn prefWidth="287.0" text="C2" />
-            <TableColumn prefWidth="306.0" text="C3" />
-            <TableColumn prefWidth="242.0" text="C4" />
+            <TableColumn prefWidth="475.0" text="C1" />
+            <TableColumn prefWidth="406.0" text="C2" />
+            <TableColumn prefWidth="270.0" text="C3" />
         </columns>
       </TableView>
       <ImageView fitHeight="24.0" fitWidth="20.0" layoutX="71.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">

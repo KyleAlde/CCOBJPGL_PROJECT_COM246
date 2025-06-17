@@ -82,7 +82,7 @@ public class RedeemLoadController {
         float reqPoints = numAmount * 200;
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoadRewardDetails.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoadRewardDetailsV2.fxml"));
             root = loader.load();
 
             //Set current user and amount
@@ -106,7 +106,7 @@ public class RedeemLoadController {
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/RedeemRewards.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/RedeemRewardsV2.fxml"));
             root = loader.load();
 
             RedeemRewardsController redeem = loader.getController();
