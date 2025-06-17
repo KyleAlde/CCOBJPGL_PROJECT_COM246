@@ -139,5 +139,11 @@
             <Font name="Arial Rounded MT Bold" size="22.0" />
          </font>
       </Button>
+      <Button layoutX="15.0" layoutY="95.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: transparent;" />
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="30.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../Pictures/Screenshots/settings.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
