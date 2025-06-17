@@ -144,7 +144,7 @@
             <Font name="Arial" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="twoHundred" layoutX="1494.0" layoutY="664.0" mnemonicParsing="false" onAction="#twoHundredHandler" prefHeight="120.0" prefWidth="130.0" style="-fx-background-color: fffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱ 200.00">
+      <Button fx:id="twoHundred" layoutX="1494.0" layoutY="660.0" mnemonicParsing="false" onAction="#twoHundredHandler" prefHeight="120.0" prefWidth="130.0" style="-fx-background-color: fffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱ 200.00">
          <font>
             <Font name="Arial" size="18.0" />
          </font>
