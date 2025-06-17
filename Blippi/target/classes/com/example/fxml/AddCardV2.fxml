@@ -22,9 +22,9 @@
             <Image url="@../images/blippilogo.png" />
          </image>
       </ImageView>
-      <Label layoutX="810.0" layoutY="155.0" prefHeight="47.0" prefWidth="315.0" text="Buy blippi Load" textFill="#04185f">
+      <Label layoutX="815.0" layoutY="155.0" prefHeight="36.0" prefWidth="305.0" text="Register blippi Card" textFill="#04185f">
          <font>
-            <Font name="Arial Bold" size="40.0" />
+            <Font name="Arial Bold" size="30.0" />
          </font>
       </Label>
       <Label fx:id="usernamelabel" layoutX="162.0" layoutY="30.0" prefHeight="23.0" prefWidth="415.0" text="User" textFill="WHITE">
@@ -32,14 +32,31 @@
             <Font name="Arial Rounded MT Bold" size="22.0" />
          </font>
       </Label>
+      <Label layoutX="735.0" layoutY="250.0" text="blippi Card Number" textFill="#132453">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cardNumField" layoutX="735.0" layoutY="292.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
+      <Label layoutX="735.0" layoutY="390.0" text="Card Label" textFill="#132453">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cardLabelField" layoutX="735.0" layoutY="425.0" prefHeight="75.0" prefWidth="470.0" style="-fx-background-radius: 10; -fx-font-size: 16;" />
+      <Button fx:id="saveCardButton" layoutX="839.0" layoutY="539.0" mnemonicParsing="false" onAction="#saveCardButtonHandler" prefHeight="67.0" prefWidth="258.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Save Card " textFill="#fcf2f2">
+         <font>
+            <Font name="Arial" size="22.0" />
+         </font>
+      </Button>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="130.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/back.png" />
          </image>
       </ImageView>
-      <Button fx:id="backButton" layoutX="155.0" layoutY="145.0" mnemonicParsing="false" onAction="#backButtonHandler" style="-fx-background-color: transparent;" text="Back" textFill="#04185f">
+      <Button fx:id="backButton" layoutX="150.0" layoutY="145.0" mnemonicParsing="false" onAction="#backButtonHandler" style="-fx-background-color: transparent;" text="Back" textFill="#04185f">
          <font>
-            <Font name="Arial Bold" size="28.0" />
+            <Font name="Arial Bold" size="25.0" />
          </font>
       </Button>
     <Button layoutX="1317.0" layoutY="21.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="175.0" style="-fx-background-color: #00135e;" text="blippi Card" textFill="WHITE">
@@ -55,93 +72,6 @@
       <Button layoutX="1699.0" layoutY="21.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="197.0" style="-fx-background-color: #00135e;" text="Help &amp; Support" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="22.0" />
-         </font>
-      </Button>
-      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#00135e" height="300.0" layoutX="150.0" layoutY="450.0" stroke="#00135e" strokeType="OUTSIDE" width="570.0" />
-      <ImageView fitHeight="300.0" fitWidth="260.0" layoutX="475.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/blippilogo.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="175.0" layoutY="490.0" text="0001112224445556" textFill="WHITE">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="177.0" layoutY="515.0" prefHeight="20.0" prefWidth="75.0" text="Valid Until" textFill="WHITE">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="245.0" layoutY="515.0" prefHeight="20.0" prefWidth="75.0" text="2025-01-01" textFill="WHITE">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="177.0" layoutY="670.0" text="Available Balance as of" textFill="WHITE">
-         <font>
-            <Font name="Arial" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="305.0" layoutY="670.0" text="May 29, 2025 11:11 PM" textFill="WHITE">
-         <font>
-            <Font name="Arial" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="177.0" layoutY="690.0" text="₱" textFill="WHITE">
-         <font>
-            <Font name="Arial Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="195.0" layoutY="690.0" text="120.00" textFill="WHITE">
-         <font>
-            <Font name="Arial Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="177.0" layoutY="627.0" text="My Card" textFill="WHITE">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </Label>
-      <TextField layoutX="1180.0" layoutY="380.0" prefHeight="70.0" prefWidth="583.0" />
-      <Label layoutX="1185.0" layoutY="343.0" text="Enter desired load amount" textFill="#132453">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="1185.0" layoutY="460.0" text="From ₱5.00 to ₱5,000.00 only" textFill="#132453">
-         <font>
-            <Font name="Arial" size="20.0" />
-         </font>
-      </Label>
-      <Button layoutX="1150.0" layoutY="520.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="130.0" style="-fx-background-color: fffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱ 10.00">
-         <font>
-            <Font name="Arial" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="1150.0" layoutY="660.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="130.0" style="-fx-background-color: fffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱ 10.00">
-         <font>
-            <Font name="Arial" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="1320.0" layoutY="520.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="130.0" style="-fx-background-color: fffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱ 10.00">
-         <font>
-            <Font name="Arial" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="1330.0" layoutY="520.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="130.0" style="-fx-background-color: fffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱ 10.00">
-         <font>
-            <Font name="Arial" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="1490.0" layoutY="520.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="130.0" style="-fx-background-color: fffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱ 10.00">
-         <font>
-            <Font name="Arial" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="1660.0" layoutY="520.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="130.0" style="-fx-background-color: fffff; -fx-border-color: #132453; -fx-border-radius: 10px;" text="₱ 10.00">
-         <font>
-            <Font name="Arial" size="18.0" />
          </font>
       </Button>
    </children>
