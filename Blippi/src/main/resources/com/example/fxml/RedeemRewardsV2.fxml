@@ -129,7 +129,7 @@
             </LinearGradient>
          </stroke>
       </Rectangle>
-      <Button fx:id="redviaload" layoutX="500.0" layoutY="750.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="400.0" style="-fx-background-color: #04185f; -fx-background-radius: 10;" text="via blippi Load         " textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="redviaload" layoutX="500.0" layoutY="750.0" mnemonicParsing="false" onAction="#redvialoadHandler" prefHeight="95.0" prefWidth="400.0" style="-fx-background-color: #04185f; -fx-background-radius: 10;" text="via blippi Load         " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Arial" size="20.0" />
          </font>

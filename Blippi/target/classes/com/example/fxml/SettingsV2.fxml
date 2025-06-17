@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SettingsController">
    <children>
       <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#00135e" height="311.0" layoutX="690.0" layoutY="249.0" stroke="#00135e" strokeType="OUTSIDE" width="595.0" />
       <ImageView fitHeight="291.0" fitWidth="371.0" layoutX="1022.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
@@ -146,13 +146,13 @@
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="1000.0" layoutY="80.0" stroke="#00135e" strokeType="INSIDE" width="430.0" />
       <Button layoutX="30.0" layoutY="108.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" textFill="#00135e" />
-      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="50.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="settingsButton" fitHeight="60.0" fitWidth="60.0" layoutX="50.0" layoutY="130.0" onDragDetected="#settingsButtonHandler" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../Pictures/Screenshots/settingswhite.png" />
+            <Image url="@../../../../../Pictures/Screenshots/settingswhite.png" />
          </image>
       </ImageView>
-      <Button layoutX="436.0" layoutY="81.0" mnemonicParsing="false" prefHeight="1000.0" prefWidth="1494.0" style="-fx-background-color: transparent;" textFill="WHITE" />
-      <Button layoutX="85.0" layoutY="250.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #00135e;" text="Log Out" textFill="WHITE">
+      <Button fx:id="returnHomeButton" layoutX="436.0" layoutY="81.0" mnemonicParsing="false" onAction="#returnHomeButtonHandler" prefHeight="1000.0" prefWidth="1494.0" style="-fx-background-color: transparent;" textFill="WHITE" />
+      <Button fx:id="logOut" layoutX="85.0" layoutY="250.0" mnemonicParsing="false" onAction="#logOutHandler" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #00135e;" text="Log Out" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>

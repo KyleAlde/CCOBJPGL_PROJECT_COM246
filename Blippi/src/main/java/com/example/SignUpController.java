@@ -67,7 +67,7 @@ public class SignUpController {
             myWriter.close();
 
             // Load Home.fxml when signup is successful
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/HomeV2.fxml"));
             root = loader.load();
 
             //Set current user for the blippi card set-up

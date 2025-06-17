@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -11,51 +12,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.HomeController">
    <children>
-      <Rectangle arcHeight="40.0" arcWidth="40.0" height="311.0" layoutX="690.0" layoutY="249.0" stroke="BLACK" strokeType="OUTSIDE" width="595.0">
-         <fill>
-            <LinearGradient endX="1.0" endY="0.7292161520190024" startX="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.561951756477356" green="0.6610928177833557" blue="0.9868420958518982" />
-                     </color>
-                  </Stop>
-                  <Stop offset="0.006711409395973154">
-                     <color>
-                        <Color red="0.561951756477356" green="0.6610928177833557" blue="0.9868420958518982" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.95686274766922" green="0.95686274766922" blue="0.95686274766922" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bg.png" />
          </image>
       </ImageView>
-      <Label layoutX="868.0" layoutY="328.0" text="Add a blippi Card" textFill="#04185f">
-         <font>
-            <Font name="Arial Bold" size="28.0" />
-         </font>
-      </Label>
-      <Label layoutX="756.0" layoutY="360.0" prefHeight="21.0" prefWidth="457.0" text="The card number is found at the back of your blippi card" textFill="#04185f">
-         <font>
-            <Font name="Arial" size="18.0" />
-         </font>
-      </Label>
-      <Button layoutX="911.0" layoutY="414.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="141.0" style="-fx-background-color: #132453; -fx-background-radius: 5px;" text="Add Card" textFill="WHITE">
-         <font>
-            <Font name="Arial" size="18.0" />
-         </font>
-      </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="90.0" layoutX="-7.0" layoutY="-8.0" stroke="#00135e" strokeType="INSIDE" width="1930.0" />
       <Label layoutX="91.0" layoutY="31.0" prefHeight="23.0" prefWidth="134.0" text="Hello," textFill="WHITE">
          <font>
@@ -82,7 +45,7 @@
             <Font name="Arial Rounded MT Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="1507.0" layoutY="22.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="179.0" style="-fx-background-color: #00135e;" text="blippi Reward" textFill="WHITE">
+      <Button fx:id="rewardsButton" layoutX="1507.0" layoutY="22.0" mnemonicParsing="false" onAction="#rewardsButtonHandler" prefHeight="41.0" prefWidth="179.0" style="-fx-background-color: #00135e;" text="blippi Reward" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="22.0" />
          </font>
@@ -92,22 +55,22 @@
             <Font name="Arial Rounded MT Bold" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="blippiload" alignment="CENTER_RIGHT" layoutX="484.0" layoutY="635.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Buy blippi Load          " textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="blippiload" alignment="CENTER_RIGHT" layoutX="484.0" layoutY="635.0" mnemonicParsing="false" onAction="#blippiloadHandler" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Buy blippi Load          " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="blippitix" alignment="CENTER_RIGHT" layoutX="487.0" layoutY="763.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="blippi QR Ticket          " textFill="WHITE">
+      <Button fx:id="blippitix" alignment="CENTER_RIGHT" layoutX="487.0" layoutY="763.0" mnemonicParsing="false" onAction="#blippitixHandler" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="blippi QR Ticket          " textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="blippicalc" alignment="CENTER_RIGHT" layoutX="1061.0" layoutY="635.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Fare Calculator          " textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="blippicalc" alignment="CENTER_RIGHT" layoutX="1061.0" layoutY="635.0" mnemonicParsing="false" onAction="#blippicalcHandler" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Fare Calculator          " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="blippitransac" alignment="CENTER_RIGHT" layoutX="1061.0" layoutY="763.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Transaction History          " textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="blippitransac" alignment="CENTER_RIGHT" layoutX="1061.0" layoutY="763.0" mnemonicParsing="false" onAction="#blippitransacHandler" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="Transaction History          " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
@@ -132,5 +95,48 @@
             <Image url="@../images/receipt.png" />
          </image>
       </ImageView>
+      <AnchorPane fx:id="container" layoutX="697.0" layoutY="241.0" prefHeight="311.0" prefWidth="595.0">
+         <children>
+            <Rectangle arcHeight="40.0" arcWidth="40.0" height="311.0" stroke="BLACK" strokeType="OUTSIDE" width="595.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="0.7292161520190024" startX="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.561951756477356" green="0.6610928177833557" blue="0.9868420958518982" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006711409395973154">
+                           <color>
+                              <Color red="0.561951756477356" green="0.6610928177833557" blue="0.9868420958518982" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.95686274766922" green="0.95686274766922" blue="0.95686274766922" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Label layoutX="178.0" layoutY="79.0" text="Add a blippi Card" textFill="#04185f">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="66.0" layoutY="111.0" prefHeight="21.0" prefWidth="457.0" text="The card number is found at the back of your blippi card" textFill="#04185f">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="addCardButton" layoutX="221.0" layoutY="165.0" mnemonicParsing="false" onAction="#addCardButtonHandler" prefHeight="45.0" prefWidth="141.0" style="-fx-background-color: #132453; -fx-background-radius: 5px;" text="Add Card" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button fx:id="settingsButton" layoutX="47.0" layoutY="101.0" mnemonicParsing="false" onAction="#settingsButtonHandler" prefHeight="97.0" prefWidth="111.0" style="-fx-background-color: BLACK;" />
    </children>
 </Pane>

@@ -112,7 +112,7 @@ public class BuyLoadController {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoadCard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoadCardV2.fxml"));
             root = loader.load();
 
             //Set current user
@@ -136,7 +136,7 @@ public class BuyLoadController {
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/HomeV2.fxml"));
             root = loader.load();
 
             HomeController homeController = loader.getController();

@@ -89,7 +89,7 @@ public class BuyLoadCardController {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoadConfirmation.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoadConfirmationV2.fxml"));
             root = loader.load();
 
             LoadConfirmationController LoadConfirmationController = loader.getController();
@@ -111,7 +111,7 @@ public class BuyLoadCardController {
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoad.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoadV2.fxml"));
             root = loader.load();
 
             //Set current user for the blippi card set-up and add card to home page

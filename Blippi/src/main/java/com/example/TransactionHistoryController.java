@@ -8,11 +8,13 @@ import java.util.Scanner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -22,6 +24,8 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
+import javafx.scene.layout.HBox;
 
 public class TransactionHistoryController {
     ObservableList<Transaction> transacList = FXCollections.observableArrayList();
@@ -48,6 +52,10 @@ public class TransactionHistoryController {
         this.currentUser = user;
         this.blippiCard = user.getBlippi();
         System.out.println(blippiCard.getCardNumber());
+        // Set column headers to be invisible
+        transactionCol.setText(""); // Set header text to empty
+        typeCol.setText(""); // Set header text to empty
+        amountCol.setText(""); // Set header text to empty
         loadData();
     }
 
@@ -93,7 +101,7 @@ public class TransactionHistoryController {
                 System.out.println("File can't be read");
             }
 
-            // Set up the TableView columns
+            // For the transaction column
             transactionCol.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
             transactionCol.setCellFactory(col -> new TableCell<Transaction, Transaction>() {
                 @Override
@@ -104,36 +112,57 @@ public class TransactionHistoryController {
                         setText(null);
                     } else {
                         VBox vbox = new VBox(2);
-                        Label mainLabel = new Label(tx.getType());            // uses String from SimpleStringProperty
-                        Label dateLabel = new Label(tx.getDate());            // uses String from SimpleStringProperty
-                        dateLabel.setStyle("-fx-font-size: 10px; -fx-text-fill: gray;");
+                        Label mainLabel = new Label(tx.getType());
+                        Label dateLabel = new Label(tx.getDate());
+                        mainLabel.setStyle("-fx-font-size: 18px;");
+                        dateLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: gray;");
                         vbox.getChildren().addAll(mainLabel, dateLabel);
                         setGraphic(vbox);
                         setText(null);
                     }
+                    setStyle("-fx-background-color: transparent;"); // Make background transparent
                 }
             });
-            // For the type column with conditional text based on transaction type
+
+            // For the type column
             typeCol.setCellValueFactory(cellData -> {
                 Transaction tx = cellData.getValue();
                 String typeStr = tx.getType();
                 String display = ("blippi Buy Load".equals(typeStr) || "blippi Rewards".equals(typeStr)) ? "-" : "LRT/MRT Service";
                 return new SimpleStringProperty(display);
             });
+            typeCol.setCellFactory(col -> new TableCell<Transaction, String>() {
+                @Override
+                protected void updateItem(String type, boolean empty) {
+                    super.updateItem(type, empty);
+                    if (empty || type == null) {
+                        setText(null);
+                        setStyle("-fx-background-color: transparent;"); // Make background transparent
+                    } else {
+                        HBox hbox = new HBox();
+                        hbox.setAlignment(Pos.CENTER); // Center the content
+                        Label label = new Label(type);
+                        hbox.getChildren().add(label);
+                        label.setStyle("-fx-font-size: 17px;");
+                        setGraphic(hbox);
+                        setText(null);
+                    }
+                }
+            });
+
+            // For the amount column
             amountCol.setCellValueFactory(cellData -> cellData.getValue().amountProperty().asObject());
-            // Optionally, add a custom cell factory to format or style the float
             amountCol.setCellFactory(col -> new TableCell<Transaction, Float>() {
                 @Override
                 protected void updateItem(Float amount, boolean empty) {
                     super.updateItem(amount, empty);
                     if (empty || amount == null) {
                         setText(null);
-                        setStyle("");
+                        setStyle("-fx-background-color: transparent;"); // Make background transparent
                     } else {
-                        // Format like currency + nearby style
                         String formatted = (amount >= 0 ? "+" : "") + String.format("%.2f", amount);
                         setText(formatted);
-                        setStyle(amount >= 0 ? "-fx-text-fill: green;" : "-fx-text-fill: red;");
+                        setStyle(amount >= 0 ? "-fx-font-size: 17px; -fx-text-fill: green; -fx-background-color: transparent;" : "-fx-font-size: 17px; -fx-text-fill: red; -fx-background-color: transparent;"); // Make background transparent
                     }
                 }
             });
@@ -146,9 +175,39 @@ public class TransactionHistoryController {
     }
 
     @FXML
+    public void allFilterHandler(ActionEvent event) {
+        // Show all transactions
+        transactionTable.setItems(transacList);
+    }
+
+    @FXML
+    public void trainServiceHandler(ActionEvent event) {
+        // Filter for LRT/MRT Service transactions
+        ObservableList<Transaction> filteredList = FXCollections.observableArrayList();
+        for (Transaction transaction : transacList) {
+            if (!("blippi Buy Load".equals(transaction.getType()) || "blippi Rewards".equals(transaction.getType()))) {
+                filteredList.add(transaction);
+            }
+        }
+        transactionTable.setItems(filteredList);
+    }
+
+    @FXML
+    public void loadFilterHandler(ActionEvent event) {
+        // Filter for blippi Buy Load transactions
+        ObservableList<Transaction> filteredList = FXCollections.observableArrayList();
+        for (Transaction transaction : transacList) {
+            if ("blippi Buy Load".equals(transaction.getType())) {
+                filteredList.add(transaction);
+            }
+        }
+        transactionTable.setItems(filteredList);
+    }
+
+    @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/HomeV2.fxml"));
             root = loader.load();
 
             HomeController homeController = loader.getController();

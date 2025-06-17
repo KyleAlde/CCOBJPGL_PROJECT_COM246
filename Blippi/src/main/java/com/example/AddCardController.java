@@ -73,7 +73,7 @@ public class AddCardController {
             myWriter.write(blippi.getCardNumber() + ";" + String.format("%.0f", blippi.getBalance()) + ";" + blippi.getLabel() + ";" + blippi.getExpDate() + ";" + "0" + ";" + blippi.getUserId());
             myWriter.close();
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/HomeV2.fxml"));
             root = loader.load();
 
             HomeController homeController = loader.getController();
@@ -96,7 +96,7 @@ public class AddCardController {
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/HomeV2.fxml"));
             root = loader.load();
 
             HomeController homeController = loader.getController();

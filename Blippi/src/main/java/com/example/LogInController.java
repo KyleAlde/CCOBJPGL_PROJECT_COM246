@@ -82,7 +82,7 @@ public class LogInController {
                     //Check if the login info entered matches any record in the accounts.txt file
                     if(number_from_file.equals(user.getContact()) && password_from_file.equals(user.getPassword())) {
                         // Load Home.fxml when login button is clicked
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/HomeV2.fxml"));
                         root = loader.load();
 
                         //Set current user for the blippi card set-up

@@ -123,7 +123,7 @@ public class LoadRewardDetailsController {
         alert.showAndWait();
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/HomeV2.fxml"));
             root = loader.load();
 
             HomeController homeController = loader.getController();
@@ -144,7 +144,7 @@ public class LoadRewardDetailsController {
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/RedeemLoad.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/RedeemLoadV2.fxml"));
             root = loader.load();
 
             RedeemLoadController redeem = loader.getController();

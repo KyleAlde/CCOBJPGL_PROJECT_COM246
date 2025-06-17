@@ -88,32 +88,32 @@
             <Font name="Arial Bold" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="640.0" layoutY="250.0" text="All" textFill="#04185f">
-         <font>
-            <Font name="Arial Bold" size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="730.0" layoutY="250.0" text="LRT/MRT Service" textFill="#04185f">
-         <font>
-            <Font name="Arial Bold" size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="990.0" layoutY="250.0" text="blippi QR Ticket " textFill="#04185f">
-         <font>
-            <Font name="Arial Bold" size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="1230.0" layoutY="250.0" text="blippi Load" textFill="#04185f">
-         <font>
-            <Font name="Arial Bold" size="26.0" />
-         </font>
-      </Label>
-         <TableView fx:id="transactionTable" layoutX="185.5" layoutY="454.0" prefHeight="500.0" prefWidth="1617.0" visible="false">
+         <TableView fx:id="transactionTable" layoutX="185.5" layoutY="454.0" prefHeight="500.0" prefWidth="1617.0" style="-fx-background-color: transparent;" visible="false">
             <columns>
-               <TableColumn fx:id="transactionCol" prefWidth="668.0" text="C1" />
-               <TableColumn fx:id="typeCol" prefWidth="572.0" text="C2" />
-               <TableColumn fx:id="amountCol" prefWidth="381.0" text="C3" />
+               <TableColumn fx:id="transactionCol" prefWidth="668.0" style="-fx-background-color: transparent;" text="C1" />
+               <TableColumn fx:id="typeCol" prefWidth="572.0" style="-fx-background-color: transparent;" text="C2" />
+               <TableColumn fx:id="amountCol" prefWidth="360.0" style="-fx-background-color: transparent;" text="C3" />
             </columns>
          </TableView>
+      <Button fx:id="allFilter" layoutX="623.0" layoutY="241.0" mnemonicParsing="false" onAction="#allFilterHandler" style="-fx-background-color: transparent;" text="All" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="26.0" />
+         </font>
+      </Button>
+      <Button fx:id="trainService" layoutX="713.0" layoutY="241.0" mnemonicParsing="false" onAction="#trainServiceHandler" style="-fx-background-color: transparent;" text="LRT/MRT Service" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="26.0" />
+         </font>
+      </Button>
+      <Button fx:id="ticketFilter" layoutX="977.0" layoutY="241.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="blippi QR Ticket" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="26.0" />
+         </font>
+      </Button>
+      <Button fx:id="loadFilter" layoutX="1213.0" layoutY="241.0" mnemonicParsing="false" onAction="#loadFilterHandler" style="-fx-background-color: transparent;" text="blippi Load" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="26.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

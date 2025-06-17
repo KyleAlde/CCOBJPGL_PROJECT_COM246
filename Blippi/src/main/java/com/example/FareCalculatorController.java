@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -131,6 +133,7 @@ public class FareCalculatorController {
         alightingChoice.getItems().addAll(mrt3Stations);
 
         fareChoice.getItems().addAll("Regular", "Discounted");
+        fareChoice.setValue("Regular");
     }
 
     @FXML
@@ -167,7 +170,7 @@ public class FareCalculatorController {
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/HomeV2.fxml"));
             root = loader.load();
 
             HomeController homeController = loader.getController();
@@ -183,12 +186,28 @@ public class FareCalculatorController {
     }
 
     @FXML
-    public void calcButtonHandler(ActionEvent event) {
-        float discount = 0;
+    public boolean calcButtonHandler(ActionEvent event) {
         float totalFare = 0;
         boardingStation = boardingChoice.getValue();
         alightingStation = alightingChoice.getValue();
         float fare = calculateFare();
+
+        if(boardingStation.equals(alightingStation)) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("Boarding and Alighting station must be different");
+            alert.showAndWait();
+            return false;
+        }
+
+        if (boardingStation == null || alightingStation == null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("Boarding or Alighting station not selected");
+            alert.showAndWait();
+            return false;
+        }
+
         if(fareChoice.getValue().equals("Discounted")) {
             totalFare = fare - (fare * .2f);
             discountLabel.setText("20.00%");
@@ -203,6 +222,7 @@ public class FareCalculatorController {
         
         String formattedTotal = String.format("₱%.2f", totalFare);
         totalLabel.setText(formattedTotal);
+        return true;
     }
     public float calculateFare() {
         boardingStation = boardingChoice.getValue();

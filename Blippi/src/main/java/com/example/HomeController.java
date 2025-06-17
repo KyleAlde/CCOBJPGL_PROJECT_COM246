@@ -104,7 +104,7 @@ public class HomeController {
     public void blippitixHandler(ActionEvent event) throws IOException {
         try {
             // Load QrTicket.fxml when qr ticket button is clicked
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/QrTicket.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/QrTicketV2.fxml"));
             root = loader.load();
 
             QrTicketController qrTicketController = loader.getController();
@@ -187,6 +187,24 @@ public class HomeController {
         }
 
         return true;
+    }
+
+    @FXML
+    private void settingsButtonHandler(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/SettingsV2.fxml"));
+            root = loader.load();
+
+            SettingsController settings = loader.getController();
+            settings.setCurrentUser(currentUser);
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setCard(BlippiCard blippi) {
