@@ -127,7 +127,7 @@ public class SearchData {
                 fileScanner = new Scanner(transacFile);
 
                 //Look for all transactions with matching card number
-                while(fileScanner.hasNext()) {
+                while(fileScanner.hasNextLine()) {
                     String data = fileScanner.nextLine();
 
                     String id_from_file = data.split(";")[0];

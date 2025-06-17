@@ -1,6 +1,7 @@
 package com.example;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.FloatProperty;
 import javafx.beans.property.SimpleFloatProperty;
 
 public class Transaction {
@@ -23,4 +24,8 @@ public class Transaction {
     public String getType() { return type.get(); }
     public float getAmount() { return amount.get(); }
     public String getDate() { return date.get(); }
+
+    public FloatProperty amountProperty() {
+        return amount;
+    }
 }
