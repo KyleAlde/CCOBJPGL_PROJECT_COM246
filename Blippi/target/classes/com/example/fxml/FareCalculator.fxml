@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button alignment="CENTER" layoutX="804.0" layoutY="908.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="303.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Calculate Fare" textFill="#fcf2f2">
+         <font>
+            <Font name="Arial" size="30.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="90.0" layoutX="-7.0" layoutY="-8.0" stroke="#00135e" strokeType="INSIDE" width="1930.0" />
+      <Label layoutX="91.0" layoutY="31.0" prefHeight="23.0" prefWidth="134.0" text="Hello," textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="55.0" fitWidth="60.0" layoutX="19.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/blippilogo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="usernamelabel" layoutX="162.0" layoutY="31.0" prefHeight="23.0" prefWidth="415.0" text="User" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <Button layoutX="1317.0" layoutY="22.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="175.0" style="-fx-background-color: #00135e;" text="blippi Card" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="1507.0" layoutY="22.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="179.0" style="-fx-background-color: #00135e;" text="blippi Reward" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="1699.0" layoutY="22.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="197.0" style="-fx-background-color: #00135e;" text="Help &amp; Support" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="819.0" layoutY="154.0" prefHeight="47.0" prefWidth="335.0" text="Fare Calculator" textAlignment="CENTER" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="40.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="130.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/back.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="backButton" layoutX="150.0" layoutY="146.0" mnemonicParsing="false" onAction="#backButtonHandler" style="-fx-background-color: transparent;" text="Back" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="28.0" />
+         </font>
+      </Button>
+      <Label layoutX="320.0" layoutY="420.0" text="Transport Mode" textFill="#132453">
+         <font>
+            <Font name="Arial Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="320.0" layoutY="300.0" text="Fare Type" textFill="#132453">
+         <font>
+            <Font name="Arial Bold" size="28.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="320.0" layoutY="340.0" prefHeight="43.0" prefWidth="326.0" style="-fx-background-radius: 10;" />
+      <Label layoutX="320.0" layoutY="631.0" text="Boarding at" textFill="#132453">
+         <font>
+            <Font name="Arial Bold" size="28.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="320.0" layoutY="671.0" prefHeight="43.0" prefWidth="326.0" style="-fx-background-radius: 10;" />
+      <Label layoutX="320.0" layoutY="751.0" text="Alighting at" textFill="#132453">
+         <font>
+            <Font name="Arial Bold" size="28.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="320.0" layoutY="791.0" prefHeight="43.0" prefWidth="326.0" style="-fx-background-radius: 10;" />
+      <Button alignment="CENTER_RIGHT" layoutX="320.0" layoutY="460.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="232.0" style="-fx-background-color: #00135e; -fx-border-color: #000000; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="MRT" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="30.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="561.0" layoutX="1110.0" layoutY="288.0" stroke="#d3d2d4" strokeType="INSIDE" width="677.0" />
+      <Label layoutX="1161.0" layoutY="382.0" text="Service" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1161.0" layoutY="422.0" text="Board" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1161.0" layoutY="462.0" text="Alight" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1161.0" layoutY="756.0" text="Total Fare" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="1161.0" layoutY="615.0" text="Discount" textFill="#04185f">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1161.0" layoutY="582.0" text="Fare" textFill="#04185f">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </Label>
+      <Line endX="791.0" endY="-62.0" layoutX="996.0" layoutY="623.0" startX="114.0" startY="-62.0" stroke="#d3d2d4" />
+      <Label layoutX="1638.0" layoutY="382.0" text="LRT 1" textFill="#04185f">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1639.0" layoutY="422.0" text="Santolan" textFill="#04185f">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1639.0" layoutY="462.0" text="Legarda" textFill="#04185f">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1639.0" layoutY="582.0" text="₱30.00" textFill="#04185f">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1639.0" layoutY="615.0" text="20.00%" textFill="#04185f">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1639.0" layoutY="756.0" text="₱24.00" textFill="#04185f">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER_RIGHT" layoutX="578.0" layoutY="461.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="232.0" style="-fx-background-color: #00135e; -fx-border-color: #000000; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="LRT 1" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="30.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER_RIGHT" layoutX="831.0" layoutY="460.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="232.0" style="-fx-background-color: #00135e; -fx-border-color: #000000; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="LRT 2" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="30.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="90.0" fitWidth="100.0" layoutX="840.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/service.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="90.0" fitWidth="100.0" layoutX="590.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/service.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="90.0" fitWidth="100.0" layoutX="329.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/service.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

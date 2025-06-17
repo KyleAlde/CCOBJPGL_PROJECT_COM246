@@ -64,25 +64,25 @@
       </Button>
       <Label layoutX="375.0" layoutY="320.0" text="Operator Name" textFill="#132453">
          <font>
-            <Font size="28.0" />
+            <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
       <ChoiceBox layoutX="375.0" layoutY="360.0" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
       <Label layoutX="375.0" layoutY="440.0" text="Route" textFill="#132453">
          <font>
-            <Font size="28.0" />
+            <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
       <ChoiceBox layoutX="375.0" layoutY="480.0" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
       <Label layoutX="1150.0" layoutY="320.0" text="Start Terminal" textFill="#132453">
          <font>
-            <Font size="28.0" />
+            <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
       <ChoiceBox layoutX="1150.0" layoutY="360.0" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
       <Label layoutX="1150.0" layoutY="440.0" text="Destination Terminal" textFill="#132453">
          <font>
-            <Font size="28.0" />
+            <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
       <ChoiceBox layoutX="1150.0" layoutY="480.0" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
