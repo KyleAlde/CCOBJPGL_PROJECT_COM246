@@ -9,12 +9,13 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.HomeController">
    <children>
-      <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bg.png" />
          </image>
@@ -137,6 +138,12 @@
             </Button>
          </children>
       </AnchorPane>
-      <Button fx:id="settingsButton" layoutX="47.0" layoutY="101.0" mnemonicParsing="false" onAction="#settingsButtonHandler" prefHeight="97.0" prefWidth="111.0" style="-fx-background-color: BLACK;" />
+      <Button fx:id="settingsButton" layoutX="20.0" layoutY="98.0" mnemonicParsing="false" onAction="#settingsButtonHandler" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" />
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="40.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/settings.png" />
+         </image>
+      </ImageView>
+      <Line endX="66.6666259765625" layoutX="1405.0" layoutY="65.0" startX="-66.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" />
    </children>
 </Pane>

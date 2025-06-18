@@ -150,12 +150,54 @@
             <Font name="Arial Rounded MT Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="20.0" layoutY="98.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" />
-      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="40.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+      <Line endX="66.6666259765625" layoutX="1405.0" layoutY="65.0" startX="-66.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="1000.0" layoutX="-1.0" layoutY="81.0" stroke="#00135e" strokeType="INSIDE" width="430.0" />
+      <Button fx:id="settingsButton" layoutX="27.0" layoutY="119.0" mnemonicParsing="false" onAction="#settingsButtonHandler" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" textFill="#00135e" />
+      <ImageView fitHeight="60.0" fitWidth="55.0" layoutX="47.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/settings.png" />
+            <Image url="@../images/settingswhite.png" />
          </image>
       </ImageView>
-      <Line endX="66.6666259765625" layoutX="1405.0" layoutY="65.0" startX="-66.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" />
+      <Button fx:id="logOut" layoutX="82.0" layoutY="261.0" mnemonicParsing="false" onAction="#logOutHandler" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #00135e;" text="Log Out" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="109.0" layoutY="421.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #00135e;" text="Change Password" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="unregister" layoutX="112.0" layoutY="341.0" mnemonicParsing="false" onAction="#unregisterHandler" prefHeight="60.0" prefWidth="220.0" style="-fx-background-color: #00135e;" text="Unregister Card" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="deleteAcc" layoutX="95.0" layoutY="501.0" mnemonicParsing="false" onAction="#deleteAccHandler" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #00135e;" text="Delete Account" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="80.0" fitWidth="60.0" layoutX="52.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logout.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="55.0" layoutX="47.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/unregister.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="60.0" layoutX="47.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/changepass.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="60.0" layoutX="47.0" layoutY="501.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/deleteacc.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="returnHomeButton" layoutX="446.0" layoutY="91.0" mnemonicParsing="false" onAction="#returnHomeButtonHandler" prefHeight="1000.0" prefWidth="1494.0" style="-fx-background-color: transparent;" textFill="WHITE" />
    </children>
 </AnchorPane>
