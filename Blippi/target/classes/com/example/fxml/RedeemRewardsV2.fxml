@@ -125,7 +125,7 @@
             </LinearGradient>
          </stroke>
       </Rectangle>
-      <Button fx:id="redviaload" layoutX="500.0" layoutY="750.0" mnemonicParsing="false" onAction="#redvialoadHandler" prefHeight="95.0" prefWidth="400.0" style="-fx-background-color: #04185f; -fx-background-radius: 10;" text="via blippi Load         " textAlignment="RIGHT" textFill="WHITE">
+      <Button fx:id="redviaload" layoutX="796.0" layoutY="751.0" mnemonicParsing="false" onAction="#redvialoadHandler" prefHeight="95.0" prefWidth="400.0" style="-fx-background-color: #04185f; -fx-background-radius: 10;" text="via blippi Load         " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Arial" size="20.0" />
          </font>
@@ -133,22 +133,9 @@
             <Insets left="220.0" />
          </padding>
       </Button>
-      <Button fx:id="redviaqrticket" layoutX="1070.0" layoutY="750.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="400.0" style="-fx-background-color: #04185f; -fx-background-radius: 10;" text="via blippi Bus Ticket" textFill="WHITE">
-         <font>
-            <Font name="Arial" size="20.0" />
-         </font>
-         <padding>
-            <Insets left="150.0" />
-         </padding>
-      </Button>
-      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="550.0" layoutY="759.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="824.0" layoutY="759.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/wallet.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="75.0" fitWidth="100.0" layoutX="1115.0" layoutY="760.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/tix.png" />
          </image>
       </ImageView>
       <Label fx:id="accnum" layoutX="735.0" layoutY="360.0" text="0001112224445556" textFill="WHITE">
