@@ -109,7 +109,10 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="amountTextField" layoutX="1180.0" layoutY="380.0" prefHeight="70.0" prefWidth="583.0" />
+      <TextField fx:id="amountTextField" layoutX="1180.0" layoutY="380.0" prefHeight="70.0" prefWidth="583.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
       <Label layoutX="1185.0" layoutY="343.0" text="Enter desired load amount" textFill="#132453">
          <font>
             <Font name="Arial" size="24.0" />
