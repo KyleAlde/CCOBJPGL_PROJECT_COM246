@@ -36,6 +36,9 @@ public class LoadConfirmationController {
     @FXML
     private Label totalAmount;
 
+    @FXML
+    private Label paymentMethodLabel;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -46,9 +49,10 @@ public class LoadConfirmationController {
     private BlippiCard blippiCard;
     private BlippiCard selectedBlippi;
 
-    public void setAmount(float inputAmount, BlippiCard blippi) {
+    public void setAmount(float inputAmount, BlippiCard blippi, String paymentMethod) {
         this.loadAmount = inputAmount;
         this.selectedBlippi = blippi;
+        paymentMethodLabel.setText(paymentMethod);
         float processFee = inputAmount * 0.03f;
         newAmount = loadAmount + processFee;
         accnum.setText(selectedBlippi.getCardNumber());
@@ -141,12 +145,13 @@ public class LoadConfirmationController {
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoadCardV2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/PaymentV2.fxml"));
             root = loader.load();
 
             //Set current user for the blippi card set-up and add card to home page
-            BuyLoadCardController buyLoadCardController = loader.getController();
-            buyLoadCardController.setCurrentUser(currentUser);
+            PaymentController paymentController = loader.getController();
+            paymentController.setCurrentUser(currentUser);
+            paymentController.setAmount(loadAmount, selectedBlippi);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);

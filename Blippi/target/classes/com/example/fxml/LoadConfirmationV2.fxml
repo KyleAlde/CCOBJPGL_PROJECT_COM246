@@ -127,7 +127,7 @@
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="1550.0" layoutY="650.0" text="MOP" textFill="#132453">
+      <Label fx:id="paymentMethodLabel" layoutX="1550.0" layoutY="650.0" text="MOP" textFill="#132453">
          <font>
             <Font name="Arial" size="24.0" />
          </font>

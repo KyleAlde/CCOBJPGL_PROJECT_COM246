@@ -89,13 +89,13 @@ public class BuyLoadCardController {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoadConfirmationV2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/PaymentMethodV2.fxml"));
             root = loader.load();
 
-            LoadConfirmationController LoadConfirmationController = loader.getController();
-            LoadConfirmationController.setCurrentUser(currentUser);
-            LoadConfirmationController.setAmount(amount, selectedBlippi);
-
+            PaymentMethodController paymentMethodController = loader.getController();
+            paymentMethodController.setCurrentUser(currentUser);
+            paymentMethodController.setAmount(amount, selectedBlippi);
+            
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

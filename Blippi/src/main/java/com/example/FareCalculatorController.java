@@ -136,7 +136,7 @@ public class FareCalculatorController {
         alightingChoice.getItems().clear();
         alightingChoice.getItems().addAll(mrt3Stations);
 
-        fareChoice.getItems().addAll("Regular", "Discounted");
+        fareChoice.getItems().addAll("Regular", "PWD/Senior Citizen");
         fareChoice.setValue("Regular");
     }
 
@@ -212,7 +212,7 @@ public class FareCalculatorController {
             return false;
         }
 
-        if(fareChoice.getValue().equals("Discounted")) {
+        if(fareChoice.getValue().equals("PWD/Senior Citizen")) {
             totalFare = fare - (fare * .2f);
             discountLabel.setText("20.00%");
         } else {
