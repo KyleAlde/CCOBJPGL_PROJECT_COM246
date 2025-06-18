@@ -11,9 +11,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MayaPaymentController">
    <children>
-      <Button fx:id="completeOrderButton" layoutX="760.0" layoutY="855.0" mnemonicParsing="false" onAction="#completeOrderButtonHandler" prefHeight="90.0" prefWidth="400.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Proceed Payment" textFill="#fcf2f2">
+      <Button fx:id="proceedButton" layoutX="760.0" layoutY="855.0" mnemonicParsing="false" onAction="#proceedButtonHandler" prefHeight="90.0" prefWidth="400.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Proceed Payment" textFill="#fcf2f2">
          <font>
             <Font name="Arial" size="28.0" />
          </font>

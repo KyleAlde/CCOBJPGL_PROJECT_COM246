@@ -11,16 +11,16 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GcashPaymentController">
    <children>
-      <Button fx:id="completeOrderButton" layoutX="760.0" layoutY="855.0" mnemonicParsing="false" onAction="#completeOrderButtonHandler" prefHeight="90.0" prefWidth="400.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Proceed Payment" textFill="#fcf2f2">
+      <Button fx:id="proceedButton" layoutX="760.0" layoutY="855.0" mnemonicParsing="false" onAction="#proceedButtonHandler" prefHeight="90.0" prefWidth="400.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Proceed Payment" textFill="#fcf2f2">
          <font>
             <Font name="Arial" size="28.0" />
          </font>
       </Button>
       <ImageView fitHeight="90.0" fitWidth="320.0" layoutX="935.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@gcash.png" />
+            <Image url="@../images/gcash.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="90.0" layoutX="-7.0" layoutY="-8.0" stroke="#00135e" strokeType="INSIDE" width="1930.0" />
@@ -31,7 +31,7 @@
       </Label>
       <ImageView fitHeight="55.0" fitWidth="60.0" layoutX="19.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@blippilogo.png" />
+            <Image url="@../images/blippilogo.png" />
          </image>
       </ImageView>
       <Label fx:id="usernamelabel" layoutX="162.0" layoutY="31.0" prefHeight="23.0" prefWidth="415.0" text="User" textFill="WHITE">
@@ -61,7 +61,7 @@
       </Label>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="130.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@back.png" />
+            <Image url="@../images/back.png" />
          </image>
       </ImageView>
       <Button fx:id="backButton" layoutX="150.0" layoutY="146.0" mnemonicParsing="false" onAction="#backButtonHandler" style="-fx-background-color: transparent;" text="Back" textFill="#04185f">

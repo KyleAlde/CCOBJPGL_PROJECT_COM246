@@ -55,13 +55,43 @@ public class PaymentController {
     }
 
     @FXML
-    public void gcashButtonHandler() throws IOException {
+    public void gcashButtonHandler(ActionEvent event) throws IOException {
         paymentMethod = "GCash";
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/GcashPaymentV2.fxml"));
+            root = loader.load();
+
+            GcashPaymentController gcashPaymentController = loader.getController();
+            gcashPaymentController.setCurrentUser(currentUser);
+            gcashPaymentController.setAmount(loadAmount, selectedBlippi);
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    public void mayaButtonHandler() throws IOException {
+    public void mayaButtonHandler(ActionEvent event) throws IOException {
         paymentMethod = "Maya";
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/MayaPaymentV2.fxml"));
+            root = loader.load();
+
+            MayaPaymentController mayaPaymentController = loader.getController();
+            mayaPaymentController.setCurrentUser(currentUser);
+            mayaPaymentController.setAmount(loadAmount, selectedBlippi);
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -85,7 +115,7 @@ public class PaymentController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return false;
+        return true;
     }
 
     @FXML
@@ -151,7 +181,7 @@ public class PaymentController {
             }
         }
 
-        if(cardnum.length() > 16) {
+        if(cardnum.length() != 16) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("Input not valid");
             alert.setContentText("The card number you entered is invalid");
@@ -170,7 +200,7 @@ public class PaymentController {
             }
         }
 
-        if(cvv.length() > 3) {
+        if(cvv.length() != 3) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("Input not valid");
             alert.setContentText("The CVV you entered is invalid");

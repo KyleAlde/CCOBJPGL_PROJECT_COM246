@@ -199,7 +199,7 @@ public class HomeController {
     @FXML
     private void settingsButtonHandler(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/SettingsV2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/SettingsV3.fxml"));
             root = loader.load();
 
             SettingsController settings = loader.getController();
