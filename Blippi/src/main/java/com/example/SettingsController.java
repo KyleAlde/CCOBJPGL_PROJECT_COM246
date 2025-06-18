@@ -364,6 +364,24 @@ public class SettingsController {
         return true;
     }
 
+    @FXML
+    public void changePassHandler(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/ChangePasswordV2.fxml"));
+            root = loader.load();
+
+            ChangePasswordController changePasswordController = loader.getController();
+            changePasswordController.setCurrentUser(currentUser);
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void setCard(BlippiCard blippi) {
         // Clear existing components
         container.getChildren().clear();

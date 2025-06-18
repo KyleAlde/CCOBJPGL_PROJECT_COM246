@@ -17,7 +17,7 @@
             <Image url="@../images/bg.png" />
          </image>
       </ImageView>
-      <Button alignment="CENTER" layoutX="806.0" layoutY="896.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="303.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Buy Ticket" textFill="#fcf2f2">
+      <Button fx:id="buyTicket" alignment="CENTER" layoutX="806.0" layoutY="896.0" mnemonicParsing="false" onAction="#buyTicketHandler" prefHeight="73.0" prefWidth="303.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Buy Ticket" textFill="#fcf2f2">
          <font>
             <Font name="Arial" size="30.0" />
          </font>
@@ -73,19 +73,19 @@
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="operatorChoice" onAction="#initializeRoutes" layoutX="375.0" layoutY="360.0" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
+      <ChoiceBox fx:id="operatorChoice" layoutX="375.0" layoutY="360.0" onAction="#initializeRoutes" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
       <Label layoutX="375.0" layoutY="440.0" text="Route" textFill="#132453">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="routeChoice" layoutX="375.0" layoutY="480.0" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
+      <ChoiceBox fx:id="routeChoice" layoutX="375.0" layoutY="480.0" onAction="#initializeStart" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
       <Label layoutX="1150.0" layoutY="320.0" text="Start Terminal" textFill="#132453">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="startChoice" layoutX="1150.0" layoutY="360.0" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
+      <ChoiceBox fx:id="startChoice" layoutX="1150.0" layoutY="360.0" onAction="#initializeDestination" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
       <Label layoutX="1150.0" layoutY="440.0" text="Destination Terminal" textFill="#132453">
          <font>
             <Font name="Arial Bold" size="28.0" />

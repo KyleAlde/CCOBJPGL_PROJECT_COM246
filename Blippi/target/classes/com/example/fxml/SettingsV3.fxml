@@ -107,7 +107,7 @@
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="109.0" layoutY="421.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #00135e;" text="Change Password" textFill="WHITE">
+      <Button fx:id="changePass" layoutX="109.0" layoutY="421.0" mnemonicParsing="false" onAction="#changePassHandler" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #00135e;" text="Change Password" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>

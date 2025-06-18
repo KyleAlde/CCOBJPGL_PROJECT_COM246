@@ -72,12 +72,12 @@ public class GcashPaymentController {
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/BuyLoadCardV2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/PaymentV2.fxml"));
             root = loader.load();
 
-            BuyLoadCardController buyLoadCardController = loader.getController();
-            buyLoadCardController.setCurrentUser(currentUser);
-            buyLoadCardController.setAmount(loadAmount);
+            PaymentController paymentController = loader.getController();
+            paymentController.setCurrentUser(currentUser);
+            paymentController.setAmount(loadAmount, selectedBlippi);
 
             // Load stage and scene
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

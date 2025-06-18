@@ -20,7 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class ForgotPasswordController {
+public class ChangePasswordController {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -36,6 +36,11 @@ public class ForgotPasswordController {
 
     @FXML
     private TextField passwordField2;
+
+    private User currentUser;
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+    }
 
     @FXML
     public boolean newPassButtonHandler(ActionEvent event) throws IOException {
@@ -120,8 +125,11 @@ public class ForgotPasswordController {
     public void loginLinkHandler(ActionEvent event) throws IOException{
         try {
             // Load Login.fxml when login link is clicked
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/LoginV2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/HomeV2.fxml"));
             root = loader.load();
+
+            HomeController homeController = loader.getController();
+            homeController.setCurrentUser(currentUser);
 
             // Load stage and scene
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

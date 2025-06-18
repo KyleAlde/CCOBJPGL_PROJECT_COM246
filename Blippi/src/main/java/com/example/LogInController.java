@@ -138,11 +138,9 @@ public class LogInController {
     @FXML
     public void forgotPwordHandler(ActionEvent event) throws IOException {
         try {
-            // Load Singup.fxml when signup link is clicked
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/ForgotPassword.fxml"));
             root = loader.load();
 
-            // Load stage and scene
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
