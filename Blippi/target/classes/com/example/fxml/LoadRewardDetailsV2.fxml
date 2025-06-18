@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -102,26 +103,34 @@
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="accnum" layoutX="1400.0" layoutY="490.0" text="0001112224445556" textFill="#132453">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="amount" layoutX="1530.0" layoutY="690.0" text="₱10.00" textFill="#04185f">
-         <font>
-            <Font name="Arial Bold" size="26.0" />
-         </font>
-      </Label>
       <Label layoutX="340.0" layoutY="520.0" text="Points" textFill="#132453">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="points" layoutX="1565.0" layoutY="520.0" text="0.00" textFill="#132453">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Label>
       <Line endX="66.6666259765625" layoutX="1595.0" layoutY="65.0" startX="-66.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" />
+      <VBox alignment="TOP_RIGHT" layoutX="1118.0" layoutY="487.0" prefHeight="61.0" prefWidth="494.0">
+         <children>
+            <Label fx:id="accnum" text="0001112224445556" textFill="#132453">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="points" text="0.00" textFill="#132453">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" layoutX="1389.0" layoutY="688.0" prefHeight="27.0" prefWidth="223.0">
+         <children>
+            <Label fx:id="amount" text="₱10.00" textFill="#04185f">
+               <font>
+                  <Font name="Arial Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
    </children>
 </Pane>

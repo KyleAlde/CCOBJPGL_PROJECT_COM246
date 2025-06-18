@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -117,31 +118,43 @@
             <Font name="Arial Bold" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="accnum" layoutX="1400.0" layoutY="490.0" text="0001112224445556" textFill="#132453">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="1550.0" layoutY="620.0" text="3.00%" textFill="#132453">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="paymentMethodLabel" layoutX="1550.0" layoutY="650.0" text="MOP" textFill="#132453">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="amount" layoutX="1550.0" layoutY="590.0" text="₱0.00" textFill="#132453">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="totalAmount" layoutX="1530.0" layoutY="750.0" text="₱10.00" textFill="#04185f">
-         <font>
-            <Font name="Arial Bold" size="26.0" />
-         </font>
-      </Label>
       <Line endX="66.6666259765625" layoutX="1405.0" layoutY="65.0" startX="-66.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" />
+      <VBox alignment="TOP_RIGHT" layoutX="1258.0" layoutY="491.0" prefHeight="23.0" prefWidth="345.0">
+         <children>
+            <Label fx:id="accnum" text="0001112224445556" textFill="#132453">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" layoutX="1260.0" layoutY="590.0" prefHeight="88.0" prefWidth="337.0">
+         <children>
+            <Label fx:id="amount" text="₱0.00" textFill="#132453">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <Label text="3.00%" textFill="#132453">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="paymentMethodLabel" text="MOP" textFill="#132453">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" layoutX="1308.0" layoutY="750.0" prefHeight="23.0" prefWidth="289.0">
+         <children>
+            <Label fx:id="totalAmount" text="₱10.00" textFill="#04185f">
+               <font>
+                  <Font name="Arial Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
    </children>
 </Pane>

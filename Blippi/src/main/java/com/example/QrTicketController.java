@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
@@ -31,6 +33,9 @@ public class QrTicketController {
     
     private String startTerminal;
     private String destinationTerminal;
+    private String operator;
+    private String route;
+    private float amount;
 
     private User currentUser;
     private BlippiCard blippiCard;
@@ -112,11 +117,49 @@ public class QrTicketController {
     }
 
     @FXML
-    public void buyTicketHandler(ActionEvent event) throws IOException {
+    public boolean buyTicketHandler(ActionEvent event) throws IOException {
         startTerminal = startChoice.getValue();
         destinationTerminal = destinationChoice.getValue();
+        operator = operatorChoice.getValue();
+        route = routeChoice.getValue();
 
+        if("ARCA SOUTH".equals(route)) {
+            amount = 30;
+        } else if("BGC LOOP".equals(route)) {
+            amount = 15;
+        } else if("OneAyala to Circuit Makati".equals(route)) {
+            amount = 30;
+        } else if("OneAyala to Nuvali".equals(route)) {
+            amount = 200;
+        }
         
+        if(amount == 0) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Input not valid");
+            alert.setContentText("Please select your desired route and terminals");
+            alert.showAndWait();
+            return false;
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/QrPaymentV2.fxml"));
+            root = loader.load();
+
+            QrPaymentController qrPaymentController = loader.getController();
+            qrPaymentController.setCurrentUser(currentUser);
+            qrPaymentController.setAmount(amount);
+            qrPaymentController.setRoute(operator, route, startTerminal, destinationTerminal);
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
     }
 
     @FXML
