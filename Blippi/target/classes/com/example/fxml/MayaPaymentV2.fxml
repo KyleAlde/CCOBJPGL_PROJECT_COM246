@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.QrTicketController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/bg.png" />
-         </image>
-      </ImageView>
-      <Button alignment="CENTER" layoutX="806.0" layoutY="896.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="303.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Buy Ticket" textFill="#fcf2f2">
+      <Button fx:id="completeOrderButton" layoutX="760.0" layoutY="855.0" mnemonicParsing="false" onAction="#completeOrderButtonHandler" prefHeight="90.0" prefWidth="400.0" style="-fx-background-color: #132453; -fx-background-radius: 10px;" text="Proceed Payment" textFill="#fcf2f2">
          <font>
-            <Font name="Arial" size="30.0" />
+            <Font name="Arial" size="28.0" />
          </font>
       </Button>
+      <ImageView fitHeight="90.0" fitWidth="320.0" layoutX="935.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/maya.png" />
+         </image>
+      </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="90.0" layoutX="-7.0" layoutY="-8.0" stroke="#00135e" strokeType="INSIDE" width="1930.0" />
       <Label layoutX="91.0" layoutY="31.0" prefHeight="23.0" prefWidth="134.0" text="Hello," textFill="WHITE">
          <font>
@@ -53,9 +54,9 @@
             <Font name="Arial Rounded MT Bold" size="22.0" />
          </font>
       </Button>
-      <Label layoutX="811.0" layoutY="154.0" prefHeight="47.0" prefWidth="335.0" text="Buy blippi Ticket" textAlignment="CENTER" textFill="#04185f">
+      <Label layoutX="705.0" layoutY="165.0" prefHeight="47.0" prefWidth="210.0" text="Payment via" textAlignment="CENTER" textFill="#04185f">
          <font>
-            <Font name="Arial Bold" size="40.0" />
+            <Font name="Arial Bold" size="34.0" />
          </font>
       </Label>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="130.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
@@ -65,33 +66,32 @@
       </ImageView>
       <Button fx:id="backButton" layoutX="150.0" layoutY="146.0" mnemonicParsing="false" onAction="#backButtonHandler" style="-fx-background-color: transparent;" text="Back" textFill="#04185f">
          <font>
-            <Font name="Arial Bold" size="28.0" />
+            <Font name="Arial Bold" size="25.0" />
          </font>
       </Button>
-      <Label layoutX="375.0" layoutY="320.0" text="Operator Name" textFill="#132453">
-         <font>
-            <Font name="Arial Bold" size="28.0" />
-         </font>
-      </Label>
-      <ChoiceBox layoutX="375.0" layoutY="360.0" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
-      <Label layoutX="375.0" layoutY="440.0" text="Route" textFill="#132453">
-         <font>
-            <Font name="Arial Bold" size="28.0" />
-         </font>
-      </Label>
-      <ChoiceBox layoutX="375.0" layoutY="480.0" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
-      <Label layoutX="1150.0" layoutY="320.0" text="Start Terminal" textFill="#132453">
-         <font>
-            <Font name="Arial Bold" size="28.0" />
-         </font>
-      </Label>
-      <ChoiceBox layoutX="1150.0" layoutY="360.0" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
-      <Label layoutX="1150.0" layoutY="440.0" text="Destination Terminal" textFill="#132453">
-         <font>
-            <Font name="Arial Bold" size="28.0" />
-         </font>
-      </Label>
-      <ChoiceBox layoutX="1150.0" layoutY="480.0" prefHeight="43.0" prefWidth="407.0" style="-fx-background-radius: 10;" />
-      <Line endX="66.6666259765625" layoutX="1405.0" layoutY="65.0" startX="-66.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" />
+      <AnchorPane layoutX="620.0" layoutY="295.0" prefHeight="490.0" prefWidth="710.0">
+         <children>
+            <Rectangle arcHeight="70.0" arcWidth="70.0" fill="#4ca866" height="490.0" stroke="#ebebeb" strokeType="INSIDE" width="710.0" />
+            <Label layoutX="80.0" layoutY="80.0" text="Phone Number" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+            <TextField fx:id="numberField" alignment="CENTER" layoutX="70.0" layoutY="125.0" prefHeight="100.0" prefWidth="575.0" style="-fx-background-radius: 10; -fx-font-size: 20;">
+               <font>
+                  <Font name="Arial" size="30.0" />
+               </font>
+            </TextField>
+            <Label layoutX="80.0" layoutY="245.0" text="PIN" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="75.0" layoutY="290.0" prefHeight="100.0" prefWidth="575.0" style="-fx-background-radius: 10; -fx-font-size: 20;">
+               <font>
+                  <Font size="30.0" />
+               </font></PasswordField>
+         </children>
+      </AnchorPane>
    </children>
 </Pane>

@@ -14,14 +14,14 @@
    <children>
       <AnchorPane layoutX="-9.0" layoutY="-12.0" prefHeight="260.0" prefWidth="1930.0" style="-fx-background-color: #132453;">
          <children>
-            <ImageView fitHeight="260.0" fitWidth="1514.0" layoutX="8.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="259.0" fitWidth="1944.0" layoutX="8.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Desktop/1920x1080/CCOBJPGL_PROJECT_COM246/Blippi/src/main/resources/com/example/images/train.png" />
+                  <Image url="@../images/trainbg.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="55.0" fitWidth="60.0" layoutX="50.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Desktop/1920x1080/CCOBJPGL_PROJECT_COM246/Blippi/src/main/resources/com/example/images/blippilogo.png" />
+                  <Image url="@../images/blippilogo.png" />
                </image>
             </ImageView>
             <Label layoutX="115.0" layoutY="55.0" text="blippi" textFill="WHITE">
@@ -29,18 +29,18 @@
                   <Font name="Arial Rounded MT Bold" size="40.0" />
                </font>
             </Label>
-            <Label contentDisplay="CENTER" layoutX="860.0" layoutY="60.0" text="blippi" textFill="WHITE">
+            <Label contentDisplay="CENTER" layoutX="800.0" layoutY="60.0" text="blippi" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="114.0" />
                </font>
             </Label>
-            <Label contentDisplay="CENTER" layoutX="840.0" layoutY="200.0" text="go far. stay connected." textFill="WHITE">
+            <Label contentDisplay="CENTER" layoutX="780.0" layoutY="200.0" text="go far. stay connected." textFill="WHITE">
                <font>
                   <Font name="Arial" size="36.0" />
                </font>
             </Label>
          </children></AnchorPane>
-      <AnchorPane layoutX="764.0" layoutY="291.0" prefHeight="792.0" prefWidth="516.0">
+      <AnchorPane layoutX="700.0" layoutY="291.0" prefHeight="792.0" prefWidth="516.0">
          <children>
             <Label alignment="CENTER" layoutX="75.0" layoutY="10.0" prefHeight="50.0" prefWidth="350.0" text="Welcome Back!" textFill="#132453">
                <font>
