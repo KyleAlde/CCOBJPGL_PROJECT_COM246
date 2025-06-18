@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 public class QrTicketController {
@@ -16,11 +17,35 @@ public class QrTicketController {
     private Scene scene;
     private Parent root;
 
+    @FXML
+    private ChoiceBox<String> operatorChoice;
+
+    @FXML
+    private ChoiceBox<String> routeChoice;
+
     private User currentUser;
     private BlippiCard blippiCard;
     public void setCurrentUser(User user) {
         this.currentUser = user;
         this.blippiCard = user.getBlippi();
+    }
+
+    @FXML
+    public void initialize(){
+        operatorChoice.getItems().addAll("BGC Bus", "TAS Trans");
+    }
+
+    @FXML
+    public void initializeRoutes(ActionEvent event) {
+        if(operatorChoice.getValue() == "BGC Bus") {
+            routeChoice.getItems().clear();
+            routeChoice.getItems().addAll("ARCA SOUTH", "BGC LOOP");
+        }
+
+        if(operatorChoice.getValue() == "TAS Trans") {
+            routeChoice.getItems().clear();
+            routeChoice.getItems().addAll("OneAyala to Circuit Makati", "OneAyala to Nuvali");
+        }
     }
 
     @FXML

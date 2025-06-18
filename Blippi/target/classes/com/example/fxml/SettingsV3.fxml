@@ -24,7 +24,7 @@
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="blippitix" alignment="CENTER_RIGHT" layoutX="487.0" layoutY="763.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="blippi QR Ticket          " textFill="WHITE">
+      <Button fx:id="blippitix" alignment="CENTER_RIGHT" layoutX="487.0" layoutY="763.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="452.0" style="-fx-background-color: #04185f; -fx-background-radius: 10px;" text="blippi Bus Ticket          " textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
@@ -97,7 +97,6 @@
       </Button>
       <Line endX="66.6666259765625" layoutX="1405.0" layoutY="65.0" startX="-66.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00135e" height="1000.0" layoutX="-1.0" layoutY="81.0" stroke="#00135e" strokeType="INSIDE" width="430.0" />
-      <Button fx:id="settingsButton" layoutX="27.0" layoutY="119.0" mnemonicParsing="false" onAction="#settingsButtonHandler" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" textFill="#00135e" />
       <ImageView fitHeight="60.0" fitWidth="55.0" layoutX="47.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/settingswhite.png" />
@@ -186,5 +185,6 @@
          </children>
       </AnchorPane>
       <Button fx:id="returnHomeButton" layoutX="446.0" layoutY="91.0" mnemonicParsing="false" onAction="#returnHomeButtonHandler" prefHeight="1000.0" prefWidth="1494.0" style="-fx-background-color: transparent;" textFill="WHITE" />
+      <Button fx:id="settingsButton" layoutX="27.0" layoutY="119.0" mnemonicParsing="false" onAction="#settingsButtonHandler" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" textFill="#00135e" />
    </children>
 </AnchorPane>

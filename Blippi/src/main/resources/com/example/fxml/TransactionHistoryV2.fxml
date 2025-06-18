@@ -111,7 +111,7 @@
             <Font name="Arial Bold" size="26.0" />
          </font>
       </Button>
-      <Button fx:id="ticketFilter" layoutX="977.0" layoutY="241.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="blippi QR Ticket" textFill="#04185f">
+      <Button fx:id="ticketFilter" layoutX="977.0" layoutY="241.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="blippi Bus Ticket" textFill="#04185f">
          <font>
             <Font name="Arial Bold" size="26.0" />
          </font>

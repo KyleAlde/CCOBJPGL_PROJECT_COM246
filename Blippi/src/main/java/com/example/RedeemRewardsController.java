@@ -68,7 +68,7 @@ public class RedeemRewardsController {
     }
 
     @FXML
-    public void backButtonHandler(ActionEvent event) throws IOException {
+    public void homeButtonHandler(ActionEvent event) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/HomeV2.fxml"));
             root = loader.load();
@@ -81,6 +81,24 @@ public class RedeemRewardsController {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void faqButtonHandler(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/FAQs.fxml"));
+            root = loader.load();
+
+            FAQsController faqsController = loader.getController();
+            faqsController.setCurrentUser(currentUser);
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch(IOException e) {
             e.printStackTrace();
         }
     }
